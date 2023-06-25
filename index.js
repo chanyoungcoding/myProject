@@ -6,8 +6,10 @@ const path = require('path');
 app.set('view engine', 'ejs');
 app.set("views", path.join(__dirname, "/views")); 
 
+//템플릿에 데이터 전달하기
 app.get('/', (req,res) => {
-  res.render('index')
+  const num = Math.floor(Math.random()) + 1;
+  res.render('index', { rand : num})
 })
 
 
