@@ -4,15 +4,25 @@ const app = express();
 const path = require('path');
 
 app.use(express.static(path.join(__dirname, "/public")));
+app.use(express.urlencoded({ extended : true }))
 
 app.set('view engine', 'ejs');
-app.set("views", path.join(__dirname, "/views")); 
+app.set("views", path.join(__dirname, "/views"));
 
 //템플릿에 데이터 전달하기
 app.get('/', (req,res) => {
   const num = Math.floor(Math.random() * 10) + 1;
   const fruits = ['apple', 'banana', 'orange']
   res.render('index', { num, fruits})
+})
+
+app.get('/login', (req,res) => {
+  res.render('login')
+})
+
+app.post('/loginexample', (req,res) => {
+  console.log(req.body)
+  res.send('로그인 성공')
 })
 
 
