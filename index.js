@@ -3,13 +3,16 @@ const express = require('express');
 const app = express();
 const path = require('path');
 
+app.use(express.static('public'));
+
 app.set('view engine', 'ejs');
 app.set("views", path.join(__dirname, "/views")); 
 
 //템플릿에 데이터 전달하기
 app.get('/', (req,res) => {
-  const num = Math.floor(Math.random()) + 1;
-  res.render('index', { rand : num})
+  const num = Math.floor(Math.random() * 10) + 1;
+  const fruits = ['apple', 'banana', 'orange']
+  res.render('index', { num, fruits})
 })
 
 

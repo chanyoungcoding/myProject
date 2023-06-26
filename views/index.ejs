@@ -3,9 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/app.css">
   <title>Document</title>
 </head>
 <body>
-  <h1>The home page!!  <%= rand %></h1>
+  <ul>
+    <% for(let fruit of fruits) {%>
+      <li><%= fruit %></li>
+    <% } %>
+  </ul>
+
+  <h1>The home page!!  <%= num %></h1>
+  <h2><%= num % 3 === 0 ? 'odd' : 'even'  %></h2>
+  <h3>
+    <% if(num % 2 === 0) { %>
+      <h4>짝수 입니다.</h4>
+    <% } else { %>
+      <h4>홀수 입니다.</h4>
+    <% } %>
+  </h3>
 </body>
 </html>
