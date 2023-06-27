@@ -9,6 +9,22 @@ app.use(express.urlencoded({ extended : true }))
 app.set('view engine', 'ejs');
 app.set("views", path.join(__dirname, "/views"));
 
+//유저 정보
+let users = [
+  {
+    username:'chan',
+    email:'white1614@naver.com'
+  },
+  {
+    username:'kim',
+    email:'kim1614@naver.com'
+  },
+  {
+    username:'young',
+    email:'young@naver.com'
+  },
+]
+
 //템플릿에 데이터 전달하기
 app.get('/', (req,res) => {
   const num = Math.floor(Math.random() * 10) + 1;
@@ -23,6 +39,21 @@ app.get('/login', (req,res) => {
 app.post('/loginexample', (req,res) => {
   console.log(req.body)
   res.send('로그인 성공')
+})
+
+//유저 생성
+app.get('/userInformation', (req,res) => {
+  res.render('userInformation',{users})
+})
+
+app.get('/newUser', (req,res) => {
+  res.render('newUser')
+})
+
+app.post('/newuser', (req,res) => {
+  const {username, email} = req.body;
+  users.push({username, email})
+  res.redirect("userInformation");
 })
 
 
