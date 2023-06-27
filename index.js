@@ -1,4 +1,5 @@
 const express = require('express');
+const {v4: uuid} = require('uuid');
 
 const app = express();
 const path = require('path');
@@ -12,18 +13,21 @@ app.set("views", path.join(__dirname, "/views"));
 //유저 정보
 let users = [
   {
-    username:'chan',
-    email:'white1614@naver.com'
+    id: uuid(),
+    username: "chan",
+    email: "white1614@naver.com",
   },
   {
-    username:'kim',
-    email:'kim1614@naver.com'
+    id: uuid(),
+    username: "kim",
+    email: "kim1614@naver.com",
   },
   {
-    username:'young',
-    email:'young@naver.com'
+    id: uuid(),
+    username: "young",
+    email: "young@naver.com",
   },
-]
+];
 
 //템플릿에 데이터 전달하기
 app.get('/', (req,res) => {
@@ -52,8 +56,16 @@ app.get('/newUser', (req,res) => {
 
 app.post('/newuser', (req,res) => {
   const {username, email} = req.body;
-  users.push({username, email})
+  users.push({username, email, id : uuid()})
   res.redirect("userInformation");
+})
+
+//특정 유저 댓글 찾기
+
+app.get('/userComments/:id', (req,res) => {
+  const {id} = req.params;
+  const comments = users.find(x => x.id === id);
+  res.render('userComments', {comments})
 })
 
 

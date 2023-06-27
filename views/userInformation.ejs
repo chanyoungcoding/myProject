@@ -4,6 +4,7 @@
     <% for(let user of users) {%>
       <li><%= user.username %></li>
       <li><%= user.email %></li>
+      <li><a href="/userComments/<%= user.id %>">디테일</a></li>
       <hr>
     <% } %>
   </ul>
