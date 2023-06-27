@@ -5,6 +5,10 @@
   <li><%= comments.username %></li>
   <li><%= comments.email %></li>
 </ul>
+<a href="/patchuser/<%= comments.id %>">이름바꾸기</a>
+<form method="POST" action="/delete/<%= comments.id %>?_method=DELETE">
+  <button>삭제하기</button>
+</form>
 
 </body>
 </html>

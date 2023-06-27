@@ -1,11 +1,13 @@
 const express = require('express');
 const {v4: uuid} = require('uuid');
+const methodOverride = require('method-override');
 
 const app = express();
 const path = require('path');
 
 app.use(express.static(path.join(__dirname, "/public")));
 app.use(express.urlencoded({ extended : true }))
+app.use(methodOverride('_method'))
 
 app.set('view engine', 'ejs');
 app.set("views", path.join(__dirname, "/views"));
@@ -68,6 +70,31 @@ app.get('/userComments/:id', (req,res) => {
   res.render('userComments', {comments})
 })
 
+// 댓글 바꾸기
+
+app.get('/patchuser/:id', (req,res) => {
+  const { id } = req.params;
+  const comments = users.find((x) => x.id === id);
+  res.render('patchuser',{comments})
+})
+
+app.patch("/userComments/:id", (req, res) => {
+  const { id } = req.params;
+  const user = users.find((x) => x.id === id);
+  const changeName = req.body.name;
+  user.username = changeName;
+  res.redirect("/userInformation");
+});
+
+// 댓글 삭제하기
+
+app.delete("/delete/:id", (req,res) => {
+  const { id } = req.params;
+  const user = users.find((x) => x.id === id);
+  const newUser = users.filter(x => x.id !== user.id);
+  users = newUser
+  res.redirect('/userInformation');
+})
 
 //params
 app.get('/r/:subreddit/:postId', (req,res) => {
