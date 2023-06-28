@@ -2,6 +2,7 @@ const express = require('express');
 const {v4: uuid} = require('uuid');
 const methodOverride = require('method-override');
 
+//mongo test
 const mongoose = require('mongoose');
 mongoose.connect("mongodb://127.0.0.1:27017/test")
   .then(() => {
@@ -10,6 +11,15 @@ mongoose.connect("mongodb://127.0.0.1:27017/test")
   .catch((e) => {
     console.log(e);
   });
+
+  const movieSchema = new mongoose.Schema({
+    title: String,
+    year: Number
+  })
+
+  const Movie = mongoose.model('Movie', movieSchema)
+  const myMovie = new Movie({title: 'avatar', year: 1988})
+  myMovie.save();
 
 const app = express();
 const path = require('path');
