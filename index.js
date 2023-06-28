@@ -2,6 +2,15 @@ const express = require('express');
 const {v4: uuid} = require('uuid');
 const methodOverride = require('method-override');
 
+const mongoose = require('mongoose');
+mongoose.connect("mongodb://127.0.0.1:27017/test")
+  .then(() => {
+    console.log("MongoDB Connection!!");
+  })
+  .catch((e) => {
+    console.log(e);
+  });
+
 const app = express();
 const path = require('path');
 
