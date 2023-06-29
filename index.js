@@ -3,28 +3,32 @@ const {v4: uuid} = require('uuid');
 const methodOverride = require('method-override');
 
 //mongo test
-const mongoose = require('mongoose');
-mongoose.connect("mongodb://127.0.0.1:27017/test")
-  .then(() => {
-    console.log("MongoDB Connection!!");
-  })
-  .catch((e) => {
-    console.log(e);
-  });
+// const mongoose = require('mongoose');
+// mongoose.connect("mongodb://127.0.0.1:27017/test")
+//   .then(() => {
+//     console.log("MongoDB Connection!!");
+//   })
+//   .catch((e) => {
+//     console.log(e);
+//   });
 
-  const movieSchema = new mongoose.Schema({
-    title: String,
-    year: Number
-  })
+//   const movieSchema = new mongoose.Schema({
+//     title: String,
+//     year: Number
+//   })
 
-  const Movie = mongoose.model('Movie', movieSchema)
-  const myMovie = new Movie({title: 'avatar', year: 1988})
-  myMovie.save();
+//   const Movie = mongoose.model('Movie', movieSchema)
+//   Movie.find({title: 'avatar'})
+//   .then((x) => {console.log(x)})
+//   .catch((e) => console.log(e))
 
 const app = express();
 const path = require('path');
 
 app.use(express.static(path.join(__dirname, "/public")));
+app.use(express.static(path.join(__dirname, "/img")));
+app.use(express.static(path.join(__dirname, "/js")));
+
 app.use(express.urlencoded({ extended : true }))
 app.use(methodOverride('_method'))
 
