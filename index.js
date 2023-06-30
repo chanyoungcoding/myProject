@@ -12,20 +12,51 @@ mongoose.connect("mongodb://127.0.0.1:27017/test")
     console.log(e);
   });
 
-  const movieSchema = new mongoose.Schema({
-    title: {
-      type: String,
-      required: true
-    },
-    year: {
+const productSchema = new mongoose.Schema({
+  name: {
+    type: String,
+    required: true,
+    maxlength: [20, '20글자 이상은 넘길 수 없습니다.'],  // 잘못된 정보면 뒤에 글자가 오류로 출력
+    enum: ['Super bike', 'middle bike', 'small bike']  // 이 것들만 입력할 수 있슴.
+  },
+  price: {
+    type: Number,
+    min: 0,
+  },
+  categories: [String],
+  qty: {
+    online: {
       type: Number,
-    }
-  })
+      default: 0,
+    },
+    inStore: {
+      type: Number,
+      default: 0,
+    },
+  },
+});
 
-  const Movie = mongoose.model('Movie', movieSchema)
-  Movie.insertOne({title: '슈퍼밴드', year: 1998})
-  .then((x) => {console.log(x)})
-  .catch((e) => console.log(e))
+//나만의 인스턴스 메서드 정의하기
+productSchema.methods.hello = function() {
+  console.log('프로덕트를 찾앗습니다.')
+  console.log(`이 프로덕트의 이름은 ${this.name} 입니다.`)
+}
+
+// 나만의 정적 메서드 정의하기
+productSchema.statics.firePrice = function() {
+  return this.updateMany({}, { price: 100 });
+};
+
+const Product = mongoose.model("Product", productSchema);
+
+const foundBike = async() => {
+  const newBike = await Product.findOne({name:'Super Bike'})
+  newBike.hello();
+}
+
+foundBike();
+
+Product.firePrice().then(res => console.log(res))
 
 const app = express();
 const path = require('path');
