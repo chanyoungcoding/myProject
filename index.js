@@ -3,24 +3,29 @@ const {v4: uuid} = require('uuid');
 const methodOverride = require('method-override');
 
 //mongo test
-// const mongoose = require('mongoose');
-// mongoose.connect("mongodb://127.0.0.1:27017/test")
-//   .then(() => {
-//     console.log("MongoDB Connection!!");
-//   })
-//   .catch((e) => {
-//     console.log(e);
-//   });
+const mongoose = require('mongoose');
+mongoose.connect("mongodb://127.0.0.1:27017/test")
+  .then(() => {
+    console.log("MongoDB Connection!!");
+  })
+  .catch((e) => {
+    console.log(e);
+  });
 
-//   const movieSchema = new mongoose.Schema({
-//     title: String,
-//     year: Number
-//   })
+  const movieSchema = new mongoose.Schema({
+    title: {
+      type: String,
+      required: true
+    },
+    year: {
+      type: Number,
+    }
+  })
 
-//   const Movie = mongoose.model('Movie', movieSchema)
-//   Movie.find({title: 'avatar'})
-//   .then((x) => {console.log(x)})
-//   .catch((e) => console.log(e))
+  const Movie = mongoose.model('Movie', movieSchema)
+  Movie.insertOne({title: '슈퍼밴드', year: 1998})
+  .then((x) => {console.log(x)})
+  .catch((e) => console.log(e))
 
 const app = express();
 const path = require('path');
