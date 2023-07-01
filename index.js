@@ -17,9 +17,9 @@ mongoose.connect("mongodb://127.0.0.1:27017/chan-camp")
   //기본적인 설정
 const app = express();
 
-app.use(express.static(path.join(__dirname, "/public")));
-app.use(express.static(path.join(__dirname, "/img")));
-app.use(express.static(path.join(__dirname, "/js")));
+app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, "img")));
+app.use(express.static(path.join(__dirname, "js")));
 
 app.use(express.urlencoded({ extended : true }))
 app.use(methodOverride('_method'))
