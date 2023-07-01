@@ -1,9 +1,0 @@
-<%- include('partials/navbar') %>
-
-<form method="POST" action="/userComments/<%= comments.id %>?_method=PATCH" >
-  <input type="text" name="name" placeholder="<%= comments.username %>">
-  <button>전송</button>
-</form>
-
-</body>
-</html>
