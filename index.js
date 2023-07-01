@@ -1,6 +1,7 @@
 const express = require('express');
 const path = require('path');
 const methodOverride = require('method-override');
+const ejsMate = require('ejs-mate');
 const Campground = require('./models/campground');
 
 //MongoDB 연결
@@ -23,15 +24,20 @@ app.use(express.static(path.join(__dirname, "/js")));
 app.use(express.urlencoded({ extended : true }))
 app.use(methodOverride('_method'))
 
+app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
 app.set("views", path.join(__dirname, "/views"));
 
 //Route
 
-app.get('/campground', async(req,res) => {
-  const camp = new Campground({title:'찬영캠프', price: 30000, description:'아주좋은캠핑장입니다.', location:'서울시중랑구'})
-  await camp.save();
-  res.send(camp);
+app.get('/campgrounds', async(req,res) => {
+  const campgrounds = await Campground.find({});
+  res.render('campgrounds/home', {campgrounds})
+})
+
+app.get('/campgrounds/:id', async(req,res) => {
+  const campground = await Campground.findById(req.params.id);
+  res.render('campgrounds/show', {campground})
 })
 
 app.get('*', (req,res) => {

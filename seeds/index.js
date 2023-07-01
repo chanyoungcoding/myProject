@@ -3,7 +3,6 @@ const cities = require("./cities");
 const { places, descriptors } = require("./seedHelpers");
 const Campground = require("../models/campground");
 
-const mongoose = require("mongoose");
 mongoose.connect("mongodb://127.0.0.1:27017/chan-camp")
   .then(() => {
     console.log("MongoDB Connection!!");
