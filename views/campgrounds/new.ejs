@@ -1,0 +1,7 @@
+<% layout('partials/navbar.ejs') %>
+
+<form action="/campgrounds" method="POST">
+  <input type="text" name="campground[title]">
+  <input type="text" name="campground[location]">
+  <button>submit</button>
+</form>
