@@ -61,6 +61,12 @@ app.put("/campgrounds/:id", async (req,res) => {
   res.redirect(`/campgrounds/${campground._id}`)
 });
 
+app.delete('/campgrounds/:id', async (req,res) => {
+  const { id } = req.params;
+  await Campground.findByIdAndDelete(id);
+  res.redirect('/campgrounds')
+})
+
 app.get('*', (req,res) => {
   res.send('잘못된 페이지이거나, 오류가 발생했습니다.')
 })
