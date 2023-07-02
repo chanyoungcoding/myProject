@@ -50,6 +50,11 @@ app.get('/campgrounds/:id', async(req,res) => {
   res.render('campgrounds/show', {campground})
 })
 
+app.get("/campgrounds/:id/edit", async (req, res) => {
+  const campground = await Campground.findById(req.params.id);
+  res.render("campgrounds/edit", { campground });
+});
+
 app.get('*', (req,res) => {
   res.send('잘못된 페이지이거나, 오류가 발생했습니다.')
 })

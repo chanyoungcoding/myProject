@@ -1,5 +1,8 @@
 <% layout('partials/navbar.ejs') %>
 
 <h1><%= campground.title %></h1>
+<h1><%= campground.location %></h1>
+
+<a href="/campgrounds/<%= campground._id %>/edit">수정하기</a>
 
 
