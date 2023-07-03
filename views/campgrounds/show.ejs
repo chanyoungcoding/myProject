@@ -2,6 +2,9 @@
 
 <h1><%= campground.title %></h1>
 <h1><%= campground.location %></h1>
+<img src="<%= campground.image %>" alt="#">
+<h2><%= campground.description %></h2>
+<h3><%= campground.price %></h3>
 <hr>
 <form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
   <button>삭제하기</button>

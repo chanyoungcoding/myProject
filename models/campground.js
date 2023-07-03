@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 // 캠프의 기본 스키마
 const CampgroundSchema = new Schema({
   title: String,
+  image: String,
   price: Number,
   description: String,
   location: String
