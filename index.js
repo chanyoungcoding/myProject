@@ -33,7 +33,7 @@ app.set("views", path.join(__dirname, "/views"));
 
 app.get('/campgrounds', async (req,res) => {
   const campgrounds = await Campground.find({});
-  res.render('campgrounds/home', {campgrounds})
+  res.render('home', {campgrounds})
 })
 
 app.get('/campgrounds/new', (req,res) => {
