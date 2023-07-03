@@ -4,7 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" rel="stylesheet">
-
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+  />
   <link rel="icon" href="/campLogo.png">
   <link rel="stylesheet" href="/app.css">
   <script defer src="/index.js"></script>  
@@ -13,13 +16,17 @@
 <body>
   <nav>
     <div class="navbar">
+      <i class="fas fa-campground"></i>
       <h1>모두의캠프</h1>
       <div class="navbar__list">
         <a href="/campgrounds">Home</a>
-        <a href="javascript:void(0)">마이 페이지</a>
+        <a href="/campgrounds">Camp</a>
+        <a href="/campgrounds/new">New Camp</a>
       </div>
     </div>
   </nav>
-  <%- body %>
+  <main>
+    <%- body %>
+  </main>
 </body>
 </html>

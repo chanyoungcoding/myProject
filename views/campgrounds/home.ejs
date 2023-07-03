@@ -1,4 +1,4 @@
-<% layout('partials/navbar.ejs') %>
+<% layout('partials/common.ejs') %>
 
   <% for(let campground of campgrounds) {%>
     <li><a href="/campgrounds/<%= campground._id %>"><%= campground.title %></a></li>

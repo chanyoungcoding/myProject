@@ -1,9 +1,10 @@
 /* 공통 부분 */
+@import url('https://fonts.googleapis.com/css2?family=Dongle&display=swap');
 
-body {
-  width: 1080px;
+main {
+  width: 1920px;
   margin: 0 auto;
-  background-color: antiquewhite;
+  background-color: aquamarine;
 }
 
 a {
@@ -17,7 +18,34 @@ li {
 
 /* navbar */
 
-.navbar {
-  display: flex;
-  justify-content: space-between;
+nav {
+  background-color: #35343B;
 }
+
+.navbar {
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 15px;
+  display: flex;
+  background-color: #35343B;
+  font-size: 40px;
+  font-family: 'Dongle', sans-serif;
+}
+
+.navbar h1 {
+  padding-left: 15px;
+}
+
+.navbar .navbar__list {
+  padding-left: 50px;
+}
+
+.navbar .navbar__list a {
+  padding-left: 15px;
+  transition: all .3s;
+}
+
+.navbar .navbar__list a:hover {
+  color: aliceblue;
+}
+
