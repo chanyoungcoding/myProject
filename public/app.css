@@ -152,7 +152,7 @@ footer {
 }
 
 .showPage__left {
-  background-color: #c2fbd7;
+  padding-top: 30px;
 }
 
 .showPage__left img {
@@ -161,6 +161,39 @@ footer {
   background-size: cover;
   width: 500px;
   height: 500px;
+}
+
+.showPage__left h1,
+.showPage__left h2,
+.showPage__left h3,
+.showPage__left p {
+  margin-top: 10px;
+}
+
+.showPage__left h1 {
+  font-size: 30px;
+}
+
+.showPage__left h2 {
+  font-size: 20px;
+}
+
+.showPage__left h3 {
+  font-size: 20px;
+}
+
+.showPage__left p {
+  padding: 10px;
+  border: 2px solid #35343B;
+  border-radius: 10px;
+  max-width: 600px;
+}
+
+.showPage__button {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
 }
 
 .button-24,
