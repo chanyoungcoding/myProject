@@ -1,14 +1,19 @@
 <% layout('layouts/common.ejs') %>
 
-<h1><%= campground.title %></h1>
-<h1><%= campground.location %></h1>
-<img src="<%= campground.image %>" alt="#">
-<h2><%= campground.description %></h2>
-<h3><%= campground.price %></h3>
-<hr>
-<form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
-  <button>삭제하기</button>
-</form>
-<a href="/campgrounds/<%= campground._id %>/edit">수정하기</a>
+<div class="showPage">
+  <div class="showPage__left">
+    <img src="<%= campground.image %>" alt="#">
+    <h1><%= campground.title %></h1>
+    <h2><%= campground.location %></h2>
+    <h3><%= campground.price %></h3>
+    <p><%= campground.description %></p>
+    <form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
+      <button class="button-24" role="button">삭제하기</button>
+    </form>
+    <a href="/campgrounds/<%= campground._id %>/edit">수정하기</a>
+  </div>
+  <div class="showPage__right"></div>
+</div>
+
 
 
