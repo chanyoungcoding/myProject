@@ -10,9 +10,11 @@
     <form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
       <button class="button-24" role="button">삭제하기</button>
     </form>
-    <a href="/campgrounds/<%= campground._id %>/edit">수정하기</a>
+    <button class="button-25" role="button">
+      <a href="/campgrounds/<%= campground._id %>/edit">수정하기</a>
+    </button>
   </div>
-  <div class="showPage__right"></div>
+
 </div>
 
 

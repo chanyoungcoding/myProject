@@ -146,17 +146,25 @@ footer {
 /* show */
 
 .showPage {
-  max-width: 1920px;
-  margin: 0 auto;
+  display: flex;
+  text-align: center;
+  justify-content: center;
 }
 
+.showPage__left {
+  background-color: #c2fbd7;
+}
 
+.showPage__left img {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 500px;
+  height: 500px;
+}
 
-
-
-.button-24 {
-  background: #FF4742;
-  border: 1px solid #FF4742;
+.button-24,
+.button-25 {
   border-radius: 6px;
   box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
   box-sizing: border-box;
@@ -180,15 +188,28 @@ footer {
 }
 
 .button-24:hover,
-.button-24:active {
+.button-25:hover,
+.button-24:active,
+.button-25:active {
   background-color: initial;
   background-position: 0 0;
   color: #FF4742;
 }
 
-.button-24:active {
+.button-24:active,
+.button-25:active {
   opacity: .5;
 }
 
+.button-24 {
+  background: #FF4742;
+  border: 1px solid #FF4742;
+
+}
+
+.button-25 {
+  background: #42a4ff;
+  border: 1px solid #42a4ff;
+}
 
 
