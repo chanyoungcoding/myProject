@@ -57,8 +57,11 @@ app.post('/campgrounds', async (req,res) => {
   res.redirect('/campgrounds');
 })
 
-app.get('/campgrounds/:id', async (req,res) => {
+app.get('/campgrounds/:id', async (req,res,next) => {
   const campground = await Campground.findById(req.params.id);
+  if(!campground) {
+    return next(new AppError('campground not Found', 404))
+  }
   res.render('campgrounds/show', {campground})
 })
 
@@ -83,7 +86,7 @@ app.get('*', (req,res) => {
   res.send('잘못된 페이지이거나, 오류가 발생했습니다.')
 })
 
-app.use((err,req,res) => {
+app.use((err,req,res,next) => {
   const {message = '페이지를 찾을 수 없습니다.', status = 500} = err;
   res.status(status).send(message);
 })
