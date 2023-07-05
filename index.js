@@ -3,6 +3,7 @@ const path = require('path');
 const methodOverride = require('method-override');
 const ejsMate = require('ejs-mate');
 const Campground = require('./models/campground');
+const AppError = require('./app');
 
 
 //MongoDB 연결
@@ -80,6 +81,11 @@ app.delete('/campgrounds/:id', async (req,res) => {
 
 app.get('*', (req,res) => {
   res.send('잘못된 페이지이거나, 오류가 발생했습니다.')
+})
+
+app.use((err,req,res) => {
+  const {message = '페이지를 찾을 수 없습니다.', status = 500} = err;
+  res.status(status).send(message);
 })
 
 app.listen(8080, () => {
