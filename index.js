@@ -29,6 +29,16 @@ app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
 app.set("views", path.join(__dirname, "/views"));
 
+//middleWare
+
+const verifyPassword = (req,res,next) => {
+  const { password } = req.query;
+  if(password === '123') {
+    next();
+  }
+  throw new Error('패스워드가 필요합니다.')
+}
+
 //Route
 
 app.get('/campgrounds', async (req,res) => {
