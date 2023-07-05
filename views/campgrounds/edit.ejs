@@ -1,7 +1,21 @@
 <% layout('layouts/common.ejs') %>
-<hr>
-<form action="/campgrounds/<%= campground._id %>?_method=PUT" method="POST">
-  <input type="text" name="campground[title]" value="<%= campground.title %>">
-  <input type="text" name="campground[location]" value="<%= campground.location %>">
-  <button>submit</button>
-</form>
+
+<div class="editPage">
+  <div class="edit__form">
+    <div class="edit__img"></div>
+    <form class="form__edit" action="/campgrounds/<%= campground._id %>?_method=PUT" method="POST">
+      <input type="text" name="campground[image]" value="<%= campground.image %>">
+      <div class="input__underline"></div>
+      <input type="text" name="campground[title]" value="<%= campground.title %>">
+      <div class="input__underline"></div>
+      <input type="text" name="campground[location]" value="<%= campground.location %>">
+      <div class="input__underline"></div>
+      <input type="text" name="campground[price]" value="<%= campground.price %>">
+      <div class="input__underline"></div>
+      <textarea name="campground[description]" id="description" cols="10" rows="10"></textarea>
+      <div>
+        <button class="button-25" role="button">수정</button>
+      </div>
+    </form>
+  </div>
+</div>

@@ -226,7 +226,7 @@ footer {
 .button-25:active {
   background-color: initial;
   background-position: 0 0;
-  color: #FF4742;
+  color: black;
 }
 
 .button-24:active,
@@ -243,6 +243,67 @@ footer {
 .button-25 {
   background: #42a4ff;
   border: 1px solid #42a4ff;
+}
+
+/* edit */
+
+.editPage {
+  display: flex;
+  justify-content: center;
+  max-width: 1090px;
+  margin: 0 auto;
+}
+
+.editPage .edit__form .edit__img {
+  width: 500px;
+  height: 500px;
+  margin: 0 auto;
+  background-image: url('/mountain.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.form__edit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form__edit input {
+  position: relative;
+  outline: none;
+  border:none;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 20px;
+  display:block;
+  text-align: center;
+}
+
+.form__edit input:nth-child(1) {
+  width: 700px;
+}
+
+.form__edit .input__underline {
+  width: 250px;
+  height: 1px;
+  background-color: #35343B;
+}
+
+.form__edit textarea {
+  margin-top: 10px;
+  font-size: 20px;
+  width: 400px;
+  height: 150px;
+  border-radius: 10px;
+}
+
+.form__edit button {
+  display: block;
+  margin-top: 20px;
 }
 
 
