@@ -4,6 +4,7 @@ const methodOverride = require('method-override');
 const ejsMate = require('ejs-mate');
 const Campground = require('./models/campground');
 const catchAsync = require('./utils/catchAsync');
+const ExpressError = require('./utils/ExpressError');
 
 
 //MongoDB 연결
@@ -33,57 +34,52 @@ app.set("views", path.join(__dirname, "/views"));
 //Route
 
 app.get("/campgrounds", catchAsync(async (req, res) => {
-    const campgrounds = await Campground.find({});
-    res.render("home", { campgrounds });
-  }));
+  const campgrounds = await Campground.find({});
+  res.render("home", { campgrounds });
+}));
 
 app.get('/campgrounds/new', (req,res) => {
   res.render('campgrounds/new')
 })
 
 app.post("/campgrounds", catchAsync(async (req, res, next) => {
-    const campground = new Campground(req.body.campground);
-    await campground.save();
-    res.redirect("/campgrounds");
-  }));
+  if(!req.body.campground) throw new ExpressError('유효하지않은 데이터입니다.', 400);
+  const campground = new Campground(req.body.campground);
+  await campground.save();
+  res.redirect("/campgrounds");
+}));
 
 app.get("/campgrounds/:id", catchAsync(async (req, res, next) => {
-    const campground = await Campground.findById(req.params.id);
-    if (!campground) {
-      return next(new AppError("campground not Found", 404));
-    }
-    res.render("campgrounds/show", { campground });
-  }));
+  const campground = await Campground.findById(req.params.id);
+  res.render("campgrounds/show", { campground });
+}));
 
 app.get("/campgrounds/:id/edit", catchAsync(async (req, res) => {
-    const campground = await Campground.findById(req.params.id);
-    res.render("campgrounds/edit", { campground });
-  })
-);
+  const campground = await Campground.findById(req.params.id);
+  res.render("campgrounds/edit", { campground });
+}));
 
 app.put("/campgrounds/:id", catchAsync(async (req, res) => {
-    const { id } = req.params;
-    const campground = await Campground.findByIdAndUpdate(id, {
-      ...req.body.campground,
-    });
-    res.redirect(`/campgrounds/${campground._id}`);
-  })
-);
+  const { id } = req.params;
+  const campground = await Campground.findByIdAndUpdate(id, {
+    ...req.body.campground,
+  });
+  res.redirect(`/campgrounds/${campground._id}`);
+}));
 
 app.delete("/campgrounds/:id", catchAsync(async (req, res) => {
-    const { id } = req.params;
-    await Campground.findByIdAndDelete(id);
-    res.redirect("/campgrounds");
-  })
-);
+  const { id } = req.params;
+  await Campground.findByIdAndDelete(id);
+  res.redirect("/campgrounds");
+}));
 
-app.get('*', (req,res) => {
-  res.send('잘못된 페이지이거나, 오류가 발생했습니다.')
+app.all('*', (req, res, next) => {
+  next(new ExpressError('페이지를 찾을 수 없습니다.', 404))
 })
 
 app.use((err,req,res,next) => {
-  const {message = '페이지를 찾을 수 없습니다.', status = 500} = err;
-  res.status(status).send(message);
+  const {statusCode = 500, message = 'Page not Found!!'} = err;
+  res.status(statusCode).send(message);
 })
 
 app.listen(8080, () => {
