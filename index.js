@@ -78,8 +78,9 @@ app.all('*', (req, res, next) => {
 })
 
 app.use((err,req,res,next) => {
-  const {statusCode = 500, message = 'Page not Found!!'} = err;
-  res.status(statusCode).send(message);
+  const {statusCode = 500} = err;
+  if(!err.message) err.message = '잘못된 방법인것같습니다. 다시 시도해 주세요.'
+  res.status(statusCode).render('error',{ err });
 })
 
 app.listen(8080, () => {
