@@ -5,12 +5,17 @@ const Schema = mongoose.Schema;
 const CampgroundSchema = new Schema({
   title: {
     type:String,
-    required: true
+    required: [true, '캠프이름이 필요합니다.']
   },
   image: String,
   price: Number,
   description: String,
-  location: String
+  location: String,
+  reviews: [
+    {
+      type: Schema.Types.ObjectId, ref: 'Review'
+    }
+  ]
 })
 
 // 캠프 모델 생성
