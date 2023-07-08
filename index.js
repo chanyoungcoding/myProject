@@ -7,6 +7,7 @@ const Joi = require('joi');
 
 //내가 불러온 것
 const Campground = require('./models/campground');
+const Review = require('./models/review');
 const catchAsync = require('./utils/catchAsync');
 const ExpressError = require('./utils/ExpressError');
 const {campgroundSchema} = require('./utils/schemas');
@@ -89,7 +90,13 @@ app.delete("/campgrounds/:id", catchAsync(async (req, res) => {
 }));
 
 app.post('/campgrounds/:id/reviews', catchAsync(async(req,res) => {
-  res.send('good boy!!')
+  const { id } = req.params;
+  const campground = await Campground.findById(id);
+  const review = new Review(req.body.review);
+  campground.reviews.push(review);
+  await review.save();
+  await campground.save();
+  res.redirect(`/campgrounds/${campground._id}`);
 }))
 
 app.all('*', (req, res, next) => {
