@@ -88,6 +88,10 @@ app.delete("/campgrounds/:id", catchAsync(async (req, res) => {
   res.redirect("/campgrounds");
 }));
 
+app.post('/campgrounds/:id/reviews', catchAsync(async(req,res) => {
+  res.send('good boy!!')
+}))
+
 app.all('*', (req, res, next) => {
   next(new ExpressError('페이지를 찾을 수 없습니다.', 404))
 })
