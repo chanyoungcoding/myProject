@@ -10,7 +10,7 @@ const Campground = require('./models/campground');
 const Review = require('./models/review');
 const catchAsync = require('./utils/catchAsync');
 const ExpressError = require('./utils/ExpressError');
-const {campgroundSchema} = require('./utils/schemas');
+const {campgroundSchema, reviewSchema} = require('./utils/schemas');
 
 //MongoDB 연결
 const mongoose = require('mongoose');
@@ -48,6 +48,16 @@ const validateCampground = (req,res,next) => {
   }
 }
 
+const validateReview = (req, res, next) => {
+  const { error } = reviewSchema.validate(req.body);
+  if (error) {
+    const msg = error.details.map((x) => x.message).join(",");
+    throw new ExpressError(msg, 400);
+  } else {
+    next();
+  }
+};
+
 //Route
 
 app.get("/campgrounds", catchAsync(async (req, res) => {
@@ -75,7 +85,7 @@ app.get("/campgrounds/:id/edit", catchAsync(async (req, res) => {
   res.render("campgrounds/edit", { campground });
 }));
 
-app.put("/campgrounds/:id", validateCampground, catchAsync(async (req, res) => {
+app.put("/campgrounds/:id", validateCampground , catchAsync(async (req, res) => {
   const { id } = req.params;
   const campground = await Campground.findByIdAndUpdate(id, {
     ...req.body.campground,
@@ -89,7 +99,7 @@ app.delete("/campgrounds/:id", catchAsync(async (req, res) => {
   res.redirect("/campgrounds");
 }));
 
-app.post('/campgrounds/:id/reviews', catchAsync(async(req,res) => {
+app.post('/campgrounds/:id/reviews', validateReview , catchAsync(async(req,res) => {
   const { id } = req.params;
   const campground = await Campground.findById(id);
   const review = new Review(req.body.review);
