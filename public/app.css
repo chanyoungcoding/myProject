@@ -312,10 +312,12 @@ footer {
 }
 
 .review__result {
-
+  height: 400px;
+  overflow-y: scroll;
 }
 
 .review__result div {
+  position: relative;
   margin: 20px;
   padding: 30px;
   display: flex;
@@ -326,6 +328,13 @@ footer {
 
 .review__result div p:nth-child(2) {
   margin-top: 10px;
+}
+
+.review__result button {
+  position: absolute;
+  bottom: 5px;
+  right: 10px;
+  padding: 5px;
 }
 
 /* edit */

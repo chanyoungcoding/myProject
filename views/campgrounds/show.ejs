@@ -33,6 +33,9 @@
         <div>
           <p>Rating: <%= review.rating %></p>
           <p>Review: <%= review.body %></p>
+          <form action="/campgrounds/<%= campground._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
+            <button class="button-24" role="button">삭제하기</button>
+          </form>
         </div>
       <% } %>
     </div>
