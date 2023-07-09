@@ -28,6 +28,14 @@
       </div>
       <button class="button-8" role="button">제출</button>
     </form>
+    <div class="review__result">
+      <% for(let review of campground.reviews) {%>
+        <div>
+          <p>Rating: <%= review.rating %></p>
+          <p>Review: <%= review.body %></p>
+        </div>
+      <% } %>
+    </div>
   </div>
 </div>
 
