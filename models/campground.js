@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const Review = require('./review')
 
 // 캠프의 기본 스키마
 const CampgroundSchema = new Schema({
@@ -16,6 +17,17 @@ const CampgroundSchema = new Schema({
       type: Schema.Types.ObjectId, ref: 'Review'
     }
   ]
+})
+
+//미들웨어 설정
+CampgroundSchema.post('findOneAndDelete', async function(doc) {
+  if(doc) {
+    await Review.deleteMany({
+      _id: {
+        $in: doc.reviews
+      }
+    })
+  }
 })
 
 // 캠프 모델 생성
