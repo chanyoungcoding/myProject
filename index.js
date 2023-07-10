@@ -3,7 +3,6 @@ const express = require('express');
 const path = require('path');
 const methodOverride = require('method-override');
 const ejsMate = require('ejs-mate');
-const Joi = require('joi');
 
 //내가 불러온 것
 const Campground = require('./models/campground');
