@@ -31,7 +31,7 @@ app.use(express.static(path.join(__dirname, "js")));
 
 app.use(express.urlencoded({ extended : true }))
 app.use(methodOverride('_method'))
-app.use(cookieParser('secret'));
+app.use(cookieParser());
 
 app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
@@ -62,14 +62,11 @@ const validateReview = (req, res, next) => {
 //Route
 
 app.get("/campgrounds", catchAsync(async (req, res) => {
-  res.cookie('name', 'chan', { signed : true });
   const campgrounds = await Campground.find({});
   res.render("home", { campgrounds });
 }));
 
 app.get('/campgrounds/new', (req,res) => {
-  console.log(req.cookies);
-  console.log(req.signedCookies);
   res.render('campgrounds/new')
 })
 
