@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const methodOverride = require('method-override');
 const ejsMate = require('ejs-mate');
+const cookieParser = require('cookie-parser');
 
 //내가 불러온 것
 const Campground = require('./models/campground');
@@ -30,6 +31,7 @@ app.use(express.static(path.join(__dirname, "js")));
 
 app.use(express.urlencoded({ extended : true }))
 app.use(methodOverride('_method'))
+app.use(cookieParser());
 
 app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
@@ -60,11 +62,13 @@ const validateReview = (req, res, next) => {
 //Route
 
 app.get("/campgrounds", catchAsync(async (req, res) => {
+  res.cookie('name', 'chan');
   const campgrounds = await Campground.find({});
   res.render("home", { campgrounds });
 }));
 
 app.get('/campgrounds/new', (req,res) => {
+  console.log(req.cookies);
   res.render('campgrounds/new')
 })
 
