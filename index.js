@@ -4,6 +4,7 @@ const path = require('path');
 const methodOverride = require('method-override');
 const ejsMate = require('ejs-mate');
 const cookieParser = require('cookie-parser');
+const session = require('express-session');
 
 //내가 불러온 것
 const Campground = require('./models/campground');
