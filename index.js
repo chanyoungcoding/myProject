@@ -33,6 +33,7 @@ app.use(express.static(path.join(__dirname, "js")));
 app.use(express.urlencoded({ extended : true }))
 app.use(methodOverride('_method'))
 app.use(cookieParser());
+app.use(session({ secret: "thisissecret" , saveUninitialized: false, resave: false}));
 
 app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
@@ -61,6 +62,19 @@ const validateReview = (req, res, next) => {
 };
 
 //Route
+
+//session test
+
+app.get('/register', (req,res) => {
+  const {username = '모름'} = req.query;
+  req.session.username = username;
+  res.redirect('/username');
+})
+
+app.get('/username', (req,res) => {
+  const {username} = req.session;
+  res.send(`username : ${username}`);
+})
 
 app.get("/campgrounds", catchAsync(async (req, res) => {
   const campgrounds = await Campground.find({});
