@@ -16,14 +16,14 @@ const {campgroundSchema, reviewSchema} = require('./utils/schemas');
 //MongoDB 연결
 const mongoose = require('mongoose');
 mongoose.connect("mongodb://127.0.0.1:27017/chan-camp")
-  .then(() => {
-    console.log("MongoDB Connection!!");
-  })
-  .catch((e) => {
-    console.log(e);
-  });
+.then(() => {
+  console.log("MongoDB Connection!!");
+})
+.catch((e) => {
+  console.log(e);
+});
 
-  //기본적인 설정
+//기본적인 설정
 const app = express();
 
 app.use(express.static(path.join(__dirname, "public")));
@@ -62,19 +62,6 @@ const validateReview = (req, res, next) => {
 };
 
 //Route
-
-//session test
-
-app.get('/register', (req,res) => {
-  const {username = '모름'} = req.query;
-  req.session.username = username;
-  res.redirect('/username');
-})
-
-app.get('/username', (req,res) => {
-  const {username} = req.session;
-  res.send(`username : ${username}`);
-})
 
 app.get("/campgrounds", catchAsync(async (req, res) => {
   const campgrounds = await Campground.find({});
