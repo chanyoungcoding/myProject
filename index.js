@@ -5,6 +5,7 @@ const methodOverride = require('method-override');
 const ejsMate = require('ejs-mate');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
+const flash = require('connect-flash');
 
 //내가 불러온 것
 const Campground = require('./models/campground');
@@ -30,10 +31,17 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(path.join(__dirname, "img")));
 app.use(express.static(path.join(__dirname, "js")));
 
+
 app.use(express.urlencoded({ extended : true }))
 app.use(methodOverride('_method'))
 app.use(cookieParser());
 app.use(session({ secret: "thisissecret" , saveUninitialized: false, resave: false}));
+app.use(flash());
+
+app.use((req,res,next) => {
+  res.locals.messages = req.flash('success');
+  next();
+})
 
 app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
@@ -75,6 +83,7 @@ app.get('/campgrounds/new', (req,res) => {
 app.post("/campgrounds", validateCampground ,catchAsync(async (req, res, next) => {
   const campground = new Campground(req.body.campground);
   await campground.save();
+  req.flash('success', 'made it');
   res.redirect("/campgrounds");
 }));
 
