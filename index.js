@@ -8,12 +8,11 @@ const session = require('express-session');
 const flash = require('connect-flash');
 
 //내가 불러온 것
-const Campground = require('./models/campground');
-const Review = require('./models/review');
-const catchAsync = require('./utils/catchAsync');
 const ExpressError = require('./utils/ExpressError');
-const { reviewSchema } = require('./utils/schemas');
+
+//router 불러오기
 const campgrounds = require('./Router/campgrounds')
+const reviews = require('./Router/reviews');
 
 //MongoDB 연결
 const mongoose = require('mongoose');
@@ -39,46 +38,22 @@ app.use(cookieParser());
 app.use(session({ secret: "thisissecret" , saveUninitialized: false, resave: false}));
 app.use(flash());
 
+//flash
 app.use((req,res,next) => {
   res.locals.messages = req.flash('success');
   next();
 })
 
+// Setting
 app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
 app.set("views", path.join(__dirname, "/views"));
 
-
-const validateReview = (req, res, next) => {
-  const { error } = reviewSchema.validate(req.body);
-  if (error) {
-    const msg = error.details.map((x) => x.message).join(",");
-    throw new ExpressError(msg, 400);
-  } else {
-    next();
-  }
-};
-
+//router
 app.use('/campgrounds', campgrounds);
+app.use("/campgrounds/:id/reviews", reviews);
 
-app.post('/campgrounds/:id/reviews', validateReview , catchAsync(async(req,res) => {
-  const { id } = req.params;
-  const campground = await Campground.findById(id);
-  const review = new Review(req.body.review);
-  campground.reviews.push(review);
-  await review.save();
-  await campground.save();
-  res.redirect(`/campgrounds/${campground._id}`);
-}))
-
-app.delete("/campgrounds/:id/reviews/:reviewId", catchAsync(async (req, res) => {
-    const { id, reviewId } = req.params;
-    await Campground.findByIdAndUpdate(id, { $pull: { reviews: reviewId } });
-    await Review.findByIdAndDelete(reviewId);
-    res.redirect(`/campgrounds/${id}`);
-  })
-);
-
+// Error 페이지
 app.all('*', (req, res, next) => {
   next(new ExpressError('페이지를 찾을 수 없습니다.', 404))
 })
