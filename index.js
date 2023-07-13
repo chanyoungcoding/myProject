@@ -3,7 +3,6 @@ const express = require('express');
 const path = require('path');
 const methodOverride = require('method-override');
 const ejsMate = require('ejs-mate');
-const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const flash = require('connect-flash');
 
@@ -24,16 +23,30 @@ mongoose.connect("mongodb://127.0.0.1:27017/chan-camp")
   console.log(e);
 });
 
-//기본적인 설정
 const app = express();
+
+// Setting
+app.engine('ejs', ejsMate);
+app.set('view engine', 'ejs');
+app.set("views", path.join(__dirname, "/views"));
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(path.join(__dirname, "img")));
 
+const sessionConfig = {
+  secret: "thisissecret",
+  saveUninitialized: true,
+  resave: false,
+  cookie: {
+    httpOnly: true,
+    expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
+    maxAge: 1000 * 60 * 60 * 24 * 7,
+  },
+};
+
+app.use(session(sessionConfig));
 app.use(express.urlencoded({ extended : true }))
 app.use(methodOverride('_method'))
-app.use(cookieParser());
-app.use(session({ secret: "thisissecret" , saveUninitialized: false, resave: false}));
 app.use(flash());
 
 //flash
@@ -42,10 +55,6 @@ app.use((req,res,next) => {
   next();
 })
 
-// Setting
-app.engine('ejs', ejsMate);
-app.set('view engine', 'ejs');
-app.set("views", path.join(__dirname, "/views"));
 
 //router
 app.use('/campgrounds', campgrounds);
