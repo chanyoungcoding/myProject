@@ -12,7 +12,7 @@ const Campground = require('./models/campground');
 const Review = require('./models/review');
 const catchAsync = require('./utils/catchAsync');
 const ExpressError = require('./utils/ExpressError');
-const reviewSchema = require('./utils/schemas');
+const { reviewSchema } = require('./utils/schemas');
 const campgrounds = require('./Router/campgrounds')
 
 //MongoDB 연결
