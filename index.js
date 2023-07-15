@@ -9,7 +9,7 @@ const flash = require('connect-flash');
 //내가 불러온 것
 const ExpressError = require('./utils/ExpressError');
 
-//router 불러오기
+//router
 const campgrounds = require('./Router/campgrounds')
 const reviews = require('./Router/reviews');
 
