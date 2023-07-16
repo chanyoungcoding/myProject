@@ -5,6 +5,7 @@ const methodOverride = require('method-override');
 const ejsMate = require('ejs-mate');
 const session = require('express-session');
 const flash = require('connect-flash');
+const bcrypt = require('bcrypt');
 
 //내가 불러온 것
 const ExpressError = require('./utils/ExpressError');
@@ -54,6 +55,14 @@ app.use((req,res,next) => {
   res.locals.messages = req.flash('success');
   next();
 })
+
+//hash 테스트
+const hashPassword = async () => {
+  const salt = await bcrypt.genSalt(10);
+  console.log(salt);
+}
+
+hashPassword();
 
 
 //router
