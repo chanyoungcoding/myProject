@@ -57,12 +57,23 @@ app.use((req,res,next) => {
 })
 
 //hash 테스트
-const hashPassword = async () => {
-  const salt = await bcrypt.genSalt(10);
+
+const hashPassword = async (pw) => {
+  const salt = await bcrypt.genSalt(12);
+  const hash = await bcrypt.hash(pw, salt);
   console.log(salt);
+  console.log(hash);
 }
 
-hashPassword();
+const login = async (pw, hashpw) => {
+  const result = await bcrypt.compare(pw, hashpw);
+  if (result) {
+    console.log('login');
+  } else {
+    console.log('false');
+  }
+}
+login('monkey', '$2b$12$Ok8JwYaDfkeOBcuuYXZJFupqXepVXpTdoSYtxvo1IH9whhsFvnR0a')
 
 
 //router
