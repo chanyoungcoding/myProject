@@ -47,7 +47,7 @@ app.get('/login', (req,res) => {
 
 app.get('/secret', (req,res) => {
   if(!req.session.user_id){
-    res.redirect('/login')
+    return res.redirect('/login')
   } else res.render('test4')
 })
 
@@ -63,17 +63,20 @@ app.post('/sign', async(req,res) => {
 })
 
 app.post('/login', async (req,res) => {
-  const {password, username} = req.body;
+  const { password, username } = req.body;
   const user = await User.findOne({ username })
   const validUser = await bcrypt.compare(password, user.password);
   if(validUser) {
     req.session.user_id = user._id;
-    res.redirect('/secret')
+    return res.redirect('/secret')
   }
   else res.redirect('/login')
 })
 
-
+app.post('/logout', (req,res) => {
+  req.session.user_id = null;
+  res.redirect('/test')
+})
 
 app.listen(4040, () => {
   console.log('테스트 서버 연결')
