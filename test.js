@@ -28,6 +28,10 @@ app.get('/sign', (req,res) => {
   res.render('test');
 })
 
+app.get('/login', (req,res) => {
+  res.render('test2');
+})
+
 app.post('/sign', async(req,res) => {
   const {password, username} = req.body;
   const hash = await bcrypt.hash(password, 12);
@@ -37,6 +41,14 @@ app.post('/sign', async(req,res) => {
   });
   await user.save();
   res.send('sign success!!')
+})
+
+app.post('/login', async (req,res) => {
+  const {password, username} = req.body;
+  const user = await User.findOne({ username })
+  const validUser = await bcrypt.compare(password, user.password);
+  if(validUser) res.send('환영합니다.')
+  else res.send('로그인 실패')
 })
 
 app.listen(4040, () => {
