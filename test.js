@@ -2,6 +2,7 @@ const express = require('express');
 const bcrypt = require('bcrypt');
 const path = require('path');
 const User = require('./testmongose');
+const session = require('express-session');
 
 //MongoDB 연결
 const mongoose = require('mongoose');
@@ -18,6 +19,18 @@ const app = express();
 app.set('view engine', 'ejs');
 app.set("views", path.join(__dirname, "/views"));
 
+const sessionConfig = {
+  secret: "thisissecret",
+  saveUninitialized: true,
+  resave: false,
+  cookie: {
+    httpOnly: true,
+    expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
+    maxAge: 1000 * 60 * 60 * 24 * 7,
+  },
+};
+
+app.use(session(sessionConfig));
 app.use(express.urlencoded({ extended : true }))
 
 app.get('/test', (req,res) => {
