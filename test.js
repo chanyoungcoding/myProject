@@ -34,7 +34,7 @@ app.use(session(sessionConfig));
 app.use(express.urlencoded({ extended : true }))
 
 app.get('/test', (req,res) => {
-  res.send('hello')
+  res.render('test3');
 })
 
 app.get('/sign', (req,res) => {
@@ -45,6 +45,12 @@ app.get('/login', (req,res) => {
   res.render('test2');
 })
 
+app.get('/secret', (req,res) => {
+  if(!req.session.user_id){
+    res.redirect('/login')
+  } else res.render('test4')
+})
+
 app.post('/sign', async(req,res) => {
   const {password, username} = req.body;
   const hash = await bcrypt.hash(password, 12);
@@ -53,16 +59,21 @@ app.post('/sign', async(req,res) => {
     password: hash
   });
   await user.save();
-  res.send('sign success!!')
+  res.redirect('/test')
 })
 
 app.post('/login', async (req,res) => {
   const {password, username} = req.body;
   const user = await User.findOne({ username })
   const validUser = await bcrypt.compare(password, user.password);
-  if(validUser) res.send('환영합니다.')
-  else res.send('로그인 실패')
+  if(validUser) {
+    req.session.user_id = user._id;
+    res.redirect('/secret')
+  }
+  else res.redirect('/login')
 })
+
+
 
 app.listen(4040, () => {
   console.log('테스트 서버 연결')
