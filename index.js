@@ -5,10 +5,12 @@ const methodOverride = require('method-override');
 const ejsMate = require('ejs-mate');
 const session = require('express-session');
 const flash = require('connect-flash');
-const bcrypt = require('bcrypt');
+const passport = require('passport');
+const LocalStrategy = require('passport-local');
 
 //내가 불러온 것
 const ExpressError = require('./utils/ExpressError');
+const User = require('./models/user');
 
 //router
 const campgrounds = require('./Router/campgrounds')
@@ -33,6 +35,9 @@ app.set("views", path.join(__dirname, "/views"));
 
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.static(path.join(__dirname, "img")));
+app.use(express.urlencoded({ extended : true }))
+app.use(methodOverride('_method'))
+app.use(flash());
 
 const sessionConfig = {
   secret: "thisissecret",
@@ -46,9 +51,13 @@ const sessionConfig = {
 };
 
 app.use(session(sessionConfig));
-app.use(express.urlencoded({ extended : true }))
-app.use(methodOverride('_method'))
-app.use(flash());
+
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new LocalStrategy(User.authenticate()));
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 //flash
 app.use((req,res,next) => {
@@ -56,25 +65,11 @@ app.use((req,res,next) => {
   next();
 })
 
-//hash 테스트
-
-const hashPassword = async (pw) => {
-  const salt = await bcrypt.genSalt(12);
-  const hash = await bcrypt.hash(pw, salt);
-  console.log(salt);
-  console.log(hash);
-}
-
-const login = async (pw, hashpw) => {
-  const result = await bcrypt.compare(pw, hashpw);
-  if (result) {
-    console.log('login');
-  } else {
-    console.log('false');
-  }
-}
-login('monkey', '$2b$12$Ok8JwYaDfkeOBcuuYXZJFupqXepVXpTdoSYtxvo1IH9whhsFvnR0a')
-
+app.use('/fakeUser', async(req,res) => {
+  const user = new User({email: 'white1614@naver.com', username:'chan'});
+  const newUser = await User.register(user, 'dog');
+  res.send(newUser);
+})
 
 //router
 app.use('/campgrounds', campgrounds);
