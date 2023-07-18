@@ -13,8 +13,9 @@ const ExpressError = require('./utils/ExpressError');
 const User = require('./models/user');
 
 //router
-const campgrounds = require('./Router/campgrounds')
-const reviews = require('./Router/reviews');
+const campgroundRoutes = require('./Router/campgrounds')
+const reviewRoutes = require('./Router/reviews');
+const userRoutes = require('./Router/user');
 
 //MongoDB 연결
 const mongoose = require('mongoose');
@@ -62,6 +63,7 @@ passport.deserializeUser(User.deserializeUser());
 //flash
 app.use((req,res,next) => {
   res.locals.messages = req.flash('success');
+  res.locals.messages = req.flash('error');
   next();
 })
 
@@ -72,8 +74,9 @@ app.use('/fakeUser', async(req,res) => {
 })
 
 //router
-app.use('/campgrounds', campgrounds);
-app.use("/campgrounds/:id/reviews", reviews);
+app.use('/campgrounds', campgroundRoutes);
+app.use("/campgrounds/:id/reviews", reviewRoutes);
+app.use("/", userRoutes);
 
 // Error 페이지
 app.all('*', (req, res, next) => {
