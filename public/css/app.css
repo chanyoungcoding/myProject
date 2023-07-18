@@ -32,9 +32,14 @@ footer {
   margin: 0 auto;
   padding: 15px;
   display: flex;
+  justify-content: space-between;
   background-color: #35343B;
   font-size: 40px;
   font-family: 'Dongle', sans-serif;
+}
+
+.navbar .navbar__left {
+  display: flex;
 }
 
 .navbar h1 {
@@ -50,7 +55,13 @@ footer {
   transition: all .3s;
 }
 
-.navbar .navbar__list a:hover {
+.navbar .navbar__right a {
+  padding-left: 15px;
+}
+
+.navbar .navbar__list a:hover,
+.navbar .navbar__right a:hover
+{
   color: aliceblue;
 }
 
