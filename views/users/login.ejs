@@ -1,0 +1,18 @@
+<% layout('layouts/common.ejs') %>
+
+<div class="newForm">
+  <%= messages %>
+  <h1>로그인</h1>
+  <hr>
+  <form class="newForm__form" action="/login" method="POST">
+    <div>
+      <label for="username">username</label>
+      <input type="text" id="username" name="username">
+    </div>
+    <div>
+      <label for="password">password</label>
+      <input type="text" id="password" name="password">
+    </div>
+    <button class="button-33" role="button">로그인</button>
+  </form>
+</div>
