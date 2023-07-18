@@ -6,6 +6,7 @@ const Campground = require("../models/campground");
 const catchAsync = require("../utils/catchAsync");
 const ExpressError = require("../utils/ExpressError");
 const { campgroundSchema } = require("../utils/schemas");
+const isLoggedIn = require('../utils/middleware');
 
 
 //Joi 유효성 검사
@@ -27,7 +28,7 @@ router.get("/", catchAsync(async (req, res) => {
   })
 );
 
-router.get("/new", (req, res) => {
+router.get("/new", isLoggedIn ,(req, res) => {
   res.render("campgrounds/new");
 });
 
