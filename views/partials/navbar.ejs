@@ -10,9 +10,12 @@
       </div>
     </div>
     <div class="navbar__right">
+      <% if(!currentUser) {%>
       <a href="/login">login</a>
       <a href="/register">register</a>
+      <% } else { %>
       <a href="/logout">logout</a>
+      <% } %>
     </div>
   </div>
 </nav>
