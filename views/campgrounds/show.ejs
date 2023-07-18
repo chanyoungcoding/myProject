@@ -6,6 +6,7 @@
     <h1><%= campground.title %></h1>
     <h2><%= campground.location %></h2>
     <h3><%= campground.price %></h3>
+    <h3><%= campground.author.username %></h3>
     <p><%= campground.description %></p>
     <div class="showPage__button">
       <form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
