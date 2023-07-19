@@ -1,6 +1,9 @@
 const ExpressError = require("../utils/ExpressError");
 const { campgroundSchema } = require("../utils/schemas");
 const Campground = require("../models/campground");
+const { reviewSchema } = require("../utils/schemas");
+
+//campground
 
 //로그인 확인
 const isLoggedIn = (req,res,next) => {
@@ -33,8 +36,21 @@ const isAuthor = async (req, res, next) => {
   next();
 }
 
+//review
+
+const validateReview = (req, res, next) => {
+  const { error } = reviewSchema.validate(req.body);
+  if (error) {
+    const msg = error.details.map((x) => x.message).join(",");
+    throw new ExpressError(msg, 400);
+  } else {
+    next();
+  }
+};
+
 module.exports = {
   isLoggedIn,
   validateCampground,
-  isAuthor
+  isAuthor,
+  validateReview
 }
