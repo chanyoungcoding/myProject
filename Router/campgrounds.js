@@ -4,21 +4,7 @@ const router = express.Router();
 //내가 불러온 것
 const Campground = require("../models/campground");
 const catchAsync = require("../utils/catchAsync");
-const ExpressError = require("../utils/ExpressError");
-const { campgroundSchema } = require("../utils/schemas");
-const isLoggedIn = require('../utils/middleware');
-
-
-//Joi 유효성 검사
-const validateCampground = (req, res, next) => {
-  const { error } = campgroundSchema.validate(req.body);
-  if (error) {
-    const msg = error.details.map((x) => x.message).join(",");
-    throw new ExpressError(msg, 400);
-  } else {
-    next();
-  }
-};
+const { isLoggedIn, validateCampground, isAuthor } = require('../utils/middleware');
 
 //Route
 router.get("/", catchAsync(async (req, res) => {
@@ -50,20 +36,22 @@ router.get("/:id", catchAsync(async (req, res) => {
   })
 );
 
-router.get("/:id/edit", isLoggedIn ,catchAsync(async (req, res) => {
-    const campground = await Campground.findById(req.params.id);
+router.get("/:id/edit", isLoggedIn , isAuthor ,catchAsync(async (req, res) => {
+    const { id } = req.params;
+    const campground = await Campground.findById(id);
     res.render("campgrounds/edit", { campground });
   })
 );
 
-router.put("/:id", isLoggedIn , validateCampground , catchAsync(async (req, res) => {
+router.put("/:id", isLoggedIn , isAuthor , validateCampground , catchAsync(async (req, res) => {
     const { id } = req.params;
-    const campground = await Campground.findByIdAndUpdate(id, {...req.body.campground,});
+    const campground = await Campground.findById(id);
+    await Campground.findByIdAndUpdate(id, {...req.body.campground});
     res.redirect(`/campgrounds/${campground._id}`);
   })
 );
 
-router.delete("/:id", isLoggedIn , catchAsync(async (req, res) => {
+router.delete("/:id", isLoggedIn , isAuthor , catchAsync(async (req, res) => {
     const { id } = req.params;
     await Campground.findByIdAndDelete(id);
     res.redirect("/campgrounds");
