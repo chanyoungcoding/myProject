@@ -8,6 +8,7 @@
     <h3><%= campground.price %></h3>
     <h3><%= campground.author.username %></h3>
     <p><%= campground.description %></p>
+    <% if(currentUser && campground.author.equals(currentUser)) { %>
     <div class="showPage__button">
       <form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
         <button class="button-24" role="button">삭제하기</button>
@@ -16,6 +17,7 @@
         <a href="/campgrounds/<%= campground._id %>/edit">수정하기</a>
       </button>
     </div>
+    <% } %>
   </div>
   <div class="show__right">
     <h2>리뷰를 남겨보세요.</h2>
