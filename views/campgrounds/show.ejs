@@ -9,7 +9,7 @@
     <h3><%= campground.price %></h3>
     <h3><%= campground.author.username %></h3>
     <p><%= campground.description %></p>
-    <% if(currentUser && campground.author.equals(currentUser)) { %>
+    <% if(currentUser && campground.author.equals(currentUser._id)) { %>
     <div class="showPage__button">
       <form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
         <button class="button-24" role="button">삭제하기</button>
@@ -39,9 +39,12 @@
         <div>
           <p>Rating: <%= review.rating %></p>
           <p>Review: <%= review.body %></p>
+          <p>author: <%= review.author.username %></p>
+          <% if(currentUser && review.author.equals(currentUser._id)) { %>
           <form action="/campgrounds/<%= campground._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
             <button class="button-24" role="button">삭제하기</button>
           </form>
+          <% } %>
         </div>
       <% } %>
     <% } %>
