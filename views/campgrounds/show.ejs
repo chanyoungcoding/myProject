@@ -20,6 +20,7 @@
     </div>
     <% } %>
   </div>
+  <% if(currentUser) { %>
   <div class="show__right">
     <h2>리뷰를 남겨보세요.</h2>
     <form class="review__form" action="/campgrounds/<%= campground._id %>/reviews" method="POST">
@@ -32,6 +33,7 @@
       </div>
       <button class="button-8" role="button">제출</button>
     </form>
+
     <div class="review__result">
       <% for(let review of campground.reviews) {%>
         <div>
@@ -42,6 +44,7 @@
           </form>
         </div>
       <% } %>
+    <% } %>
     </div>
   </div>
 </div>
