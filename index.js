@@ -68,12 +68,6 @@ app.use((req,res,next) => {
   next();
 })
 
-app.use('/fakeUser', async(req,res) => {
-  const user = new User({email: 'white1614@naver.com', username:'chan'});
-  const newUser = await User.register(user, 'dog');
-  res.send(newUser);
-})
-
 //router
 app.use('/campgrounds', campgroundRoutes);
 app.use("/campgrounds/:id/reviews", reviewRoutes);
