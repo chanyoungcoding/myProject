@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const multer = require('multer');
+const upload = multer({dest : 'uploads/'});
 
 //controllers
 const campgrounds = require('../controllers/campgrounds')
@@ -13,7 +15,7 @@ const { isLoggedIn, validateCampground, isAuthor } = require('../utils/middlewar
 
 router.route('/')
   .get(catchAsync(campgrounds.indexCampground))
-  .post(validateCampground, catchAsync(campgrounds.createNewCampground))
+  .post(upload.single('image') ,validateCampground, catchAsync(campgrounds.createNewCampground))
 
 router.get("/new", isLoggedIn , campgrounds.newCampground);
 
