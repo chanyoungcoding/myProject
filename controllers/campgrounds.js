@@ -9,7 +9,7 @@ const newCampground = (req, res) => {
   res.render("campgrounds/new");
 }
 
-const createNewCampground = async (req, res, next) => {
+const createNewCampground = async (req, res) => {
   const campground = new Campground(req.body.campground);
   campground.author = req.user._id;
   await campground.save();

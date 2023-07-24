@@ -7,7 +7,6 @@ const upload = multer({dest : 'uploads/'});
 const campgrounds = require('../controllers/campgrounds')
 
 //내가 불러온 것
-const Campground = require("../models/campground");
 const catchAsync = require("../utils/catchAsync");
 const { isLoggedIn, validateCampground, isAuthor } = require('../utils/middleware');
 
