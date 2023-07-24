@@ -1,3 +1,8 @@
+//ENV
+if (process.env.NODE_ENV !== "production") {
+  require('dotenv').config();
+}
+
 //라이브러리
 const express = require('express');
 const path = require('path');
