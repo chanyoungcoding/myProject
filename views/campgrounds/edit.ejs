@@ -13,6 +13,15 @@
       <input type="text" name="campground[price]" value="<%= campground.price %>">
       <div class="input__underline"></div>
       <textarea name="campground[description]" id="description" cols="10" rows="10"></textarea>
+      <div class="form__deleteImg">
+        <% campground.images.forEach(function(img, i) { %>
+          <img src="<%= img.url %>" class="deleteImg__img" alt="#">
+          <div class="deleteImg__checkbox">
+            <input type="checkbox" id="image-<%=i%>" name="deleteImages[]" value="<%= img.filename %>">
+          </div>
+          <label for="image-<%=i%>">DELETE</label>
+        <% }) %>
+      </div>
       <div>
         <button class="button-25" role="button">수정</button>
       </div>
