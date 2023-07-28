@@ -15,7 +15,7 @@ const { isLoggedIn, validateCampground, isAuthor } = require('../utils/middlewar
 
 router.route('/')
   .get(catchAsync(campgrounds.indexCampground))
-  .post(upload.array('image') ,validateCampground, catchAsync(campgrounds.createNewCampground))
+  .post(isLoggedIn, upload.array('image'), validateCampground, catchAsync(campgrounds.createNewCampground))
 
 router.get("/new", isLoggedIn , campgrounds.newCampground);
 

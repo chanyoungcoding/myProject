@@ -8,7 +8,12 @@ const CampgroundSchema = new Schema({
     type:String,
     required: [true, '캠프이름이 필요합니다.']
   },
-  image: String,
+  images: [
+    {
+      url: String,
+      filename: String
+    }
+  ],
   price: Number,
   description: String,
   location: String,

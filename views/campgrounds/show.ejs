@@ -4,7 +4,9 @@
 <%= error %>
 <div class="showPage">
   <div class="showPage__left">
-    <img src="<%= campground.image %>" alt="#">
+    <% for(let img of campground.images) { %>
+      <img src="<%= img.url%>" class="" alt="#">
+    <% } %>
     <h1><%= campground.title %></h1>
     <h2><%= campground.location %></h2>
     <h3><%= campground.price %></h3>
