@@ -3,8 +3,8 @@
 <div class="editPage">
   <div class="edit__form">
     <div class="edit__img"></div>
-    <form class="form__edit" action="/campgrounds/<%= campground._id %>?_method=PUT" method="POST">
-      <input type="text" name="campground[image]" value="<%= campground.image %>">
+    <form class="form__edit" action="/campgrounds/<%= campground._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+      <input type="file" name="image" multiple>
       <div class="input__underline"></div>
       <input type="text" name="campground[title]" value="<%= campground.title %>">
       <div class="input__underline"></div>
