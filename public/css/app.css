@@ -164,10 +164,11 @@ footer {
 }
 
 .showPage__left {
+  max-width: 500px;
   padding-top: 30px;
 }
 
-.showPage__left img {
+.showPage__img {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
