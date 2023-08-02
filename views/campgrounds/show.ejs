@@ -9,6 +9,7 @@
 <%= error %>
 <div class="showPage">
   <div class="showPage__left">
+    <div id="map" style="width: 400px; height: 300px;"></div>
     <div id="carouselExample" class="carousel slide">
       <div class="carousel-inner">
         <% campground.images.forEach((img, i) => { %>
@@ -42,6 +43,7 @@
     </div>
     <% } %>
   </div>
+  
   <% if(currentUser) { %>
   <div class="show__right">
     <h2>리뷰를 남겨보세요.</h2>
@@ -88,6 +90,14 @@
     </div>
   </div>
 </div>
+
+<script>
+  const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
+  const campground = JSON.parse('<%- JSON.stringify(campground)%>');
+  console.log(campground)
+</script>
+
+<script src="/js/showPageMap.js"></script>
 
 
 

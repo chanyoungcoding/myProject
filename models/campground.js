@@ -3,17 +3,29 @@ const Schema = mongoose.Schema;
 const Review = require('./review')
 
 // 캠프의 기본 스키마
+
+const ImageSchema = new Schema({
+  url: String,
+  filename: String
+})
+
 const CampgroundSchema = new Schema({
   title: {
     type:String,
     required: [true, '캠프이름이 필요합니다.']
   },
-  images: [
-    {
-      url: String,
-      filename: String
+  images: [ImageSchema],
+  geometry: {
+    type: {
+      type: String,
+      enum:['Point'],
+      required: true
+    },
+    coordinates: {
+      type: [Number],
+      required: true
     }
-  ],
+  },
   price: Number,
   description: String,
   location: String,
