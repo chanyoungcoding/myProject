@@ -12,6 +12,9 @@ const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
+const mongoSanitize = require('express-mongo-sanitize');
+
+const MongoDBStore = require('connect-mongo')(session);
 
 //내가 불러온 것
 const ExpressError = require('./utils/ExpressError');
@@ -24,7 +27,9 @@ const userRoutes = require('./Router/user');
 
 //MongoDB 연결
 const mongoose = require('mongoose');
-mongoose.connect("mongodb://127.0.0.1:27017/chan-camp")
+// const dbUrl = process.env.DB_URL;
+const dbUrl = "mongodb://127.0.0.1:27017/chan-camp"
+mongoose.connect(dbUrl)
 .then(() => {
   console.log("MongoDB Connection!!");
 })
@@ -44,13 +49,23 @@ app.use(express.static(path.join(__dirname, "img")));
 app.use(express.urlencoded({ extended : true }))
 app.use(methodOverride('_method'))
 app.use(flash());
+app.use(mongoSanitize());
+
+const store = new MongoDBStore({
+  url: dbUrl,
+  secret: 'thisismySecret',
+  touchAfter: 24 * 60 * 60 
+})
 
 const sessionConfig = {
+  store,
+  name:'session',
   secret: "thisissecret",
   saveUninitialized: true,
   resave: false,
   cookie: {
     httpOnly: true,
+    //secure: true,
     expires: Date.now() + 1000 * 60 * 60 * 24 * 7,
     maxAge: 1000 * 60 * 60 * 24 * 7,
   },
