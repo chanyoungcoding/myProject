@@ -4,9 +4,13 @@ const mapBoxToken = process.env.MAPBOX_TOKEN;
 const geocoder = mbxGeocoding({accessToken: mapBoxToken})
 const { cloudinary } = require('../cloudinary');
 
+const mainCampground = (req,res) => {
+  res.render("home");
+}
+
 const indexCampground = async (req, res) => {
   const campgrounds = await Campground.find({});
-  res.render("home", { campgrounds });
+  res.render("campground", { campgrounds });
 };
 
 const newCampground = (req, res) => {
@@ -68,6 +72,7 @@ const deleteCampground = async (req, res) => {
 }
 
 module.exports = {
+  mainCampground,
   indexCampground,
   newCampground,
   createNewCampground,

@@ -14,7 +14,7 @@ const logoutUser = (req, res, next) => {
         return next(err);
     }
     req.flash('success', 'Goodbye!');
-    res.redirect('/campgrounds');
+    res.redirect('/campgrounds/home');
   });
 }
 
@@ -36,7 +36,7 @@ const userRegister = async(req,res) => {
 
 const userLogin = (req,res) => {
   req.flash("success", "made it");
-  res.redirect('/campgrounds')
+  res.redirect('/campgrounds/home')
 }
 
 module.exports = {

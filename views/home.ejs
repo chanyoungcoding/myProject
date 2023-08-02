@@ -1,16 +1,21 @@
-<% layout('layouts/common.ejs') %>
-
-<div id="map" style="width: 100%; height: 500px;"></div>
-
-<% for(let campground of campgrounds) {%>
-  <li><a href="/campgrounds/<%= campground._id %>"><%= campground.title %></a></li>
-<% } %>
-`
-<%= success %>
-
-<script>
-  const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
-  const campgrounds = {features: <%- JSON.stringify(campgrounds)%>};
-</script>
-
-<script src="/js/clusterMap.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css" rel="stylesheet">
+  <!-- fontAwesome -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css"
+  />
+  <link rel="icon" href="/campLogo.png">
+  <link rel="stylesheet" href="/css/common.css"> 
+  <link rel="stylesheet" href="/css/home.css"> 
+  <title>모두의캠프</title>
+</head>
+<body>
+  <%- include('./partials/navbar.ejs') %>
+  <p>hello</p>
+</body>
+</html>
