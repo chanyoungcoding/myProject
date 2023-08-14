@@ -37,7 +37,6 @@ const showCampground = async (req, res) => {
     req.flash('error', '캠프를 찾을 수 없습니다.')
     return res.redirect('/campgrounds')
   }
-  console.log(campground)
   res.render("campgrounds/show", { campground });
 }
 

@@ -1,12 +1,29 @@
 <% layout('layouts/common.ejs') %>
 
-<div id="map" style="width: 100%; height: 500px;"></div>
+<link rel="stylesheet" href="/css/campground.css">
+<div class="campground">
+  <div class="campground__map" id="map"></div>
 
-<% for(let campground of campgrounds) {%>
-  <li><a href="/campgrounds/<%= campground._id %>"><%= campground.title %></a></li>
-<% } %>
-`
-<%= success %>
+  <div class="campground__title">
+    <h1>Campground</h1>
+  </div>
+
+  <div class="campground__inner">
+    <% for(let campground of campgrounds) {%>
+      <div class="campground__intro">
+        <img src="<%= campground.images[0].url %>" alt="" />
+        <div>
+          <li><a href="/campgrounds/<%= campground._id %>"><%= campground.title %></a></li>
+          <li><%= campground.description %></li>
+        </div>
+      </div>
+    <% } %>
+  </div>
+  `
+
+  <%= success %>
+</div>
+
 
 <script>
   const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
