@@ -104,6 +104,6 @@ app.use((err,req,res,next) => {
   res.status(statusCode).render('error',{ err });
 })
 
-app.listen(8080, () => {
+app.listen(4040, () => {
   console.log("Server 8080 Start!!")
 })
