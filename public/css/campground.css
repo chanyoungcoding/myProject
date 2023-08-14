@@ -14,16 +14,24 @@
   overflow-y: scroll;
 }
 
-.campground__intro {
+.campground .campground__inner .campground__intro {
   display: flex;
   margin-top: 30px;
   border: 1px solid gray;
 }
 
-.campground__intro img {
+.campground .campground__inner .campground__intro img {
   padding-right: 20px;
   border-right: 1px solid gray;
   width: 300px;
   height: 300px;
   object-fit: cover;
+}
+
+.campground .campground__inner .campground__intro .intro__introList li a {
+  font-size: 40px;
+}
+
+.campground .campground__inner .campground__intro .intro__introList li:nth-child(1) {
+  margin: 10px;
 }
