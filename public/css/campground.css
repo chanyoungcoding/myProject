@@ -9,6 +9,95 @@
   margin: 0 auto;
 }
 
+/* campground__commend */
+
+.campground__commend {
+  max-width: 2080px;
+  margin: 0 auto;
+  background: #f0f1f5;
+}
+
+.campground__commend .commend__intro {
+  text-align: center;
+  padding: 30px 0px 40px;
+}
+
+.campground__commend .commend__intro h1 {
+  font-size: 30px;
+  font-weight: 600;
+}
+
+.campground__commend .commend__intro p {
+  margin-top: 20px;
+}
+
+.campground__commend .commend__inner {
+  display: flex;
+  justify-content: center
+}
+
+.campground__commend .commend__inner .inner__common {
+  margin: 0 15px 50px;
+}
+
+.campground__commend .commend__inner .inner__common .common__href a {
+  display: flex;
+  width: 200px;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 100%;
+  background-color: antiquewhite;
+  margin-bottom: 30px;
+}
+
+.campground__commend .commend__inner .inner__common .common__intro {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid gray;
+  width: 200px;
+  height: 200px;
+  background-color: white;
+}
+
+.campground__commend .commend__inner .inner__common .common__intro h1 {
+  margin-top: 10px;
+  text-align: center;
+  font-size: 22px;
+  color: orange;
+  font-weight: 400;
+}
+
+.campground__commend .commend__inner .inner__common .common__intro p {
+  padding: 0 10px;
+  color: gray;
+}
+
+.campground__commend .commend__inner .inner__common .common__intro .intro__form {
+  width: 200px;
+  display: flex;
+  justify-content: center;
+}
+
+.campground__commend .commend__inner .inner__common .common__intro button {
+  margin: 20px 0px;
+  border: none;
+  outline: none;
+  background-color: #004D91;
+  color: white;
+  padding: 5px 20px;
+  cursor: pointer;
+}
+
+.campground__commend .commend__inner .inner__common .common__intro .intro__line {
+  display: flex;
+  padding: .1px;
+  width: 180px;
+  margin: 15px auto;
+  background-color: gray;
+}
+
+/* campground__inner */
 .campground .campground__inner {
   height: 2000px;
   overflow-y: scroll;
