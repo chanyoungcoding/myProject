@@ -9,7 +9,7 @@ tags.addEventListener('click', (e) => {
 
 const swiper = new Swiper('.swiper', {
   slidesPerView : 'auto', // 한 슬라이드에 보여줄 갯수
-  spaceBetween : 6, // 슬라이드 사이 여백
+  spaceBetween : 20, // 슬라이드 사이 여백
   loop: true,
   loopAdditionalSlides : 1, // 슬라이드 반복 시 마지막 슬라이드에서 다음 슬라이드가 보여지지 않는 현상 수정
 
