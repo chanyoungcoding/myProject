@@ -219,12 +219,26 @@
 }
 
 
+.campground__div {
+  width: 100%;
+  height: 30px;
+  background-color: #EFF0F4;
+} 
+
 
 /* campground__inner */
 
 .campground .campground__inner {
+  margin-top: 50px;
   height: 2000px;
-  overflow-y: scroll;
+}
+
+.campground .campground__inner p {
+  font-size: 30px;
+}
+
+.campground .campground__inner p span {
+  color: orange;
 }
 
 .campground .campground__inner .campground__intro {

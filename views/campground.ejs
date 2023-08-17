@@ -127,20 +127,26 @@
     </div>
   </div>
 
+  <div class="campground__div"></div>
+
+  
   <div class="campground__inner">
-    <% for(let campground of campgrounds) {%>
-      <div class="campground__intro">
-        <img src="<%= campground.images[0].url %>" alt="" />
-        <div class="intro__introList">
-          <li><a href="/campgrounds/<%= campground._id %>"><%= campground.title %></a></li>
-          <li><%= campground.location %></li>
-          <li>캠핑장 주인 : <%= campground.author.username %></li>
-          <li>가격 :  <%= campground.price %></li>
-          <li>캠핑장 리뷰 :  <%= campground.reviews.length %></li>
-          <li><%= campground.description.substring(0, 100) + "..." %></li>
+    <p>총 <span><%= campgrounds.length  %></span> 의 캠핑장이 있습니다.</p>
+    <div class="campground__detail">
+      <% for(let campground of campgrounds) {%>
+        <div class="campground__intro">
+          <img src="<%= campground.images[0].url %>" alt="" />
+          <div class="intro__introList">
+            <li><a href="/campgrounds/<%= campground._id %>"><%= campground.title %></a></li>
+            <li><%= campground.location %></li>
+            <li>캠핑장 주인 : <%= campground.author.username %></li>
+            <li>가격 :  <%= campground.price %></li>
+            <li>캠핑장 리뷰 :  <%= campground.reviews.length %></li>
+            <li><%= campground.description.substring(0, 100) + "..." %></li>
+          </div>
         </div>
-      </div>
-    <% } %>
+      <% } %>
+    </div>
   </div>
   `
 
