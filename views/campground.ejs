@@ -137,11 +137,19 @@
         <div class="campground__intro">
           <img src="<%= campground.images[0].url %>" alt="" />
           <div class="intro__introList">
+            <li>리뷰 수 <%= campground.reviews.length %></li>
+            <!-- 리뷰 개수 -->
+            <% let reviewrating = 0; %>
+            <% for(let review of campground.reviews) { %>
+              <% reviewrating += review.rating; %>
+            <% } %>
+            <!-- 리뷰 개수 끝 -->
+            <li>좋아요 수 : <%= reviewrating %>
+            </li>
             <li><a href="/campgrounds/<%= campground._id %>"><%= campground.title %></a></li>
             <li><%= campground.location %></li>
             <li>캠핑장 주인 : <%= campground.author.username %></li>
             <li>가격 :  <%= campground.price %></li>
-            <li>캠핑장 리뷰 :  <%= campground.reviews.length %></li>
             <li><%= campground.description.substring(0, 100) + "..." %></li>
           </div>
         </div>

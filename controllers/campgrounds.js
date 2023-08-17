@@ -9,7 +9,7 @@ const mainCampground = (req,res) => {
 }
 
 const indexCampground = async (req, res) => {
-  const campgrounds = await Campground.find({}).populate("author");
+  const campgrounds = await Campground.find({}).populate("author").populate("reviews");
   res.render("campground", { campgrounds });
 };
 
