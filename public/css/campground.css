@@ -143,7 +143,9 @@
   background-color: #848484;
 }
 
-
+.campground__tag .tag__Sharp .tag__toggle {
+  background-color: orange;
+}
 
 
 
