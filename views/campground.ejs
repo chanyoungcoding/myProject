@@ -2,6 +2,7 @@
 
 <link rel="stylesheet" href="/css/campground.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
 <div class="campground">
   <div class="campground__map" id="map"></div>
 
@@ -155,6 +156,12 @@
             <li class="list__briefIntroduction"><%= campground.description.substring(0, 100) + "..." %></li>
             <li>캠핑장 주인 : <%= campground.author.username %></li>
             <li>가격 : <%= campground.price %></li>
+            <div class="list__function">
+              <div><p><i class="fas fa-wifi"></i><br>전기</p></div>
+              <div><p><i class="fas fa-wifi"></i><br>전기</p></div>
+              <div><p><i class="fas fa-wifi"></i><br>전기</p></div>
+              <div><p><i class="fas fa-wifi"></i><br>전기</p></div>
+            </div>
           </div>
         </div>
       <% } %>

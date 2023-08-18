@@ -319,6 +319,28 @@
   color: #626262;
 }
 
+.campground .campground__inner .campground__intro .intro__introList .list__function {
+  background-color: white;
+  border: 1px solid #e8e8e8;
+  display: flex;
+  align-items: center;
+}
+
+.campground .campground__inner .campground__intro .intro__introList .list__function div {
+  text-align: center;
+  margin-left: 30px;
+}
+
+.campground .campground__inner .campground__intro .intro__introList .list__function div i {
+  font-size: 30px;
+  padding-bottom: 10px;
+}
+
+.campground .campground__inner .campground__intro .intro__introList .list__function div p {
+  font-size: 15px;
+  color: #626262;
+}
+
 .campground .campground__inner .campground__intro .intro__introList li:nth-child(1) {
   margin: 10px;
 }
