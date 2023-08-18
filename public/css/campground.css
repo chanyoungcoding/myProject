@@ -229,19 +229,45 @@
 /* campground__inner */
 
 .campground .campground__inner {
-  margin-top: 50px;
+  width: 1080px;
+  margin: 50px auto 0px;
   height: 2000px;
 }
 
 .campground .campground__inner p {
+  margin: 30px 0px;
   font-size: 30px;
+}
+
+.campground .campground__inner .campground__navbar {
+  background-color: #F4F4F4;
+  border-top: 1px solid #dbdbdb;
+  border-bottom: 2px solid #000000;
+  padding: 15px 20px 15px 0;
+}
+
+.campground .campground__inner .campground__navbar input {
+  padding: 5px 10px;
+  outline: none;
+  margin-left: 30px;
+  border: 1px solid #626262;
 }
 
 .campground .campground__inner p span {
   color: orange;
 }
 
+.campground .campground__inner .campground__detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8fcfe;
+}
+
 .campground .campground__inner .campground__intro {
+  width: 1000px;
+  background-color: white;
   display: flex;
   margin-top: 30px;
   border: 1px solid gray;
@@ -255,8 +281,42 @@
   object-fit: cover;
 }
 
+.campground .campground__inner .campground__intro .intro__introList {
+  margin-left: 30px;
+}
+
+.campground .campground__inner .campground__intro .intro__introList .list__review,
+.campground .campground__inner .campground__intro .intro__introList .list__great,
+.campground .campground__inner .campground__intro .intro__introList .list__best {
+  display: inline-block;
+  padding: 8px;
+  font-size: 12px;
+  color: white;
+  text-align: center;
+}
+
+.campground .campground__inner .campground__intro .intro__introList .list__review {
+  background-color: #D6394C;
+}
+
+.campground .campground__inner .campground__intro .intro__introList .list__great {
+  background-color: #444444;
+}
+
+.campground .campground__inner .campground__intro .intro__introList .list__best {
+  margin-left: 15px;
+  background-color: #547AC0;
+}
+
 .campground .campground__inner .campground__intro .intro__introList li a {
-  font-size: 40px;
+  font-size: 21px;
+  color: #626262;
+}
+
+.campground .campground__inner .campground__intro .intro__introList .list__briefIntroduction {
+  margin-top: 30px;
+  font-size: 18px;
+  color: #626262;
 }
 
 .campground .campground__inner .campground__intro .intro__introList li:nth-child(1) {

@@ -131,26 +131,30 @@
 
   
   <div class="campground__inner">
-    <p>총 <span><%= campgrounds.length  %></span> 의 캠핑장이 있습니다.</p>
+    <p>총 <span><%= campgrounds.length  %>개</span> 캠핑장이 있습니다.</p>
+    <div class="campground__navbar">
+      <input type="text" placeholder="캠핑장 이름을 입력해 주세요."/>
+    </div>
     <div class="campground__detail">
       <% for(let campground of campgrounds) {%>
         <div class="campground__intro">
           <img src="<%= campground.images[0].url %>" alt="" />
           <div class="intro__introList">
-            <li>리뷰 수 <%= campground.reviews.length %></li>
-            <!-- 리뷰 개수 -->
+            <li class="list__review">리뷰 수 <%= campground.reviews.length %></li>
+            <!-- 좋아요 개수 -->
             <% let reviewrating = 0; %>
             <% for(let review of campground.reviews) { %>
               <% reviewrating += review.rating; %>
             <% } %>
-            <!-- 리뷰 개수 끝 -->
-            <li>좋아요 수 : <%= reviewrating %>
-            </li>
-            <li><a href="/campgrounds/<%= campground._id %>"><%= campground.title %></a></li>
-            <li><%= campground.location %></li>
+            <!-- 좋아요 개수 끝 -->
+            <li class="list__great">좋아요 수  <%= reviewrating %></li>
+            <% if(reviewrating > 5) { %>
+              <li class="list__best">베스트 캠핑장</li>
+            <% } %>
+            <li><a href="/campgrounds/<%= campground._id %>">&#91;<%= campground.location %>&#93;<%= campground.title %></a></li>
+            <li class="list__briefIntroduction"><%= campground.description.substring(0, 100) + "..." %></li>
             <li>캠핑장 주인 : <%= campground.author.username %></li>
-            <li>가격 :  <%= campground.price %></li>
-            <li><%= campground.description.substring(0, 100) + "..." %></li>
+            <li>가격 : <%= campground.price %></li>
           </div>
         </div>
       <% } %>
