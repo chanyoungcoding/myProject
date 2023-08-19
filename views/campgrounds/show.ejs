@@ -4,13 +4,25 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="/css/common.css">
-<link rel="stylesheet" href="/css/app.css">
-
+<link rel="stylesheet" href="/css/show.css">
 
 <%= error %>
+
+
 <div class="showPage">
-  <div class="showPage__left">
-    <div id="map" style="width: 400px; height: 300px;"></div>
+  <div class="showPage__top">
+    <h1><%= campground.title %></h1>
+    <h2>동해안에서 가장 아름답다는 장호해변 언덕에 위치한 휴양 캠핑 시설</h2>
+    <div class="top__line"></div>
+    <div class="top__tag">
+      <li class="tag__tag">태그</li>
+      <li>&#35;&#32;가족</li>
+      <li>&#35;&#32;여름</li>
+      <li>&#35;&#32;물놀이</li>
+    </div>
+  </div>
+
+  <div class="showPage__center">
     <div id="carouselExample" class="carousel slide">
       <div class="carousel-inner">
         <% campground.images.forEach((img, i) => { %>
@@ -91,6 +103,9 @@
     </div>
   </div>
 </div>
+
+<div id="map" style="width: 400px; height: 300px;"></div>
+
 
 <script>
   const mapToken = '<%-process.env.MAPBOX_TOKEN%>';
