@@ -151,16 +151,19 @@
             <li class="list__great">좋아요 수  <%= reviewrating %></li>
             <% if(reviewrating > 5) { %>
               <li class="list__best">베스트 캠핑장</li>
-            <% } %>
-            <li><a href="/campgrounds/<%= campground._id %>">&#91;<%= campground.location %>&#93;<%= campground.title %></a></li>
-            <li class="list__briefIntroduction"><%= campground.description.substring(0, 100) + "..." %></li>
-            <li>캠핑장 주인 : <%= campground.author.username %></li>
-            <li>가격 : <%= campground.price %></li>
+              <% } %>
+              <li><a href="/campgrounds/<%= campground._id %>">&#91;<%= campground.location %>&#93;<%= campground.title %></a></li>
+              <li class="list__briefIntroduction"><%= campground.description.substring(0, 100) + "..." %></li>
+            <div class="list__owner__price">
+              <li><i class="fas fa-user"></i> <%= campground.author.username %></li>
+              <li><i class="fas fa-dollar-sign"></i> <%= campground.price %></li>
+            </div>
             <div class="list__function">
-              <div><p><i class="fas fa-wifi"></i><br>전기</p></div>
-              <div><p><i class="fas fa-wifi"></i><br>전기</p></div>
-              <div><p><i class="fas fa-wifi"></i><br>전기</p></div>
-              <div><p><i class="fas fa-wifi"></i><br>전기</p></div>
+              <div><p><i class="fas fa-wifi"></i><br>와이파이</p></div>
+              <div><p><i class="fas fa-bed"></i><br>침대</p></div>
+              <div><p><i class="fas fa-dog"></i><br>펫</p></div>
+              <div><p><i class="fas fa-plug"></i><br>전기</p></div>
+              <div><p><i class="fas fa-table-tennis"></i><br>운동시설</p></div>
             </div>
           </div>
         </div>

@@ -274,7 +274,7 @@
 }
 
 .campground .campground__inner .campground__intro img {
-  padding-right: 20px;
+  padding: 30px;
   border-right: 1px solid gray;
   width: 300px;
   height: 300px;
@@ -314,16 +314,29 @@
 }
 
 .campground .campground__inner .campground__intro .intro__introList .list__briefIntroduction {
-  margin-top: 30px;
+  max-width: 550px;
+  margin: 30px 0px;
   font-size: 18px;
   color: #626262;
 }
 
-.campground .campground__inner .campground__intro .intro__introList .list__function {
-  background-color: white;
-  border: 1px solid #e8e8e8;
+.campground .campground__inner .campground__intro .intro__introList .list__owner__price {
   display: flex;
   align-items: center;
+  font-size: 20px;
+}
+
+.campground .campground__inner .campground__intro .intro__introList .list__owner__price li {
+  margin-left: 30px;
+}
+
+.campground .campground__inner .campground__intro .intro__introList .list__function {
+  display: flex;
+  align-items: center;
+  margin-right: 30px;
+  margin-bottom: 30px;
+  background-color: white;
+  border: 1px solid #e8e8e8;
 }
 
 .campground .campground__inner .campground__intro .intro__introList .list__function div {
