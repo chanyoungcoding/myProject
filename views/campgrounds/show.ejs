@@ -23,39 +23,44 @@
   </div>
 
   <div class="showPage__center">
-    <div id="carouselExample" class="carousel slide">
-      <div class="carousel-inner">
-        <% campground.images.forEach((img, i) => { %>
-          <div class="carousel-item <%= i === 0 ? 'active' : ''%>">
-            <img src="<%= img.url %>" class="showPage__img" alt="">
-          </div>
-        <% }) %>
+    <div class="center__left">
+      <div id="carouselExample" class="carousel slide">
+        <div class="carousel-inner">
+          <% campground.images.forEach((img, i) => { %>
+            <div class="carousel-item <%= i === 0 ? 'active' : ''%>">
+              <img src="<%= img.url %>" class="showPage__img" alt="">
+            </div>
+          <% }) %>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
     </div>
-    <h1><%= campground.title %></h1>
-    <h2><%= campground.location %></h2>
-    <h3><%= campground.price %></h3>
-    <h3><%= campground.author.username %></h3>
-    <p><%= campground.description %></p>
-    <% if(currentUser && campground.author.equals(currentUser._id)) { %>
-    <div class="showPage__button">
-      <form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
-        <button class="button-24" role="button">삭제하기</button>
-      </form>
-      <button class="button-25" role="button">
-        <a href="/campgrounds/<%= campground._id %>/edit">수정하기</a>
-      </button>
+    <div class="center__right">
+      <h1><%= campground.title %></h1>
+      <h2><%= campground.location %></h2>
+      <h3><%= campground.price %></h3>
+      <h3><%= campground.author.username %></h3>
+      <p><%= campground.description %></p>
+      <% if(currentUser && campground.author.equals(currentUser._id)) { %>
+      <div class="showPage__button">
+        <form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
+          <button class="button-24" role="button">삭제하기</button>
+        </form>
+        <button class="button-25" role="button">
+          <a href="/campgrounds/<%= campground._id %>/edit">수정하기</a>
+        </button>
+      </div>
+      <% } %>
     </div>
-    <% } %>
   </div>
+
   
   <% if(currentUser) { %>
   <div class="show__right">

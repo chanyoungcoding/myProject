@@ -64,46 +64,14 @@
   margin-left: 0px;
 }
 
-/* showPage__left */
+/* showPage__center */
 
 .showPage__center {
-  max-width: 100%;
-  padding-top: 30px;
-  background-color: #2c5777;
+  
 }
 
-.showPage__img {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  width: 500px;
-  height: 500px;
-}
+.showPage__center .center__left {
 
-.showPage__center h1,
-.showPage__center h2,
-.showPage__center h3,
-.showPage__center p {
-  margin-top: 10px;
-}
-
-.showPage__center h1 {
-  font-size: 30px;
-}
-
-.showPage__center h2 {
-  font-size: 20px;
-}
-
-.showPage__center h3 {
-  font-size: 20px;
-}
-
-.showPage__center p {
-  padding: 10px;
-  border: 2px solid #35343B;
-  border-radius: 10px;
-  max-width: 600px;
 }
 
 .showPage__button {
