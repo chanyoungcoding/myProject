@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const cities = require("./cities");
+const camp = require('./전국휴양림표준데이터.json');
 const { places, descriptors } = require("./seedHelpers");
 const Campground = require("../models/campground");
 
