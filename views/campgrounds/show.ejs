@@ -8,8 +8,9 @@
 
 <%= error %>
 
-
+<!-- Show hompage 메인 -->
 <div class="showPage">
+  <!-- Show page top -->
   <div class="showPage__top">
     <h1><%= campground.title %></h1>
     <h2>동해안에서 가장 아름답다는 장호해변 언덕에 위치한 휴양 캠핑 시설</h2>
@@ -22,7 +23,9 @@
     </div>
   </div>
 
+  <!-- Show page center -->
   <div class="showPage__center">
+    <!-- cetner left -->
     <div class="center__left">
       <div id="carouselExample" class="carousel slide">
         <div class="carousel-inner">
@@ -44,6 +47,8 @@
         <% } %>
       </div>
     </div>
+
+    <!-- center right -->
     <div class="center__right">
       <div class="right__intro">
         <div class="intro__introduce">
@@ -62,6 +67,26 @@
           <p>주인</p>
           <h3><%= campground.author.username %></h3>
         </div>
+        <div class="intro__introduce">
+          <p>주소</p>
+          <h3>임시 주소</h3>
+        </div>
+        <div class="intro__introduce">
+          <p>운영 기간</p>
+          <h3>봄, 여름, 가을, 겨울</h3>
+        </div>
+        <div class="intro__introduce">
+          <p>주변시설</p>
+          <h3>해수욕</h3>
+        </div>
+        <div class="intro__introduce">
+          <p>문의처</p>
+          <h3>010-3333-3333</h3>
+        </div>
+        <div class="intro__introduce">
+          <p>캠핑장 유형</p>
+          <h3>카라반, 캠프</h3>
+        </div>
       </div>
       <% if(currentUser && campground.author.equals(currentUser._id)) { %>
       <div class="showPage__button">
@@ -76,7 +101,11 @@
     </div>
   </div>
 
-  
+  <div class="showPage__bottom">
+    
+  </div>
+
+
   <% if(currentUser) { %>
   <div class="show__right">
     <h2>리뷰를 남겨보세요.</h2>
