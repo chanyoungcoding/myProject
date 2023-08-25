@@ -1,11 +1,13 @@
 /* show */
-/* showPage-left */
 
 .showPage {
   max-width: 1920px;
   margin: 0 auto;
   overflow: hidden;
 }
+
+
+
 
 /* showPage__top */
 
@@ -66,18 +68,20 @@
   margin-left: 0px;
 }
 
+
+
 /* showPage__center */
 
 .showPage__center {
-  max-width: 1800px;
+  max-width: 100%;
   margin: 0 auto;
   justify-content: center;
   display: flex;
-  background-color: #2c5777;
 }
 
 .showPage__center .center__left {
-
+  padding: 30px;
+  margin-right: 90px;
 }
 
 .showPage__center .center__left img {
@@ -85,6 +89,53 @@
   height: 550px;
   object-fit: cover;
 }
+
+/* showPage__center  center__right */
+
+.showPage__center .center__right {
+  padding: 30px;
+}
+
+.showPage__center .center__right .right__intro {
+  display: flex;
+  flex-direction: column;
+}
+
+.showPage__center .center__right .right__intro .intro__introduce {
+  width: 500px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #c8c8c8;
+}
+
+.showPage__center .center__right .right__intro .intro__introduce p {
+  width: 150px;
+  font-size: 15px;
+  line-height: 30px;
+  color: #000000;
+  font-weight: 600;
+  margin: 0;
+  padding: 10px;
+  padding-right: 30px;
+}
+
+.showPage__center .center__right .right__intro .intro__introduce:nth-child(1) p {
+  border-top: 2px solid #FF4742;
+}
+
+.showPage__center .center__right .right__intro .intro__introduce h3 {
+  font-size: 15px;
+  flex-grow: 1;
+  color: #626262;
+  line-height: 30px;
+  margin: 0;
+  padding: 10px;
+}
+
+.showPage__center .center__right .right__intro .intro__introduce:nth-child(1) h3 {
+  border-top: 2px solid #000000;
+}
+
 
 .showPage__button {
   display: flex;
