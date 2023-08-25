@@ -332,6 +332,7 @@
 }
 
 .campground .campground__inner .campground__intro .intro__introList .list__function {
+  width: 550px;
   display: flex;
   align-items: center;
   margin-right: 30px;

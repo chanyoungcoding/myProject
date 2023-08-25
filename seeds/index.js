@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const cities = require("./cities");
-const camp = require('./전국휴양림표준데이터.json');
+const koreacamp = require('./전국휴양림표준데이터.json');
 const { places, descriptors } = require("./seedHelpers");
 const Campground = require("../models/campground");
 
@@ -12,17 +12,17 @@ mongoose.connect("mongodb://127.0.0.1:27017/chan-camp")
     console.log(e);
   });
 
-const sample = (array) => array[Math.floor(Math.random() * array.length)];
 
 const seedDB = async () => {
   await Campground.deleteMany({});
   for (let i = 0; i < 50; i++) {
-    const random1000 = Math.floor(Math.random() * 1000);
+
     const price = Math.floor(Math.random() * 20) + 10;
+
     const camp = new Campground({
       author: '64d9d8706ee0f3670290766c',
-      location: `${cities[random1000].city}, ${cities[random1000].state}`,
-      title: `${sample(descriptors)} ${sample(places)}`,
+      location: `${koreacamp.records[i].소재지도로명주소}`,
+      title: `${koreacamp.records[i].휴양림명}`,
       images: [
         {
           url: 'https://res.cloudinary.com/dnjjlp2uy/image/upload/v1691998363/ChanCamp/qstdv9mzvcbn7abdyxo4.jpg',
@@ -33,13 +33,14 @@ const seedDB = async () => {
           filename: 'ChanCamp/qstdv9mzvcbn7abdyxo4',
         }
       ],
-      description: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque non dolorum soluta alias doloribus. Inventore minus, quasi quia debitis aliquid velit omnis molestias temporibus a tempora architecto maiores blanditiis dicta?",
+      description: `${koreacamp.records[i].주요시설명}`,
       price,
+      city: `${koreacamp.records[i].시도명}`,
       geometry: {
         type: "Point",
         coordinates: [
-          cities[random1000].longitude,
-          cities[random1000].latitude
+          koreacamp.records[i].경도,
+          koreacamp.records[i].위도
         ]
       }
 

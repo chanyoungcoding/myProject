@@ -152,7 +152,7 @@
             <% if(reviewrating > 5) { %>
               <li class="list__best">베스트 캠핑장</li>
               <% } %>
-              <li><a href="/campgrounds/<%= campground._id %>">&#91;<%= campground.location %>&#93;<%= campground.title %></a></li>
+              <li><a href="/campgrounds/<%= campground._id %>">&#91;<%= campground.city %>&#93;<%= campground.title %></a></li>
               <li class="list__briefIntroduction"><%= campground.description.substring(0, 100) + "..." %></li>
             <div class="list__owner__price">
               <li><i class="fas fa-user"></i> <%= campground.author.username %></li>
