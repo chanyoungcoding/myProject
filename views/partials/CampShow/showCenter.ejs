@@ -1,0 +1,78 @@
+<div class="showPage__center">
+  <!-- cetner left -->
+  <div class="center__left">
+    <div id="carouselExample" class="carousel slide">
+      <div class="carousel-inner">
+        <% campground.images.forEach((img, i) => { %>
+          <div class="carousel-item <%= i === 0 ? 'active' : ''%>">
+            <img src="<%= img.url %>" class="showPage__img" alt="">
+          </div>
+        <% }) %>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- center right -->
+  <div class="center__right">
+    <div class="right__intro">
+      <div class="intro__introduce">
+        <p>캠핑장 이름</p>
+        <h3><%= campground.title %></h3>
+      </div>
+      <div class="intro__introduce">
+        <p>캠핑장 위치</p>
+        <h3><%= campground.location %></h3>
+      </div>
+      <div class="intro__introduce">
+        <p>가격</p>
+        <h3><%= campground.price %></h3>
+      </div>
+      <div class="intro__introduce">
+        <p>주인</p>
+        <% if (campground.author) { %>
+            <h3><%= campground.author.username %></h3>
+        <% } else { %>
+            <p>주인 정보 없음</p>
+        <% } %>
+    </div>
+      <div class="intro__introduce">
+        <p>주소</p>
+        <h3>임시 주소</h3>
+      </div>
+      <div class="intro__introduce">
+        <p>운영 기간</p>
+        <h3>봄, 여름, 가을, 겨울</h3>
+      </div>
+      <div class="intro__introduce">
+        <p>주변시설</p>
+        <h3>해수욕</h3>
+      </div>
+      <div class="intro__introduce">
+        <p>문의처</p>
+        <h3>010-3333-3333</h3>
+      </div>
+      <div class="intro__introduce">
+        <p>캠핑장 유형</p>
+        <h3>카라반, 캠프</h3>
+      </div>
+    </div>
+    <% if(currentUser && campground.author && campground.author.equals(currentUser._id)) { %>
+    <div class="showPage__button">
+      <form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
+        <button class="button-24" role="button">삭제하기</button>
+      </form>
+      <button class="button-25" role="button">
+        <a href="/campgrounds/<%= campground._id %>/edit">수정하기</a>
+      </button>
+    </div>
+    <% } %>
+  </div>
+</div>
