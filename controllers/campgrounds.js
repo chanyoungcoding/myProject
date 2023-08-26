@@ -4,6 +4,7 @@ const mapBoxToken = process.env.MAPBOX_TOKEN;
 const geocoder = mbxGeocoding({accessToken: mapBoxToken})
 const { cloudinary } = require('../cloudinary');
 
+
 const mainCampground = (req,res) => {
   res.render("home");
 }

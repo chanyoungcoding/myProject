@@ -119,7 +119,13 @@
               <li><a href="/campgrounds/<%= campground._id %>">&#91;<%= campground.city %>&#93;<%= campground.title %></a></li>
               <li class="list__briefIntroduction"><%= campground.description.substring(0, 100) + "..." %></li>
             <div class="list__owner__price">
-              <li><i class="fas fa-user"></i> <%= campground.author.username %></li>
+              <li><i class="fas fa-user"></i> 
+                <% if(campground.author && campground.author.username) { %>
+                    <%= campground.author.username %>
+                <% } else { %>
+                    no Owner
+                <% } %>
+            </li>
               <li><i class="fas fa-dollar-sign"></i> <%= campground.price %></li>
             </div>
             <div class="list__function">
