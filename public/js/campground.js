@@ -29,3 +29,16 @@ const swiper = new Swiper('.swiper', {
     prevEl: '.swiper-button-left',
   },
 });
+
+
+window.addEventListener('scroll', function () {
+  localStorage.setItem('scrollPosition', window.scrollY);
+});
+
+window.addEventListener('load', function () {
+  const savedScrollPosition = localStorage.getItem('scrollPosition');
+
+  if (savedScrollPosition !== null) {
+    window.scrollTo(0, savedScrollPosition);
+  }
+});

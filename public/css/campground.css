@@ -267,12 +267,17 @@
 } 
 
 
+
+
+
+
+
 /* campground__inner */
 
 .campground .campground__inner {
   width: 1080px;
   margin: 50px auto 0px;
-  height: 2000px;
+  max-height: 2600px;
 }
 
 .campground .campground__inner p {
@@ -304,6 +309,7 @@
   align-items: center;
   justify-content: center;
   background-color: #f8fcfe;
+  padding-bottom: 45px;
 }
 
 .campground .campground__inner .campground__intro {

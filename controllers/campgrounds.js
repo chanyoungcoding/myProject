@@ -11,7 +11,10 @@ const mainCampground = (req,res) => {
 
 const indexCampground = async (req, res) => {
   const campgrounds = await Campground.find({}).populate("author").populate("reviews");
-  res.render("campground", { campgrounds });
+  const pagenum = Math.ceil(campgrounds.length / 6);
+  const page = req.query.page * 6 || 6;
+
+  res.render("campground", { campgrounds,  currentPage: pagenum, page });
 };
 
 const newCampground = (req, res) => {

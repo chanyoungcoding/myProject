@@ -95,52 +95,11 @@
   <div class="campground__div"></div>
 
   
-  <div class="campground__inner">
-    <p>총 <span><%= campgrounds.length  %>개</span> 캠핑장이 있습니다.</p>
-    <div class="campground__navbar">
-      <input type="text" placeholder="캠핑장 이름을 입력해 주세요."/>
-    </div>
-    <div class="campground__detail">
-      <% for(let campground of campgrounds) {%>
-        <div class="campground__intro">
-          <img src="<%= campground.images[0].url %>" alt="" />
-          <div class="intro__introList">
-            <li class="list__review">리뷰 수 <%= campground.reviews.length %></li>
-            <!-- 좋아요 개수 -->
-            <% let reviewrating = 0; %>
-            <% for(let review of campground.reviews) { %>
-              <% reviewrating += review.rating; %>
-            <% } %>
-            <!-- 좋아요 개수 끝 -->
-            <li class="list__great">좋아요 수  <%= reviewrating %></li>
-            <% if(reviewrating > 5) { %>
-              <li class="list__best">베스트 캠핑장</li>
-              <% } %>
-              <li><a href="/campgrounds/<%= campground._id %>">&#91;<%= campground.city %>&#93;<%= campground.title %></a></li>
-              <li class="list__briefIntroduction"><%= campground.description.substring(0, 100) + "..." %></li>
-            <div class="list__owner__price">
-              <li><i class="fas fa-user"></i> 
-                <% if(campground.author && campground.author.username) { %>
-                    <%= campground.author.username %>
-                <% } else { %>
-                    no Owner
-                <% } %>
-            </li>
-              <li><i class="fas fa-dollar-sign"></i> <%= campground.price %></li>
-            </div>
-            <div class="list__function">
-              <div><p><i class="fas fa-wifi"></i><br>와이파이</p></div>
-              <div><p><i class="fas fa-bed"></i><br>침대</p></div>
-              <div><p><i class="fas fa-dog"></i><br>펫</p></div>
-              <div><p><i class="fas fa-plug"></i><br>전기</p></div>
-              <div><p><i class="fas fa-table-tennis"></i><br>운동시설</p></div>
-            </div>
-          </div>
-        </div>
-      <% } %>
-    </div>
+  <%- include('./partials/campintro.ejs') %>
+  
+  <div class="campground__test">
+    <p>hello</p>
   </div>
-  `
 
   <%= success  %>
 </div>
