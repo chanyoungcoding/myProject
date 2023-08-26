@@ -1,0 +1,31 @@
+<div class="campground__swiper">
+  <div class="swiper__first">
+    <h1>행복을 주는 감성 캠핑</h1>
+
+    <div class="swiper__button">
+      <div class="swiper-button-left">&#60;</div>
+      <div class="swiper-button-right">&#62;</div>
+    </div>
+  </div>
+  <p>한번쯤은 꼭 가볼만한 캠핑장! 추천해요~</p>
+
+  <div class="swiper">
+
+    <div class="swiper-wrapper">
+      <!-- Slides -->
+      <% for(let i = 0; i < 10; i++) { %>
+        <div class="swiper-slide">
+          <a href="/campgrounds/<%= campgrounds[i]._id %>">
+            <img src="<%= campgrounds[i].images[0].url %>" alt="campImage">
+            <div>
+              <h1><%= campgrounds[i].title %></h1>
+            </div>
+          </a>
+        </div>
+      <% } %>
+    </div>
+
+    <div class="swiper-pagination"></div>
+
+  </div>
+</div>

@@ -1,0 +1,26 @@
+<div class="campground__commend">
+  <div class="commend__intro">
+    <h1>청량한 숲 여행</h1>
+    <p>찬캠프 추천 올해의 여행</p>
+  </div>
+  <div class="commend__inner">
+    <% for(i = 0; i < 6; i++) { %>
+      <div class="inner__common">
+        <div class="common__href">
+          <a href="/campgrounds/<%= campgrounds[i]._id %>">
+            <img src="<%= campgrounds[i].images[0].url %>" alt="campImage">
+            <i class="fas fa-plus"></i>
+          </a>
+        </div>
+        <div class="common__intro">
+          <h1><%= campgrounds[i].title %></h1>
+          <div class="intro__line"></div>
+          <p><%= campgrounds[i].description %></p>
+        </div>
+        <form class="intro__form" action="/campgrounds">
+          <button>주변캠핑장 보기</button>
+        </form>
+      </div>
+    <% } %>
+  </div>
+</div>
