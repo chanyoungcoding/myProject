@@ -30,7 +30,7 @@ const swiper = new Swiper('.swiper', {
   },
 });
 
-
+// 스크롤 시 해당 페이지 기억 하고 있다가 새로고침 시 해당 페이지로 이동
 window.addEventListener('scroll', function () {
   localStorage.setItem('scrollPosition', window.scrollY);
 });
@@ -42,3 +42,10 @@ window.addEventListener('load', function () {
     window.scrollTo(0, savedScrollPosition);
   }
 });
+
+// 버튼 클릭시 원하는 부분의 페이지로 이동
+
+const buttonsAs = document.querySelectorAll('.buttons__a');
+buttonsAs.forEach(x => x.addEventListener('click', () => {
+  localStorage.setItem('scrollPosition', 2390);
+}))
