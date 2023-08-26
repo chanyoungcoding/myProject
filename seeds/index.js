@@ -25,7 +25,7 @@ const seedDB = async () => {
       title: `${koreacamp.records[i].휴양림명}`,
       images: [
         {
-          url: 'https://res.cloudinary.com/dnjjlp2uy/image/upload/v1691998363/ChanCamp/qstdv9mzvcbn7abdyxo4.jpg',
+          url: 'https://res.cloudinary.com/dnjjlp2uy/image/upload/v1693008846/ChanCamp/nrnnujuzezbfb92qukz2.jpg',
           filename: 'ChanCamp/qstdv9mzvcbn7abdyxo4',
         },
         {

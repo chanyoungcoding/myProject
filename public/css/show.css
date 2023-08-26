@@ -73,7 +73,7 @@
 /* showPage__center */
 
 .showPage__center {
-  max-width: 100%;
+  width: 1200px;
   margin: 0 auto;
   justify-content: center;
   display: flex;

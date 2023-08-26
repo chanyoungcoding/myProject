@@ -16,61 +16,24 @@
       <p>찬캠프 추천 올해의 여행</p>
     </div>
     <div class="commend__inner">
-      <div class="inner__common">
-        <div class="common__href"><a href="javascript:void(0)">+</a></div>
-        <div class="common__intro">
-          <h1>국립치유의숲</h1>
-          <div class="intro__line"></div>
-          <p>국립김천치유의숲은 국내 치유의숲 17곳 가운데 평균 고도가 가장 높다. 덕분에 경북 이남 지역에서</p>
+      <% for(i = 0; i < 6; i++) { %>
+        <div class="inner__common">
+          <div class="common__href">
+            <a href="/campgrounds/<%= campgrounds[i]._id %>">
+              <img src="<%= campgrounds[i].images[0].url %>" alt="campImage">
+              <i class="fas fa-plus"></i>
+            </a>
+          </div>
+          <div class="common__intro">
+            <h1><%= campgrounds[i].title %></h1>
+            <div class="intro__line"></div>
+            <p><%= campgrounds[i].description %></p>
+          </div>
           <form class="intro__form" action="/campgrounds">
             <button>주변캠핑장 보기</button>
           </form>
         </div>
-      </div>
-      <div class="inner__common">
-        <div class="common__href"><a href="javascript:void(0)">+</a></div>
-        <div class="common__intro">
-          <h1>국립치유의숲</h1>
-          <div class="intro__line"></div>
-          <p>국립김천치유의숲은 국내 치유의숲 17곳 가운데 평균 고도가 가장 높다. 덕분에 경북 이남 지역에서</p>
-          <form class="intro__form" action="/campgrounds">
-            <button>주변캠핑장 보기</button>
-          </form>
-        </div>
-      </div>
-      <div class="inner__common">
-        <div class="common__href"><a href="javascript:void(0)">+</a></div>
-        <div class="common__intro">
-          <h1>국립치유의숲</h1>
-          <div class="intro__line"></div>
-          <p>국립김천치유의숲은 국내 치유의숲 17곳 가운데 평균 고도가 가장 높다. 덕분에 경북 이남 지역에서</p>
-          <form class="intro__form" action="/campgrounds">
-            <button>주변캠핑장 보기</button>
-          </form>
-        </div>
-      </div>
-      <div class="inner__common">
-        <div class="common__href"><a href="javascript:void(0)">+</a></div>
-        <div class="common__intro">
-          <h1>국립치유의숲</h1>
-          <div class="intro__line"></div>
-          <p>국립김천치유의숲은 국내 치유의숲 17곳 가운데 평균 고도가 가장 높다. 덕분에 경북 이남 지역에서</p>
-          <form class="intro__form" action="/campgrounds">
-            <button>주변캠핑장 보기</button>
-          </form>
-        </div>
-      </div>
-      <div class="inner__common">
-        <div class="common__href"><a href="javascript:void(0)">+</a></div>
-        <div class="common__intro">
-          <h1>국립치유의숲</h1>
-          <div class="intro__line"></div>
-          <p>국립김천치유의숲은 국내 치유의숲 17곳 가운데 평균 고도가 가장 높다. 덕분에 경북 이남 지역에서</p>
-          <form class="intro__form" action="/campgrounds">
-            <button>주변캠핑장 보기</button>
-          </form>
-        </div>
-      </div>
+      <% } %>
     </div>
   </div>
 
@@ -112,15 +75,16 @@
 
       <div class="swiper-wrapper">
         <!-- Slides -->
-        <div class="swiper-slide"><a href="/campgrounds">hello</a></div>
-        <div class="swiper-slide"><a href="/campgrounds">hello</a></div>
-        <div class="swiper-slide"><a href="/campgrounds">hello</a></div>
-        <div class="swiper-slide"><a href="/campgrounds">hello</a></div>
-        <div class="swiper-slide"><a href="/campgrounds">hello</a></div>
-        <div class="swiper-slide"><a href="/campgrounds">hello</a></div>
-        <div class="swiper-slide"><a href="/campgrounds">hello</a></div>
-        <div class="swiper-slide"><a href="/campgrounds">hello</a></div>
-        <div class="swiper-slide"><a href="/campgrounds">hello</a></div>
+        <% for(let i = 0; i < 10; i++) { %>
+          <div class="swiper-slide">
+            <a href="/campgrounds/<%= campgrounds[i]._id %>">
+              <img src="<%= campgrounds[i].images[0].url %>" alt="campImage">
+              <div>
+                <h1><%= campgrounds[i].title %></h1>
+              </div>
+            </a>
+          </div>
+        <% } %>
       </div>
 
       <div class="swiper-pagination"></div>

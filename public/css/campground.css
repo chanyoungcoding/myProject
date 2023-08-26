@@ -46,22 +46,36 @@
 }
 
 .campground__commend .commend__inner .inner__common .common__href a {
+  position: relative;
   display: flex;
   width: 200px;
   height: 200px;
+  background-position: center;
+  background-size: cover;
   justify-content: center;
   align-items: center;
   border-radius: 100%;
-  background-color: antiquewhite;
   margin-bottom: 30px;
+}
+
+.campground__commend .commend__inner .inner__common .common__href img {
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+}
+
+.campground__commend .commend__inner .inner__common .common__href a i {
+  position: absolute;
 }
 
 .campground__commend .commend__inner .inner__common .common__intro {
   display: flex;
   flex-direction: column;
-  border: 1px solid gray;
+  border-top: 1px solid gray;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
   width: 200px;
-  height: 200px;
+  height: 150px;
   background-color: white;
 }
 
@@ -78,14 +92,19 @@
   color: gray;
 }
 
-.campground__commend .commend__inner .inner__common .common__intro .intro__form {
+.campground__commend .commend__inner .inner__common .intro__form {
   width: 200px;
   display: flex;
   justify-content: center;
+  background-color: white;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  border-bottom: 1px solid gray;
+
 }
 
-.campground__commend .commend__inner .inner__common .common__intro button {
-  margin: 20px 0px;
+.campground__commend .commend__inner .inner__common button {
+  margin: 20px 0px; 
   border: none;
   outline: none;
   background-color: #004D91;
@@ -203,12 +222,33 @@
 .campground__swiper .swiper .swiper-wrapper div,
 .campground__swiper .swiper .swiper-wrapper div a {
   width: 300px;
-  height: 300px;
+  height: 270px;
+  
 }
 
 .campground__swiper .swiper .swiper-wrapper div a {
   display: block;
-  background-color: #848484;
+}
+
+.campground__swiper .swiper .swiper-wrapper div a img {
+  width: 100%;
+  height: 100%;
+}
+
+.campground__swiper .swiper .swiper-wrapper div a div {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 70px;
+  background-color: rgba( 0, 0, 0, 0.5 );
+}
+
+.campground__swiper .swiper .swiper-wrapper div a div h1 {
+  color: white;
+  font-size: 20px;
+  margin: 0;
 }
 
 .swiper-pagination-bullet {
