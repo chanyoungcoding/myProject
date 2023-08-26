@@ -405,3 +405,20 @@
 .campground .campground__inner .campground__intro .intro__introList li:nth-child(1) {
   margin: 10px;
 }
+
+.campground .campground__inner .campground__buttons {
+  display: flex;
+  justify-content: center;
+}
+
+.campground .campground__inner .campground__buttons .buttons__a {
+  margin-left: 15px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #547AC0;
+  border-radius: 100%;
+  color: white;
+}
