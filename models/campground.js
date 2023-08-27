@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-const Review = require('./review')
+const Review = require('./review');
+const { boolean } = require('joi');
 
 // 캠프의 기본 스키마
 
@@ -43,7 +44,12 @@ const CampgroundSchema = new Schema({
       type: Schema.Types.ObjectId, 
       ref: 'Review'
     }
-  ]
+  ],
+  wifi: Number,
+  bed: String,
+  pet: String,
+  electricity:Number,
+  sportsFacility:String
 }, opts)
 
 CampgroundSchema.virtual('properties.popUpMarkup').get(function() {

@@ -1,5 +1,7 @@
 <% layout('layouts/common.ejs') %>
 
+<link rel="stylesheet" href="/css/new.css">
+
 <div class="newForm">
   <h1>새로운 캠프를 등록해 보세요.</h1>
   <hr>
@@ -32,6 +34,45 @@
       <label for="category">category</label>
       <input type="text" id="category" name="campground[category]">
     </div>
+    <div>
+      <label for="wifi">wifi</label>
+      <input type="text" id="wifi" name="campground[wifi]">
+    </div>
+    <div>
+      <label for="bed">bed</label>
+      <input type="text" id="bed" name="campground[bed]">
+    </div>
+    <div>
+      <label for="pet">pet</label>
+      <input type="text" id="pet" name="campground[pet]">
+    </div>
+    <div>
+      <label for="electricity">electricity</label>
+      <input type="text" id="electricity" name="campground[electricity]">
+    </div>
+    <div>
+      <label for="sportsFacility">운동시설</label>
+      <select id="sportsFacility" name="campground[sportsFacility]">
+        <option value="soccer">축구장</option>
+        <option value="pool">수영장</option>
+        <option value="tennis">테니스 코트</option>
+        <option value="basketball">농구장</option>
+      </select>
+    </div>
+
+    <div class="selectBox">
+      <select name="fruits" class="select">
+        <option disabled selected>fruits 🍊</option>
+        <option value="apple">apple</option>
+        <option value="orange">orange</option>
+        <option value="grape">grape</option>
+        <option value="melon">melon</option>
+      </select>
+      <span class="icoArrow"><img src="https://freepikpsd.com/media/2019/10/down-arrow-icon-png-7-Transparent-Images.png" alt=""></span>
+    </div>
+
+
+
     <div>
       <label for="description">description</label>
       <textarea name="campground[description]" id="description" cols="30" rows="5"></textarea>
