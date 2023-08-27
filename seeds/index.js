@@ -36,6 +36,8 @@ const seedDB = async () => {
       description: `${koreacamp.records[i].주요시설명}`,
       price,
       city: `${koreacamp.records[i].시도명}`,
+      phoneNumber: '전화번호없음',
+      category: '캠핑장',
       geometry: {
         type: "Point",
         coordinates: [
