@@ -37,11 +37,19 @@
             <li><i class="fas fa-dollar-sign"></i> <%= campgrounds[i].price %></li>
           </div>
           <div class="list__function">
-            <div><p><i class="fas fa-wifi"></i><br>와이파이</p></div>
+            <% if(campgrounds[i].wifi === '있음') { %>
+              <div><p><i class="fas fa-wifi"></i><br>와이파이</p></div>
+            <% } %>
             <div><p><i class="fas fa-bed"></i><br>침대</p></div>
-            <div><p><i class="fas fa-dog"></i><br>펫</p></div>
-            <div><p><i class="fas fa-plug"></i><br>전기</p></div>
-            <div><p><i class="fas fa-table-tennis"></i><br>운동시설</p></div>
+            <% if(campgrounds[i].pet === '가능') { %>
+              <div><p><i class="fas fa-dog"></i><br>펫</p></div>
+            <% } %>
+            <% if(campgrounds[i].electricity === '있음') { %>
+              <div><p><i class="fas fa-plug"></i><br>전기</p></div>
+            <% } %>
+            <% if(campgrounds[i].sportsFacility !== '없음') { %>
+              <div><p><i class="fas fa-table-tennis"></i><br>운동시설</p></div>
+            <% } %>
           </div>
         </div>
       </div>
