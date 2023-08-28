@@ -10,10 +10,10 @@ const campgroundSchema = Joi.object({
     phoneNumber:Joi.string().required(),
     category:Joi.string().required(),
     description: Joi.string().required(),
-    wifi: Joi.number().required(),
+    wifi: Joi.string().required(),
     bed: Joi.string().required(),
     pet: Joi.string().required(),
-    electricity:Joi.number().required(),
+    electricity:Joi.string().required(),
     sportsFacility:Joi.string().required()
   }).required(),
   deleteImages: Joi.array()

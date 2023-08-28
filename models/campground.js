@@ -45,10 +45,10 @@ const CampgroundSchema = new Schema({
       ref: 'Review'
     }
   ],
-  wifi: Number,
+  wifi: String,
   bed: String,
   pet: String,
-  electricity:Number,
+  electricity:String,
   sportsFacility:String
 }, opts)
 

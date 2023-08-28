@@ -44,8 +44,12 @@ const seedDB = async () => {
           koreacamp.records[i].경도,
           koreacamp.records[i].위도
         ]
-      }
-
+      },
+      wifi:'있음',
+      bed:'2',
+      pet:'가능',
+      electricity:'있음',
+      sportsFacility: '헬스장'
     });
     await camp.save();
   }
