@@ -1,32 +1,12 @@
-.home {
+.Home__video {
   display: flex;
-  width: 100vw;
-  height: 100vh;
-  background-image: url(/homeCamp.jpg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.home__text {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  max-height: 800px;
+  background-color: cadetblue;
 }
 
-.home h1,
-.home h3 {
-  color: white;
-  font-family: 'Dongle', sans-serif;
-
-}
-
-.home h1 {
-  font-size: 60px;
-}
-
-.home h3 {
-  font-size: 40px;
+.Home__video video {
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
 }
