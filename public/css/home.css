@@ -1,8 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap');
+/* common */
 
 h1,p {
+  color: white;
+}
+
+/* home__donation */
+.home .home__badgeEl {
+  position: fixed;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 100px;
+  right: 30px;
+  top: 130px;
+  background: url('/woodwing.png') no-repeat top/cover;
+  background-color: rgb(110, 179, 119);
+  border-radius: 20px;
+  font-family: 'Black Han Sans', sans-serif;
+}
+
+.home .home__badgeEl p {
   color: black;
 }
+
+/* HomeTop */
 
 .home__top .top__img {
   max-width: 1920px;
@@ -20,3 +45,113 @@ h1,p {
   text-align: center;
   color: white;
 }
+
+
+/* HomeLoginRecommend */
+
+.home__recommend {
+  background-color: #1E3932;
+}
+
+.home__recommend .recommend__center {
+  max-width: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 30px;
+}
+
+.home__recommend .recommend__center .center__icon {
+  margin-right: 30px;
+  padding: 25px;
+  background-color: #2c5349;
+  border-radius: 100%;
+}
+
+.home__recommend .recommend__center .center__icon i {
+  font-size: 40px;
+  color: white;
+}
+
+.home__recommend .recommend__center .center__text {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.home__recommend .recommend__center .center__text .text__top {
+  border-bottom: 1px solid #4b615b;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+
+.home__recommend .recommend__center .center__text .text__top .top__h1 {
+  margin-bottom: 20px;
+}
+
+.home__recommend .recommend__center .center__text .text__top .top__h1 h1 {
+  font-size: 25px;
+  color: white;
+}
+
+.home__recommend .recommend__center .center__text .text__top .top__intro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.home__recommend .recommend__center .center__text .text__top .top__intro .intro__inner p {
+  padding-bottom: 5px;
+  color: white;
+}
+
+.home__recommend .recommend__center .center__text .text__top .top__intro .intro__inner span {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.home__recommend .recommend__center .center__text .text__top .top__intro .intro__button a {
+  color: white;
+}
+
+.home__recommend .recommend__center .center__text .text__top .top__intro .intro__button {
+  display: flex;
+}
+
+.home__recommend .recommend__center .center__text .text__top .top__intro .intro__button .button__1,
+.home__recommend .recommend__center .center__text .text__top .top__intro .intro__button .button__2 {
+  display: block;
+  padding: 10px 15px;
+  border-radius: 5px;
+}
+
+.home__recommend .recommend__center .center__text .text__top .top__intro .intro__button .button__1 {
+  background-color: #00704A;
+  margin-right: 15px;
+}
+
+.home__recommend .recommend__center .center__text .text__top .top__intro .intro__button .button__2 {
+  border: 2px solid white;
+}
+
+
+.home__recommend .recommend__center .center__text .text__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0 30px;
+}
+
+.home__recommend .recommend__center .center__text .text__bottom .bottom__p p {
+  color: white;
+}
+
+.home__recommend .recommend__center .center__text .text__bottom .bottom__button a {
+  display: block;
+  padding: 10px 15px;
+  border-radius: 5px;
+  color: white;
+  border: 2px solid white;
+}
+

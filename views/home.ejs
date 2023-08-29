@@ -12,14 +12,25 @@
   <link rel="icon" href="/campLogo.png">
   <link rel="stylesheet" href="/css/common.css"> 
   <link rel="stylesheet" href="/css/home.css"> 
+
+  <!-- Gsap -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"></script>
+  <!-- Lodash -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.21/lodash.min.js" integrity="sha512-WFN04846sdKMIP5LKNphMaWzU7YpMyCU245etK3g/2ARYbPK9Ub18eG+ljU96qKRCWh+quCY7yefSmlkQw1ANQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- My js -->
   <script defer src="/js/home.js"></script>
   <title>모두의캠프</title>
 </head>
 <body>
   <%- include('./partials/navbar.ejs') %>
   <div class="home">
-    <%- include('./partials/Home/HomeTop.ejs') %>
+    <div class="home__badgeEl">
+      <p>베스트</p>
+      <p>캠핑장</p>
+      <p>구경하기</p>
+    </div>
+    <%- include('./partials/Home/homeTop.ejs') %>
+    <%- include('./partials/Home/homeLoginRecommend.ejs') %>
   </div>
 </body>
 </html>
