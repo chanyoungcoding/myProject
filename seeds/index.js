@@ -36,14 +36,20 @@ const seedDB = async () => {
       description: `${koreacamp.records[i].주요시설명}`,
       price,
       city: `${koreacamp.records[i].시도명}`,
+      phoneNumber: '전화번호없음',
+      category: '캠핑장',
       geometry: {
         type: "Point",
         coordinates: [
           koreacamp.records[i].경도,
           koreacamp.records[i].위도
         ]
-      }
-
+      },
+      wifi:'있음',
+      bed:'2',
+      pet:'가능',
+      electricity:'있음',
+      sportsFacility: '헬스장'
     });
     await camp.save();
   }

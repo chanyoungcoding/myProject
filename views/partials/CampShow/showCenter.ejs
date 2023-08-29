@@ -29,7 +29,7 @@
       </div>
       <div class="intro__introduce">
         <p>캠핑장 위치</p>
-        <h3><%= campground.location %></h3>
+        <h3><%= campground.city %></h3>
       </div>
       <div class="intro__introduce">
         <p>가격</p>
@@ -45,23 +45,23 @@
     </div>
       <div class="intro__introduce">
         <p>주소</p>
-        <h3>임시 주소</h3>
-      </div>
-      <div class="intro__introduce">
-        <p>운영 기간</p>
-        <h3>봄, 여름, 가을, 겨울</h3>
+        <h3><%= campground.location %></h3>
       </div>
       <div class="intro__introduce">
         <p>주변시설</p>
-        <h3>해수욕</h3>
+        <h3><%= campground.sportsFacility %></h3>
       </div>
       <div class="intro__introduce">
         <p>문의처</p>
-        <h3>010-3333-3333</h3>
+        <h3>
+          <%= campground.phoneNumber.substring(0, 3) %> &#45;
+          <%= campground.phoneNumber.substring(3, 7) %> &#45;
+          <%= campground.phoneNumber.substring(7, 11) %>
+        </h3>
       </div>
       <div class="intro__introduce">
         <p>캠핑장 유형</p>
-        <h3>카라반, 캠프</h3>
+        <h3><%= campground.category %></h3>
       </div>
     </div>
     <% if(currentUser && campground.author && campground.author.equals(currentUser._id)) { %>
