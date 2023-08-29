@@ -1,12 +1,21 @@
-.Home__video {
-  display: flex;
-  justify-content: center;
-  max-height: 800px;
-  background-color: cadetblue;
+@import url('https://fonts.googleapis.com/css2?family=Qwitcher+Grypen:wght@700&display=swap');
+
+h1,p {
+  color: black;
 }
 
-.Home__video video {
+.home__top .top__img {
+  max-width: 1920px;
+  height: 800px;
   margin: 0 auto;
-  width: 100%;
-  height: 100%;
+  background: url('/HomeImg.jpg') no-repeat center/cover;
+  font-family: 'Qwitcher Grypen', cursive;
+}
+
+.home__top .top__img p {
+  position: relative;
+  font-size: 100px;
+  color: white;
+  text-align: center;
+  top: 130px;
 }
