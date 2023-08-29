@@ -12,10 +12,11 @@ h1,p {
   font-family: 'Qwitcher Grypen', cursive;
 }
 
-.home__top .top__img p {
+.home__top .top__img h1 {
   position: relative;
-  font-size: 100px;
-  color: white;
-  text-align: center;
   top: 130px;
+  opacity: 0;
+  font-size: 100px;
+  text-align: center;
+  color: white;
 }
