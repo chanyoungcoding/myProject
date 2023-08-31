@@ -155,3 +155,10 @@ h1,p {
   border: 2px solid white;
 }
 
+/* homeIntro */
+
+.home__intro {
+  height: 600px;
+  background: url('/HomeImg2.jpg') no-repeat center;
+  background-attachment: fixed;
+}
