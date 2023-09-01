@@ -8,7 +8,6 @@ gsap.to(imgH1, 2, {
 
 // badge 
 window.addEventListener('scroll', _.throttle(() => {
-  console.log('event')
   if(window.scrollY > 700) {
     gsap.to(badgeEl, .6, {
       opacity: 0,
@@ -22,3 +21,16 @@ window.addEventListener('scroll', _.throttle(() => {
   }
 }, 300))
 
+// text or img slide
+
+const spyEls = document.querySelectorAll('.scroll-spy')
+
+spyEls.forEach(function (spyEl) {
+  new ScrollMagic
+    .Scene({
+      triggerElement:spyEl, //보여짐 여부를 감시할 요소
+      triggerHook: .8       //내가 보는 웹사이트 기준 80% 정도
+    })                        // 80%정도일때 setClassToggle 실행
+    .setClassToggle(spyEl, 'show')
+    .addTo(new ScrollMagic.Controller());
+})
