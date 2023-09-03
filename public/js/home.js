@@ -19,7 +19,7 @@ window.addEventListener('scroll', _.throttle(() => {
       display:'flex'
     })
   }
-}, 300))
+}, 300));
 
 // text or img slide
 
