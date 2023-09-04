@@ -1,18 +1,47 @@
 <% layout('layouts/common.ejs') %>
 
-<div class="newForm">
-  <%= error %>
-  <h1>로그인</h1>
-  <hr>
-  <form class="newForm__form" action="/login" method="POST">
-    <div>
-      <label for="username">username</label>
-      <input type="text" id="username" name="username">
+<link rel="stylesheet" href="/css/login.css">
+
+<div class="login">
+  <div class="login__left">
+
+    <div class="left__top">
+      <h1>이메일 로그인</h1>
+      <p>가입하신 이메일 주소로 로그인 해주세요.</p>
     </div>
-    <div>
-      <label for="password">password</label>
-      <input type="text" id="password" name="password">
+
+    <div class="left__center">
+      <form class="newForm__form" action="/login" method="POST">
+        <div>
+          <label for="username">username</label>
+          <input type="text" id="username" name="username">
+        </div>
+        <div>
+          <label for="password">password</label>
+          <input type="text" id="password" name="password">
+        </div>
+        <button class="button-33" role="button">로그인</button>
+      </form>
     </div>
-    <button class="button-33" role="button">로그인</button>
-  </form>
+
+    <div class="left__bottom">
+      <a href="/register">회원가입</a>
+      <a href="javascript:void(0)">아이디&#183;비밀번호찾기</a>
+    </div>
+  </div>
+
+  <div class="login__right">
+
+    <div class="right__top">
+      <h1>회원가입</h1>
+      <p>CAHN CAMP 화원이 되어보세요.</p>
+      <a href="/register">회원가입</a>
+    </div>
+    
+    <div class="right__bottom">
+      <h1>둘러 보기</h1>
+      <p>다양한 캠핑장을 둘러보세요.</p>
+      <a href="/campgrounds">둘러보기</a>
+    </div>
+  </div>
 </div>
