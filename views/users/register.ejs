@@ -1,24 +1,30 @@
 <% layout('layouts/common.ejs') %>
 
-<div class="register"></div>
+<link rel="stylesheet" href="/css/register.css">
 
-<div class="newForm">
-  <h1>회원 가입</h1>
-  <hr>
-  <form class="newForm__form" action="/register" method="POST">
-    <div>
-      <label for="username">username</label>
-      <input type="text" id="username" name="username">
-    </div>
-    <div>
-      <label for="email">email</label>
-      <input type="text" id="email" name="email">
-    </div>
-    <div>
-      <label for="password">password</label>
-      <input type="text" id="password" name="password">
-    </div>
+<div class="register">
 
-    <button class="button-33" role="button">회원가입</button>
-  </form>
+  <div class="register__top">
+    <h1>회원가입</h1>
+    <p>찬캠프 서비스 이용을 위해 필요한 <span>필수 정보</span>를 입력해 주세요.</p>
+  </div>
+  
+  <div class="register__form">
+    <form class="newForm__form" action="/register" method="POST">
+      <div>
+        <label for="username">아이디</label>
+        <input type="text" id="username" name="username" placeholder="아이디를 입력하세요.">
+      </div>
+      <div>
+        <label for="email">이메일</label>
+        <input type="text" id="email" name="email" placeholder="이메일을 입력하세요.">
+      </div>
+      <div>
+        <label for="password">패스워드</label>
+        <input type="text" id="password" name="password" placeholder="패스워드를 입력하세요.">
+      </div>
+  
+      <button class="button-33" role="button">회원가입</button>
+    </form>
+  </div>
 </div>

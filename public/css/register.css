@@ -1,0 +1,68 @@
+.register {
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+/* register__top */
+
+
+.register .register__top {
+  margin-top: 150px;
+  text-align: center;
+}
+
+.register .register__top h1 {
+  font-size: 30px;
+}
+
+.register .register__top p {
+  margin-top: 20px;
+  color: gray;
+}
+
+.register .register__top p span {
+  color: rgb(62, 151, 241);
+}
+
+/* register__form */
+
+.register .register__form {
+  width: 100%;
+  margin-top: 60px;
+}
+
+.register .register__form .newForm__form div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.register .register__form .newForm__form div label {
+  font-size: 20px;
+}
+
+.register .register__form .newForm__form div input {
+  flex-grow: 1;
+  max-width: 400px;
+  height: 40px;
+  font-size: 16px;
+  border: none;
+  border-bottom: 1px solid gray;
+  outline: none;
+}
+
+.register .register__form .newForm__form button {
+  width: 100%;
+  margin-top: 50px;
+  padding: 10px 0px;
+  background-color: orange;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}

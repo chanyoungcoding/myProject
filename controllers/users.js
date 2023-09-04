@@ -25,7 +25,7 @@ const userRegister = async(req,res) => {
     const registeredUser = await User.register(user, password);
     req.login(registeredUser, err => {
         if(err) return next(err)
-        req.flash('success', 'register success')
+        req.flash("success", "makeIt")
         res.redirect('/campgrounds')  
     })
   } catch(e) {
@@ -35,7 +35,7 @@ const userRegister = async(req,res) => {
 }
 
 const userLogin = (req,res) => {
-  req.flash("success", "made it");
+  req.flash("success", "madeIt");
   res.redirect('/campgrounds/home')
 }
 

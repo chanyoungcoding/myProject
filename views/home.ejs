@@ -38,5 +38,16 @@
     <%- include('./partials/Home/homeIntro2.ejs') %>
   </div>
   <%- include('./partials/footer.ejs') %>
+
+  <script>
+    // 서버에서 받아온 success 값을 prompt 창에 표시
+    if('<%= success %>' === 'madeIt') {
+      alert("로그인에 성공하였습니다. 환영합니다.");
+    } else if('<%= success %>' === 'makeIt') {
+      alert("회원가입에 성공하였습니다. 환영합니다.");
+    }
+
+  </script>
+
 </body>
 </html>
