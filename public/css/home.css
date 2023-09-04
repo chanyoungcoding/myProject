@@ -300,7 +300,7 @@ h1,p {
 .home__intro2 .intro2__box .intro2__right div:nth-child(1),
 .home__intro2 .intro2__box .intro2__right div:nth-child(2),
 .home__intro2 .intro2__box .intro2__right div:nth-child(3) {
-  transform: translateX(300px);
+  transform: translateY(300px);
   transition: all 1.5s;
   opacity: 0;
 }  
@@ -341,6 +341,38 @@ h1,p {
 .intro2__box.scroll-spy.show .intro2__left {
   transform: translateX(0px);
   opacity: 1;
+}
+
+@media screen and (max-width: 1450px) {
+  .home__intro2 .intro2__box.scroll-spy.show .intro2__right div:nth-child(3),
+  .home__intro2 .intro2__box.scroll-spy .intro2__right div:nth-child(3) {
+    left: 40px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .home__intro2 .intro2__box.scroll-spy.show .intro2__right div:nth-child(2),
+  .home__intro2 .intro2__box.scroll-spy .intro2__right div:nth-child(2) {
+    left: 30px;
+  }
+}
+
+@media screen and (max-width: 950px) {
+  .home__intro2 .intro2__box.scroll-spy.show .intro2__right div:nth-child(1),
+  .home__intro2 .intro2__box.scroll-spy .intro2__right div:nth-child(1) {
+    left: -50px;
+  }
+}
+
+@media screen and (max-width: 805px) {
+  .home__intro2 .intro2__box.scroll-spy.show .intro2__right div:nth-child(3),
+  .home__intro2 .intro2__box.scroll-spy .intro2__right div:nth-child(3),
+  .home__intro2 .intro2__box.scroll-spy.show .intro2__right div:nth-child(2),
+  .home__intro2 .intro2__box.scroll-spy .intro2__right div:nth-child(2),
+  .home__intro2 .intro2__box.scroll-spy.show .intro2__right div:nth-child(1),
+  .home__intro2 .intro2__box.scroll-spy .intro2__right div:nth-child(1) {
+    display: none;
+  }
 }
 
 
