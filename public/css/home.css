@@ -362,6 +362,37 @@ h1,p {
   .home__intro2 .intro2__box.scroll-spy .intro2__right div:nth-child(1) {
     left: -50px;
   }
+
+  /* HomeLoginRecommend */
+
+  .home__recommend .recommend__center .center__text .text__top .top__intro {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .home__recommend .recommend__center .center__text .text__top .top__intro .intro__button {
+    margin-top: 20px;
+  }
+
+  .home__recommend .recommend__center .center__text .text__bottom {
+    flex-direction: column;
+    align-items: start;
+    margin-bottom: 30px;
+  }
+
+  .home__recommend .recommend__center .center__text .text__bottom .bottom__button {
+    margin-top: 20px;
+  }
+
+  /* homeIntro */
+
+  .home__intro .intro__box {
+    flex-direction: column;
+  }
+
+  .home__intro .intro__box .intro__introduce {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 805px) {
