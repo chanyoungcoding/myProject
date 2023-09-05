@@ -152,6 +152,10 @@
   font-weight: 600;
 }
 
+.campground__tag .tag__Sharp {
+  text-align: center;
+}
+
 .campground__tag .tag__Sharp span {
   font-size: 15px;
   padding: 10px 10px;
@@ -286,9 +290,11 @@
   .campground__swiper .swiper {
     width: 300px;
   }
+
+  .campground__swiper .swiper__button div {
+    display: none;
+  }
 }
-
-
 
 
 
@@ -297,9 +303,9 @@
 /* campground__inner */
 
 .campground .campground__inner {
-  width: 1080px;
+  max-width: 1100px;
   margin: 50px auto 0px;
-  max-height: 2600px;
+
 }
 
 .campground .campground__inner p {
@@ -383,7 +389,7 @@
 }
 
 .campground .campground__inner .campground__intro .intro__introList .list__briefIntroduction {
-  max-width: 550px;
+  width: 550px;
   margin: 30px 0px;
   font-size: 18px;
   color: #626262;
@@ -443,4 +449,60 @@
   background-color: #547AC0;
   border-radius: 100%;
   color: white;
+}
+
+
+@media screen and (max-width: 1020px) {
+  .campground .campground__inner .campground__intro {
+    width: 620px;
+  }
+
+  .campground .campground__inner .campground__intro img {
+    width: 150px;
+    height: 150px;
+    border: none;
+  }
+
+  .campground .campground__inner .campground__intro .intro__introList .list__briefIntroduction {
+    width: 300px;
+  }
+
+  .campground .campground__inner .campground__intro .intro__introList .list__function {
+    position: relative;
+    top: 20px;
+    left: -200px;
+  }
+}
+
+@media screen and (max-width: 660px) {
+
+  .campground .campground__inner .campground__intro {
+    width: 400px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .campground .campground__inner .campground__intro img {
+    border: none;
+    border-bottom: 1px solid #444444;
+  }
+
+  .campground .campground__inner .campground__intro .intro__introList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+  }
+
+  .campground .campground__inner .campground__intro .intro__introList .list__function {
+    display: none;
+  }
+
+  .campground .campground__inner .campground__intro .intro__introList .list__great {
+    margin-bottom: 15px;
+  }
+
+  .campground .campground__inner .campground__intro .intro__introList .list__briefIntroduction {
+    display: none;
+  }
 }
