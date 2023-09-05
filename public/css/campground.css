@@ -119,8 +119,23 @@
   background-color: gray;
 }
 
+@media screen and (max-width: 1150px) {
+  .campground__commend .commend__inner .inner__common:nth-child(5) {
+    display: none;
+  }
+}
 
+@media screen and (max-width: 900px) {
+  .campground__commend .commend__inner .inner__common:nth-child(4) {
+    display: none;
+  }
+}
 
+@media screen and (max-width: 660px) {
+  .campground__commend {
+    display: none;
+  }
+}
 
 
 /* campground__tag */
