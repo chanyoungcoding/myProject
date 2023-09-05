@@ -141,7 +141,7 @@
 /* campground__tag */
 
 .campground__tag {
-  width: 1080px;
+  max-width: 1080px;
   margin: 0 auto;
 }
 
@@ -179,9 +179,6 @@
 .campground__tag .tag__Sharp .tag__toggle {
   background-color: orange;
 }
-
-
-
 
 /* campground__swiper */
 
@@ -228,7 +225,7 @@
 }
 
 .campground__swiper .swiper {
-  width: 940px;
+  max-width: 940px;
   height: 400px;
 }
 
@@ -278,6 +275,18 @@
   height: 30px;
   background-color: #EFF0F4;
 } 
+
+@media screen and (max-width: 970px) {
+  .campground__swiper .swiper {
+    width: 620px;
+  }
+}
+
+@media screen and (max-width: 660px) {
+  .campground__swiper .swiper {
+    width: 300px;
+  }
+}
 
 
 
