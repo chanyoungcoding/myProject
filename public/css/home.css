@@ -21,6 +21,7 @@ h1,p {
   background-color: rgb(110, 179, 119);
   border-radius: 20px;
   font-family: 'Black Han Sans', sans-serif;
+  z-index: 1;
 }
 
 .home .home__badgeEl p {

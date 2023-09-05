@@ -1,5 +1,5 @@
 /* 공통 부분 */
-@import url('https://fonts.googleapis.com/css2?family=Dongle&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
 
 body {
   display: flex;
@@ -37,10 +37,10 @@ footer {
   z-index: 1000; 
   max-width: 1920px;
   margin: 0 auto;
-  padding: 15px;
+  padding: 20px;
   background-color: white;
-  font-size: 40px;
-  font-family: 'Dongle', sans-serif;
+  font-size: 22px;
+  font-family: 'Jua', sans-serif;
   transition: all 1s;
 }
 
@@ -48,8 +48,14 @@ footer {
   display: flex;
 }
 
-.navbar h1 {
-  padding-left: 15px;
+.navbar .navbar__left .navbar__main h1 {
+  display: inline-block;
+  padding: 0px 15px 0px 5px;
+}
+
+.navbar .navbar__left .navbar__list a,
+.navbar .navbar__right a {
+  padding: 10px 15px;
 }
 
 .fas {
@@ -63,27 +69,39 @@ footer {
   align-items: center;
 } 
 
-.navbar .navbar__list {
-  padding-left: 50px;
-}
-
-.navbar .navbar__list a {
-  padding-left: 15px;
-  transition: all .3s;
-}
-
-.navbar .navbar__right a {
-  padding-left: 15px;
-}
 
 .navbar .navbar__list a:hover,
 .navbar .navbar__right a:hover
 {
-  color: aliceblue;
+  border-bottom: 2px solid #35343B;
 }
 
 .navbar.fixed {
   background-color: rgba(255, 255, 255, 0.5);
+}
+
+@media screen and (max-width: 750px) {
+  .navbar {
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 0px;
+  }
+
+  .navbar .navbar__left {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navbar .navbar__left .navbar__main {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
+
+  .navbar .navbar__right .right__a {
+    display: flex;
+    margin-top: 5px;
+  }
 }
 
 /* footer */

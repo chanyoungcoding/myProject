@@ -1,8 +1,10 @@
 <nav>
   <div class="navbar">
     <div class="navbar__left">
-      <i class="fas fa-campground" class="navbar__i"></i>
-      <h1 class="navbar__camp">모두의캠프</h1>
+      <div class="navbar__main">
+        <i class="fas fa-campground" class="navbar__i"></i>
+        <h1 class="navbar__camp">모두의캠프</h1>
+      </div>
       <div class="navbar__list">
         <a href="/campgrounds/home">Home</a>
         <a href="/campgrounds">Camp</a>
@@ -11,10 +13,14 @@
     </div>
     <div class="navbar__right">
       <% if(!currentUser) {%>
-      <a href="/login">login</a>
-      <a href="/register">register</a>
+        <div class="right__a">
+          <a href="/login">로그인</a>
+          <a href="/register">회원가입</a>
+        </div>
       <% } else { %>
-      <a href="/logout">logout</a>
+        <div class="right__a">
+          <a href="/logout">로그아웃</a>
+        </div>
       <% } %>
     </div>
   </div>
