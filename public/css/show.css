@@ -245,39 +245,123 @@
 
 /* showPage__bottom */
 
-.showPage__bottom {
-
-}
 
 .showPage__bottom .bottom__inner {
-  
+  display: flex;
+  justify-content: center;
+  max-width: 1920px;
+  border-top: 20px solid #EFF0F4;
 }
 
 .showPage__bottom .bottom__inner .inner__map {
-  
+  padding: 30px 100px;
 }
 
 .showPage__bottom .bottom__inner .inner__review {
-  
+  padding: 30px 100px;
 }
 
-.showPage__bottom .bottom__inner .inner__review .show__right {
-  
-}
-
-.showPage__bottom .bottom__inner .inner__review .show__right .review__form {
-  
+.showPage__bottom .bottom__inner .inner__review .show__right h2 {
+  font-size: 30px;
 }
 
 .showPage__bottom .bottom__inner .inner__review .show__right .review__form .form__first {
+  margin-top: 30px;
+  font-size: 20px;
+}
+
+.showPage__bottom .bottom__inner .inner__review .show__right .review__form .form__first .starability-basic {
+  margin-top: 30px;
+}
+
+.showPage__bottom .bottom__inner .inner__review .show__right .review__form .form__second textarea {
+  width: 440px;
+  height: 160px;
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 15px;
+}
+
+.showPage__bottom .bottom__inner .inner__review button {
+  margin-top: 10px;
+  padding: 10px 20px;
+}
+
+@media screen and (max-width: 1200px) {
+
+  .showPage__bottom .bottom__inner .inner__map {
+    padding-right: 5px;
+  }
   
+  .showPage__bottom .bottom__inner .inner__review {
+    padding-left: 5px;
+  }
 }
 
-.showPage__bottom .bottom__inner .inner__review .show__right .review__form .form__second {
 
+@media screen and (max-width: 990px) {
+
+  .showPage__bottom .bottom__inner .inner__map {
+    display: none;
+  }
+
+  .showPage__bottom .bottom__inner .inner__review {
+    margin-top: 30px;
+    padding: 0;
+  }
+
+  .showPage__bottom .bottom__inner .inner__review .show__right h2 {
+    text-align: center;
+  }
+
+  .showPage__bottom .bottom__inner .inner__review .show__right .form__first {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
-.showPage__bottom .bottom__inner .inner__review .show__right .review__result {
-  
+
+
+.showPage__bottom .bottom__review {
+  display: flex;
+  justify-content: center;
+  max-height: 800px;
+  padding: 20px;
 }
 
+.showPage__bottom .bottom__review .review__result {
+  max-width: 1000px;
+  overflow-y: scroll;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.showPage__bottom .bottom__review .review__result::-webkit-scrollbar {
+  display: none;
+}
+
+.showPage__bottom .bottom__review .review__result div {
+  position: relative;
+  width: 380px;
+  min-height: 100px;
+  margin: 27px;
+  padding: 30px;
+  border: 1px solid #626262;
+}
+
+.showPage__bottom .bottom__review .review__result div h1 {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.showPage__bottom .bottom__review .review__result div .result__review {
+  width: 270px;
+  margin-top: 15px;
+}
+
+.showPage__bottom .bottom__review .review__result div button {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+}

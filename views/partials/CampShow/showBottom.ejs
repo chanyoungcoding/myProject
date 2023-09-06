@@ -2,7 +2,7 @@
   <div class="bottom__inner">
 
     <div class="inner__map">
-      <div id="map" style="width: 400px; height: 300px;"></div>
+      <div id="map" style="width: 500px; height: 400px;"></div>
     </div>
 
     <div class="inner__review">
@@ -11,7 +11,7 @@
         <h2>리뷰를 남겨보세요.</h2>
         <form class="review__form" action="/campgrounds/<%= campground._id %>/reviews" method="POST">
           <div class="form__first">
-            <label for="rating">별점</label>
+            <label for="rating">별점을 선택하세요.</label>
             <fieldset class="starability-basic">
               <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="1" checked aria-label="No rating." />
               <input type="radio" id="first-rate1" name="review[rating]" value="1" />
@@ -27,30 +27,30 @@
             </fieldset>
           </div>
           <div class="form__second">
-            <textarea name="review[body]" id="review" cols="30" rows="10" placeholder="리뷰를 남겨주세요." required></textarea>
+            <textarea name="review[body]" id="review" maxlength="130" placeholder="리뷰를 남겨주세요." required></textarea>
           </div>
-          <button class="button-8" role="button">제출</button>
+          <button class="button-87" role="button">제출</button>
         </form>
-
-        <div class="review__result">
-          <% for(let review of campground.reviews) {%>
-            <div>
-              <p class="starability-result" data-rating="<%= review.rating %>">
-                Rated: 3 stars
-              </p>
-              <p>Rating: <%= review.rating %></p>
-              <p>Review: <%= review.body %></p>
-              <p>author: <%= review.author.username %></p>
-              <% if(currentUser && review.author.equals(currentUser._id)) { %>
-              <form action="/campgrounds/<%= campground._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
-                <button class="button-24" role="button">삭제하기</button>
-              </form>
-              <% } %>
-            </div>
-          <% } %>
         <% } %>
-        </div>
       </div>
     </div>
   </div>
+
+  <div class="bottom__review">
+    <div class="review__result">
+      <% for(let review of campground.reviews) {%>
+        <div>
+          <h1><%= review.author.username %></h1>
+          <p class="starability-result" data-rating="<%= review.rating %>"></p>
+          <p class="result__review"><%= review.body %></p>
+          <% if(currentUser && review.author.equals(currentUser._id)) { %>
+          <form action="/campgrounds/<%= campground._id %>/reviews/<%= review._id %>?_method=DELETE" method="POST">
+            <button class="button-24" role="button">삭제하기</button>
+          </form>
+          <% } %>
+        </div>
+      <% } %>
+    </div>
+  </div>
+
 </div>
