@@ -243,160 +243,41 @@
 
 }
 
+/* showPage__bottom */
 
+.showPage__bottom {
 
-
-
-/* showPage-right */
-
-.show__right {
-  width: 620px;
 }
 
-.show__right h2 {
-  margin-top: 40px;
-  font-size: 32px;
+.showPage__bottom .bottom__inner {
+  
 }
 
-.show__right .review__form .form__first {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 32px;
-  font-size: 24px;
+.showPage__bottom .bottom__inner .inner__map {
+  
 }
 
-.show__right .review__form .form__second textarea{
-  font-size: 20px;
-  font-weight: 400;
-  width: 370px;
-  height: 70px;
-  margin: 30px 0;
-  padding: 30px;
-  border-radius: 10px;
+.showPage__bottom .bottom__inner .inner__review {
+  
 }
 
-.button-8 {
-  background-color: #e1ecf4;
-  border-radius: 3px;
-  border: 1px solid #7aa7c7;
-  box-shadow: rgba(255, 255, 255, .7) 0 1px 0 0 inset;
-  box-sizing: border-box;
-  color: #39739d;
-  cursor: pointer;
-  display: inline-block;
-  font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
-  font-size: 13px;
-  font-weight: 400;
-  line-height: 1.15385;
-  margin: 0;
-  outline: none;
-  padding: 8px .8em;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: baseline;
-  white-space: nowrap;
+.showPage__bottom .bottom__inner .inner__review .show__right {
+  
 }
 
-.button-8:hover,
-.button-8:focus {
-  background-color: #b3d3ea;
-  color: #2c5777;
+.showPage__bottom .bottom__inner .inner__review .show__right .review__form {
+  
 }
 
-.button-8:focus {
-  box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+.showPage__bottom .bottom__inner .inner__review .show__right .review__form .form__first {
+  
 }
 
-.review__result {
-  height: 400px;
-  overflow-y: scroll;
+.showPage__bottom .bottom__inner .inner__review .show__right .review__form .form__second {
+
 }
 
-.review__result div {
-  position: relative;
-  margin: 20px;
-  padding: 30px;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  border: 2px solid #35343B;
+.showPage__bottom .bottom__inner .inner__review .show__right .review__result {
+  
 }
-
-.review__result div p:nth-child(2) {
-  margin-top: 10px;
-}
-
-.review__result button {
-  position: absolute;
-  bottom: 5px;
-  right: 10px;
-  padding: 5px;
-}
-
-/* edit */
-
-.editPage {
-  display: flex;
-  justify-content: center;
-  max-width: 1090px;
-  margin: 0 auto;
-}
-
-.editPage .edit__form .edit__img {
-  width: 500px;
-  height: 500px;
-  margin: 0 auto;
-  background-image: url('/mountain.jpg');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.form__edit {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.form__edit input {
-  position: relative;
-  outline: none;
-  border:none;
-  margin-top: 10px;
-  padding: 10px;
-  border-radius: 10px;
-  font-size: 20px;
-  display:block;
-  text-align: center;
-}
-
-.form__edit input:nth-child(1) {
-  max-width: 700px;
-}
-
-.form__edit .input__underline {
-  width: 250px;
-  height: 1px;
-  background-color: #35343B;
-}
-
-.form__edit textarea {
-  margin-top: 10px;
-  font-size: 20px;
-  width: 400px;
-  height: 150px;
-  border-radius: 10px;
-}
-
-.form__edit button {
-  display: block;
-  margin-top: 20px;
-}
-
 
