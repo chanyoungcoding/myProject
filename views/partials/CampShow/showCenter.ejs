@@ -1,23 +1,17 @@
 <div class="showPage__center">
   <!-- cetner left -->
   <div class="center__left">
-    <div id="carouselExample" class="carousel slide">
-      <div class="carousel-inner">
+      <div class="carousel-container">
         <% campground.images.forEach((img, i) => { %>
-          <div class="carousel-item <%= i === 0 ? 'active' : ''%>">
-            <img src="<%= img.url %>" class="showPage__img" alt="">
+          <div class="carousel-slide">
+            <img src="<%= img.url %>" alt="img-<% i %>">
           </div>
         <% }) %>
       </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
+      <div class="carousel-button">
+        <button class="button-87" id="prevBtn" role="button">이전</button>
+        <button class="button-87" id="nextBtn" role="button">다음</button>
+      </div>
   </div>
 
   <!-- center right -->
