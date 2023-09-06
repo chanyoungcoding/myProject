@@ -326,8 +326,9 @@
 .showPage__bottom .bottom__review {
   display: flex;
   justify-content: center;
-  max-height: 800px;
+  max-height: 750px;
   padding: 20px;
+  border-top: 1px solid #626262;
 }
 
 .showPage__bottom .bottom__review .review__result {
@@ -335,6 +336,7 @@
   overflow-y: scroll;
   display: flex;
   flex-wrap: wrap;
+  border: 1px solid #626262;
 }
 
 .showPage__bottom .bottom__review .review__result::-webkit-scrollbar {
@@ -364,4 +366,19 @@
   position: absolute;
   bottom: 5px;
   right: 5px;
+}
+
+@media screen and (max-width: 1100px) {
+
+  .showPage__bottom .bottom__review .review__result {
+    justify-content: center;
+  }
+
+  .showPage__bottom .bottom__review .review__result div {
+    width: 270px;
+  }
+
+  .showPage__bottom .bottom__review .review__result div .result__review {
+    width: 200px;
+  }
 }
