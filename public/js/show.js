@@ -2,9 +2,6 @@ const prevButton = document.getElementById('prevBtn');
 const nextButton = document.getElementById('nextBtn');
 const carouselSlide = document.querySelectorAll('.carousel-slide');
 
-
-console.log('hello')
-
 let slideIndex = 0;
 
 // 다음 이미지 표시

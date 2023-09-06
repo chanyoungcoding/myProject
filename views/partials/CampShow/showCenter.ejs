@@ -12,6 +12,17 @@
         <button class="button-87" id="prevBtn" role="button">이전</button>
         <button class="button-87" id="nextBtn" role="button">다음</button>
       </div>
+
+    <% if(currentUser && campground.author && campground.author.equals(currentUser._id)) { %>
+      <div class="showPage__button">
+        <form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
+          <button class="button-24" role="button">삭제하기</button>
+        </form>
+        <button class="button-25" role="button">
+          <a href="/campgrounds/<%= campground._id %>/edit">수정하기</a>
+        </button>
+      </div>
+    <% } %>
   </div>
 
   <!-- center right -->
@@ -58,15 +69,5 @@
         <h3><%= campground.category %></h3>
       </div>
     </div>
-    <% if(currentUser && campground.author && campground.author.equals(currentUser._id)) { %>
-    <div class="showPage__button">
-      <form action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
-        <button class="button-24" role="button">삭제하기</button>
-      </form>
-      <button class="button-25" role="button">
-        <a href="/campgrounds/<%= campground._id %>/edit">수정하기</a>
-      </button>
-    </div>
-    <% } %>
   </div>
 </div>

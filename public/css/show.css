@@ -1,4 +1,4 @@
-/* showpage common */
+/* showpage button */
 
 .button-87 {
   text-align: center;
@@ -27,6 +27,55 @@
 
 .button-87:active {
   transform: scale(0.95);
+}
+
+.button-24,
+.button-25 {
+  border-radius: 6px;
+  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+  box-sizing: border-box;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
+  font-size: 16px;
+  font-weight: 800;
+  line-height: 16px;
+  min-height: 40px;
+  outline: 0;
+  padding: 12px 14px;
+  text-align: center;
+  text-rendering: geometricprecision;
+  text-transform: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: middle;
+}
+
+.button-24:hover,
+.button-25:hover,
+.button-24:active,
+.button-25:active {
+  background-color: initial;
+  background-position: 0 0;
+  color: black;
+}
+
+.button-24:active,
+.button-25:active {
+  opacity: .5;
+}
+
+.button-24 {
+  background: #FF4742;
+  border: 1px solid #FF4742;
+
+}
+
+.button-25 {
+  background: #42a4ff;
+  border: 1px solid #42a4ff;
 }
 
 /* show */
@@ -103,15 +152,14 @@
 /* showPage__center */
 
 .showPage__center {
-  width: 1200px;
+  max-width: 1200px;
   margin: 0 auto;
-  justify-content: center;
   display: flex;
+  justify-content: center;
 }
 
 .showPage__center .center__left {
-  padding: 30px;
-  margin-right: 90px;
+  padding: 40px;
 }
 
 .showPage__center .center__left .carousel-container {
@@ -142,10 +190,17 @@
   padding: 10px 30px;
 }
 
+.showPage__center .center__left .showPage__button {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+
 /* showPage__center  center__right */
 
 .showPage__center .center__right {
-  padding: 30px;
+  padding: 40px;
 }
 
 .showPage__center .center__right .right__intro {
@@ -188,62 +243,17 @@
   border-top: 2px solid #000000;
 }
 
-
-.showPage__button {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 15px;
-}
-
-.button-24,
-.button-25 {
-  border-radius: 6px;
-  box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
-  box-sizing: border-box;
-  color: #FFFFFF;
-  cursor: pointer;
-  display: inline-block;
-  font-family: nunito,roboto,proxima-nova,"proxima nova",sans-serif;
-  font-size: 16px;
-  font-weight: 800;
-  line-height: 16px;
-  min-height: 40px;
-  outline: 0;
-  padding: 12px 14px;
-  text-align: center;
-  text-rendering: geometricprecision;
-  text-transform: none;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: middle;
-}
-
-.button-24:hover,
-.button-25:hover,
-.button-24:active,
-.button-25:active {
-  background-color: initial;
-  background-position: 0 0;
-  color: black;
-}
-
-.button-24:active,
-.button-25:active {
-  opacity: .5;
-}
-
-.button-24 {
-  background: #FF4742;
-  border: 1px solid #FF4742;
+@media screen and (max-width: 1200px) {
+  .showPage__center {
+    flex-direction: column;
+    align-items: center;
+  }
 
 }
 
-.button-25 {
-  background: #42a4ff;
-  border: 1px solid #42a4ff;
-}
+
+
+
 
 /* showPage-right */
 
