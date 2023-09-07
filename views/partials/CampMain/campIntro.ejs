@@ -11,7 +11,11 @@
         <% continue; %>
       <% } %>
       <div class="campground__intro">
-        <img src="<%= campgrounds[i].images[0].url %>" alt="" />
+        <% if (campgrounds[i] && campgrounds[i].images && campgrounds[i].images[0]) { %>
+          <img src="<%= campgrounds[i].images[0].url %>" alt="" />
+        <% } else { %>
+          <img src="/homeCamp.jpg" alt="" />
+        <% } %>
         <div class="intro__introList">
           <li class="list__review">리뷰 수 <%= campgrounds[i].reviews.length %></li>
           <!-- 좋아요 개수 -->

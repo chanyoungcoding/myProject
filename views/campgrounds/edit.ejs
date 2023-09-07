@@ -1,39 +1,126 @@
 <% layout('layouts/common.ejs') %>
 
-
-<link rel="stylesheet" href="/css/new.css">
+<link rel="stylesheet" href="/css/edit.css">
 <script defer src="/js/new.js"></script>
 
-<div class="editPage">
-  <div class="edit__form">
-    <form class="form__edit" action="/campgrounds/<%= campground._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+<div class="newform">
+  <div class="newform__inner">
 
-      <div class="filebox">
-        <input class="upload-name" value="첨부파일" placeholder="첨부파일" readonly>
-        <label class="filename" for="file">파일찾기</label> 
-        <input class="form__file" type="file" name="image" id="file" multiple>
-      </div>
-      
-      <div class="input__underline"></div>
-      <input type="text" name="campground[title]" value="<%= campground.title %>">
-      <div class="input__underline"></div>
-      <input type="text" name="campground[location]" value="<%= campground.location %>">
-      <div class="input__underline"></div>
-      <input type="text" name="campground[price]" value="<%= campground.price %>">
-      <div class="input__underline"></div>
-      <textarea name="campground[description]" id="description" cols="10" rows="10"></textarea>
-      <div class="form__deleteImg">
-        <% campground.images.forEach(function(img, i) { %>
-          <img src="<%= img.url %>" class="deleteImg__img" alt="#">
-          <div class="deleteImg__checkbox">
-            <input type="checkbox" id="image-<%=i%>" name="deleteImages[]" value="<%= img.filename %>">
+    <h1>수정 페이지</h1>
+    <form class="newform__form" action="/campgrounds/<%= campground._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+      <div class="form__left">
+        <div class="form__titlelocation">
+          <div class="titlelocation__title">
+            <label for="title">캠핑장 이름</label>
+            <div>
+              <input type="text" value="<%= campground.title %>" id="title" name="campground[title]">
+            </div>
           </div>
-          <label for="image-<%=i%>">DELETE</label>
-        <% }) %>
+  
+          <div class="titlelocation__location">
+            <label for="city">시,도</label>
+            <div>
+              <input type="text" id="city" name="campground[city]" value="<%= campground.city %>" placeholder="시,도 를 입력해 주세요.">
+            </div>
+          </div>
+        </div>
+  
+        <label for="location">위치</label>
+        <div>
+          <input type="text" id="location" value="<%= campground.location %>" name="campground[location]">
+        </div>
+  
+        <div class="filebox">
+          <input class="upload-name" value="첨부파일" placeholder="첨부파일" readonly>
+          <label class="filename" for="file">파일찾기</label> 
+          <input class="form__file" type="file" name="image" id="file" multiple>
+        </div>
+  
+        <label for="price">가격</label>
+        <div>
+          <input type="text" id="price" value="<%= campground.price %>" name="campground[price]">
+        </div>
+  
+        <label for="phoneNumber">연락처</label>
+        <div>
+          <input type="text" id="phoneNumber" name="campground[phoneNumber]" value="<%= campground.phoneNumber %>" placeholder="-없이 입력해 주세요.">
+        </div>
+  
+        <label for="category">카테고리</label>
+        <div>
+          <input type="text" id="category" value="<%= campground.category %>" name="campground[category]">
+        </div>
+
+        <div class="form__textarea">
+          <label for="description">캠핑장 소개</label>
+          <textarea name="campground[description]" id="description">
+            <%= campground.description %>
+          </textarea>
+        </div>
       </div>
-      <div>
-        <button class="button-25" role="button">수정</button>
+
+      <div class="form__right">
+        <div class="form__selectoption">
+          <label for="wifi">와이파이</label>
+          <select name="campground[wifi]" id="wifi">
+            <option value="있음">있음</option>
+            <option value="없음">없음</option>
+          </select>
+        </div>
+    
+        <div class="form__selectoption">
+          <label for="bed">침대</label>
+          <select name="campground[bed]" id="bed">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4개이상">4</option>
+          </select>
+        </div>
+    
+        <div class="form__selectoption">
+          <label for="pet">펫 유무</label>
+          <select name="campground[pet]" id="pet">
+            <option value="가능">가능</option>
+            <option value="불가능">불가능</option>
+          </select>
+        </div>
+    
+        <div class="form__selectoption">
+          <label for="electricity">전기</label>
+          <select name="campground[electricity]" id="electricity">
+            <option value="있음">있음</option>
+            <option value="없음">없음</option>
+          </select>
+        </div>
+        
+        <div class="form__selectoption">
+          <label for="sportsFacility">운동시설</label>
+          <select id="sportsFacility" name="campground[sportsFacility]">
+            <option value="없음" selected>없음</option>
+            <option value="축구장">축구장</option>
+            <option value="수영장">수영장</option>
+            <option value="테니스코트">테니스 코트</option>
+            <option value="농구장">농구장</option>
+          </select>
+        </div>
+
+        <div class="form__deleteintro">
+          <h3>삭제할 이미지를 고르세요</h3>
+
+          <div class="form__deleteImg">
+            <% campground.images.forEach(function(img, i) { %>
+              <img src="<%= img.url %>" class="deleteImg__img" alt="#">
+              <div class="deleteImg__checkbox">
+                <input type="checkbox" id="image-<%=i%>" name="deleteImages[]" value="<%= img.filename %>">
+              </div>
+              <label for="image-<%=i%>">DELETE</label>
+            <% }) %>
+          </div>
+
+        </div>
       </div>
+      <button class="button-25" role="button">수정</button>
     </form>
   </div>
 </div>
