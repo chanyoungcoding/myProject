@@ -66,6 +66,10 @@ label {
   appearance: none;
 }
 
+.newform .newform__inner .newform__form .form__selectoption select::-ms-expand {
+  display: none;
+}
+
 .newform .newform__inner .newform__form .form__selectoption {
   width: 320px;
   display: flex;
@@ -82,10 +86,6 @@ label {
   width: 400px;
   height: 150px;
   font-size: 17px;
-}
-
-.newform .newform__inner .newform__form .form__selectoption select::-ms-expand {
-  display: none;
 }
 
 .newform .newform__inner .newform__form .form__titlelocation input {
@@ -133,4 +133,15 @@ label {
   padding: 0;
   overflow: hidden;
   border: 0;
+}
+
+
+
+/* edit */
+
+.editPage {
+  width: 1200px;
+  margin: 0 auto;
+  padding-top: 70px;
+  background-color: cadetblue;
 }

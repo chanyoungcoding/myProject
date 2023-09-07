@@ -1,10 +1,19 @@
 <% layout('layouts/common.ejs') %>
 
+
+<link rel="stylesheet" href="/css/new.css">
+<script defer src="/js/new.js"></script>
+
 <div class="editPage">
   <div class="edit__form">
-    <div class="edit__img"></div>
     <form class="form__edit" action="/campgrounds/<%= campground._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
-      <input type="file" name="image" multiple>
+
+      <div class="filebox">
+        <input class="upload-name" value="첨부파일" placeholder="첨부파일" readonly>
+        <label class="filename" for="file">파일찾기</label> 
+        <input class="form__file" type="file" name="image" id="file" multiple>
+      </div>
+      
       <div class="input__underline"></div>
       <input type="text" name="campground[title]" value="<%= campground.title %>">
       <div class="input__underline"></div>
