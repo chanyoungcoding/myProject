@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@800&display=swap');
+
 label {
   color: white;
 }
@@ -13,11 +15,17 @@ label {
 }
 
 .newform .newform__inner {
-
+  padding: 15px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 10px;
 }
 
 .newform .newform__inner h1 {
+  padding-bottom: 15px;
+  color: white;
+  border-bottom: 1px solid white;
   font-size: 40px;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 
 .newform .newform__inner .newform__form {
