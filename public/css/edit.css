@@ -10,11 +10,12 @@ label {
   align-items: center;
   max-width: 1920px;
   margin: 0 auto;
-  padding-top: 100px;
+  padding: 100px 0 30px;
   background: url('/HomeImg4.jpg') no-repeat center/cover;
 }
 
 .newform .newform__inner {
+  width: 670px;
   padding: 15px;
   background-color: rgba(0, 0, 0, 0.6);
   border-radius: 10px;
@@ -31,13 +32,24 @@ label {
 
 .newform .newform__inner .newform__form {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.newform .newform__inner .newform__form .form__inner {
+  display: flex;
   gap: 20px;
   flex-wrap: wrap;
 }
 
-@media screen and (max-width: 792px) {
-  .newform .newform__inner .newform__form {
+@media screen and (max-width: 695px) {
+
+  .newform .newform__inner .newform__form .form__inner {
     justify-content: center;
+  }
+
+  .newform .newform__inner .newform__form button {
+    max-width: 500px !important;
   }
 }
 
@@ -169,4 +181,9 @@ label {
   width: 90%;
   height: 90%;
   object-fit: cover;
+}
+
+.newform .newform__inner .newform__form button {
+  padding: 0px 100px;
+  margin-top: 10px;
 }
