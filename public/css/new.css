@@ -1,44 +1,60 @@
-.selectBox {
-  position: relative;
-  width: 150px;
-  height: 35px;
-  border-radius: 4px;
-  border: 2px solid lightcoral;
-}
-.selectBox .select {
-  width: inherit;
-  height: inherit;
-  background: transparent;
-  border: 0 none;
-  outline: 0 none;
-  padding: 0 5px;
-  position: relative;
-  z-index: 3; 
-}
-.selectBox .select option {
-  background: lightcoral;
-  color: #fff;
-  padding: 3px 10px;
-  font-size: 16px;
-}
-.selectBox .icoArrow {
-  position: absolute; 
-  top: 0; 
-  right: 0; 
-  z-index: 1; 
-  width: 35px; 
-  height: inherit;
-  border-left: 2px solid lightcoral;
+.newform {
   display: flex;
   justify-content: center;
   align-items: center;
+  max-width: 1920px;
+  height: 100vh;
+  margin: 0 auto;
+  background: url('/HomeImg4.jpg') no-repeat center/cover;
 }
 
-.selectBox .icoArrow img {
-  width: 50%;
-  transition: .3s;
+.newform .newform__inner {
+  background-color: aqua;
 }
 
-.selectBox .select:focus + .icoArrow img {
-  transform: rotate(180deg);
+.newform .newform__inner h1 {
+  font-size: 40px;
+}
+
+.newform .newform__inner .newform__form div input {
+  width: 300px;
+  height: 40px;
+  padding: 0 10px;
+  vertical-align: middle;
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+  color: #999999;
+}
+
+.newform .newform__inner .newform__form div .form__file {
+
+}
+
+.newform .newform__inner .newform__form .filebox .upload-name {
+  width: 300px;
+  height: 40px;
+  padding: 0 10px;
+  vertical-align: middle;
+  border: 1px solid #dddddd;
+  border-radius: 10px;
+  color: #999999;
+}
+
+.newform .newform__inner .newform__form .filebox label {
+  height: 20px;
+  margin-left: 10px;
+  padding: 10px 20px;
+  color: #fff;
+  vertical-align: middle;
+  background-color: #999999;
+  cursor: pointer;
+}
+
+.newform .newform__inner .newform__form .filebox input[type="file"] {
+  position: absolute;
+  width: 0;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
 }

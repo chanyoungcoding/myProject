@@ -49,3 +49,4 @@ const buttonsAs = document.querySelectorAll('.buttons__a');
 buttonsAs.forEach(x => x.addEventListener('click', () => {
   localStorage.setItem('scrollPosition', 2390);
 }))
+

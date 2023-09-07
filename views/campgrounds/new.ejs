@@ -1,89 +1,101 @@
 <% layout('layouts/common.ejs') %>
 
 <link rel="stylesheet" href="/css/new.css">
+<script defer src="/js/new.js"></script>
 
-<div class="newForm">
-  <h1>새로운 캠프를 등록해 보세요.</h1>
-  <hr>
-  <form class="newForm__form" action="/campgrounds" method="POST" enctype="multipart/form-data">
-    <div>
+<div class="newform">
+  <div class="newform__inner">
+
+    <h1>새로운 캠프를 등록해 보세요.</h1>
+
+    <form class="newform__form" action="/campgrounds" method="POST" enctype="multipart/form-data">
+
       <label for="title">Title</label>
-      <input type="text" id="title" name="campground[title]">
-    </div>
-    <div>
+      <div>
+        <input type="text" id="title" name="campground[title]">
+      </div>
+
       <label for="location">location</label>
-      <input type="text" id="location" name="campground[location]">
-    </div>
-    <div>
-      <label for="image">image</label>
-      <input type="file" name="image" id="image" multiple>
-    </div>
-    <div>
+      <div>
+        <input type="text" id="location" name="campground[location]">
+      </div>
+
+      <div class="filebox">
+        <input class="upload-name" value="첨부파일" placeholder="첨부파일" readonly>
+        <label class="filename" for="file">파일찾기</label> 
+        <input class="form__file" type="file" name="image" id="file" multiple>
+      </div>
+
       <label for="price">price</label>
-      <input type="text" id="price" name="campground[price]">
-    </div>
-    <div>
+      <div>
+        <input type="text" id="price" name="campground[price]">
+      </div>
+
       <label for="city">city</label>
-      <input type="text" id="city" name="campground[city]" placeholder="시,도 를 입력해 주세요.">
-    </div>
-    <div>
+      <div>
+        <input type="text" id="city" name="campground[city]" placeholder="시,도 를 입력해 주세요.">
+      </div>
+
       <label for="phoneNumber">phoneNumber</label>
-      <input type="text" id="phoneNumber" name="campground[phoneNumber]" placeholder="-없이 입력해 주세요.">
-    </div>
-    <div>
+      <div>
+        <input type="text" id="phoneNumber" name="campground[phoneNumber]" placeholder="-없이 입력해 주세요.">
+      </div>
+
       <label for="category">category</label>
-      <input type="text" id="category" name="campground[category]">
-    </div>
-
-    <div>
-      <label for="wifi">와이파이</label>
-      <select name="campground[wifi]" id="wifi">
-        <option value="있음">있음</option>
-        <option value="없음">없음</option>
-      </select>
-    </div>
-
-    <div>
-      <label for="bed">침대</label>
-      <select name="campground[bed]" id="bed">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4개이상">4</option>
-      </select>
-    </div>
-
-    <div>
-      <label for="pet">동물 가능 여부</label>
-      <select name="campground[pet]" id="pet">
-        <option value="가능">가능</option>
-        <option value="불가능">불가능</option>
-      </select>
-    </div>
-
-    <div>
-      <label for="electricity">전기</label>
-      <select name="campground[electricity]" id="electricity">
-        <option value="있음">있음</option>
-        <option value="없음">없음</option>
-      </select>
-    </div>
-    
-    <div>
-      <label for="sportsFacility">운동시설</label>
-      <select id="sportsFacility" name="campground[sportsFacility]">
-        <option value="없음" selected>없음</option>
-        <option value="축구장">축구장</option>
-        <option value="수영장">수영장</option>
-        <option value="테니스코트">테니스 코트</option>
-        <option value="농구장">농구장</option>
-      </select>
-    </div>
-
-    <div>
-      <label for="description">description</label>
-      <textarea name="campground[description]" id="description" cols="30" rows="5"></textarea>
-    </div>
-    <button class="button-33" role="button">캠프만들기</button>
-  </form>
+      <div>
+        <input type="text" id="category" name="campground[category]">
+      </div>
+  
+      <div>
+        <label for="wifi">와이파이</label>
+        <select name="campground[wifi]" id="wifi">
+          <option value="있음">있음</option>
+          <option value="없음">없음</option>
+        </select>
+      </div>
+  
+      <div>
+        <label for="bed">침대</label>
+        <select name="campground[bed]" id="bed">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4개이상">4</option>
+        </select>
+      </div>
+  
+      <div>
+        <label for="pet">동물 가능 여부</label>
+        <select name="campground[pet]" id="pet">
+          <option value="가능">가능</option>
+          <option value="불가능">불가능</option>
+        </select>
+      </div>
+  
+      <div>
+        <label for="electricity">전기</label>
+        <select name="campground[electricity]" id="electricity">
+          <option value="있음">있음</option>
+          <option value="없음">없음</option>
+        </select>
+      </div>
+      
+      <div>
+        <label for="sportsFacility">운동시설</label>
+        <select id="sportsFacility" name="campground[sportsFacility]">
+          <option value="없음" selected>없음</option>
+          <option value="축구장">축구장</option>
+          <option value="수영장">수영장</option>
+          <option value="테니스코트">테니스 코트</option>
+          <option value="농구장">농구장</option>
+        </select>
+      </div>
+  
+      <div>
+        <label for="description">description</label>
+        <textarea name="campground[description]" id="description" cols="30" rows="5"></textarea>
+      </div>
+      <button class="button-33" role="button">캠프만들기</button>
+    </form>
+  </div>
 </div>
