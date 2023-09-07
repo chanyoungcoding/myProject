@@ -9,8 +9,9 @@ label {
   justify-content: center;
   align-items: center;
   max-width: 1920px;
+  min-height: 100vh;
   margin: 0 auto;
-  padding: 100px 0 30px;
+  padding: 100px 0px;
   background: url('/HomeImg4.jpg') no-repeat center/cover;
 }
 
@@ -44,6 +45,14 @@ label {
 
 @media screen and (max-width: 695px) {
 
+  .newform {
+    padding: 0px;
+  }
+
+  .newform .newform__inner h1 {
+    margin-top: 140px;
+  }
+
   .newform .newform__inner .newform__form .form__inner {
     justify-content: center;
   }
@@ -65,6 +74,10 @@ label {
 .newform .newform__inner .newform__form .form__titlelocation {
   display: flex;
   gap: 10px;
+}
+
+.newform .newform__inner .newform__form  .form__inner .form__left input {
+  margin: 7px 0px;
 }
 
 .newform .newform__inner .newform__form .form__left .titlelocation__location div input {

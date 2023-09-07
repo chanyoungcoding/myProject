@@ -177,7 +177,7 @@ footer {
 .button-25:hover,
 .button-24:active,
 .button-25:active {
-  background-color: initial;
+  background-color: white;
   background-position: 0 0;
   color: black;
 }
