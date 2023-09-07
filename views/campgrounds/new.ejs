@@ -10,12 +10,23 @@
 
     <form class="newform__form" action="/campgrounds" method="POST" enctype="multipart/form-data">
 
-      <label for="title">Title</label>
-      <div>
-        <input type="text" id="title" name="campground[title]">
+      <div class="form__titlelocation">
+        <div class="titlelocation__title">
+          <label for="title">캠핑장 이름</label>
+          <div>
+            <input type="text" id="title" name="campground[title]">
+          </div>
+        </div>
+
+        <div class="titlelocation__location">
+          <label for="city">시,도</label>
+          <div>
+            <input type="text" id="city" name="campground[city]" placeholder="시,도 를 입력해 주세요.">
+          </div>
+        </div>
       </div>
 
-      <label for="location">location</label>
+      <label for="location">위치</label>
       <div>
         <input type="text" id="location" name="campground[location]">
       </div>
@@ -26,27 +37,22 @@
         <input class="form__file" type="file" name="image" id="file" multiple>
       </div>
 
-      <label for="price">price</label>
+      <label for="price">가격</label>
       <div>
         <input type="text" id="price" name="campground[price]">
       </div>
 
-      <label for="city">city</label>
-      <div>
-        <input type="text" id="city" name="campground[city]" placeholder="시,도 를 입력해 주세요.">
-      </div>
-
-      <label for="phoneNumber">phoneNumber</label>
+      <label for="phoneNumber">연락처</label>
       <div>
         <input type="text" id="phoneNumber" name="campground[phoneNumber]" placeholder="-없이 입력해 주세요.">
       </div>
 
-      <label for="category">category</label>
+      <label for="category">카테고리</label>
       <div>
         <input type="text" id="category" name="campground[category]">
       </div>
   
-      <div>
+      <div class="form__selectoption">
         <label for="wifi">와이파이</label>
         <select name="campground[wifi]" id="wifi">
           <option value="있음">있음</option>
@@ -54,7 +60,7 @@
         </select>
       </div>
   
-      <div>
+      <div class="form__selectoption">
         <label for="bed">침대</label>
         <select name="campground[bed]" id="bed">
           <option value="1">1</option>
@@ -64,15 +70,15 @@
         </select>
       </div>
   
-      <div>
-        <label for="pet">동물 가능 여부</label>
+      <div class="form__selectoption">
+        <label for="pet">펫 유무</label>
         <select name="campground[pet]" id="pet">
           <option value="가능">가능</option>
           <option value="불가능">불가능</option>
         </select>
       </div>
   
-      <div>
+      <div class="form__selectoption">
         <label for="electricity">전기</label>
         <select name="campground[electricity]" id="electricity">
           <option value="있음">있음</option>
@@ -80,7 +86,7 @@
         </select>
       </div>
       
-      <div>
+      <div class="form__selectoption">
         <label for="sportsFacility">운동시설</label>
         <select id="sportsFacility" name="campground[sportsFacility]">
           <option value="없음" selected>없음</option>
@@ -91,11 +97,11 @@
         </select>
       </div>
   
-      <div>
-        <label for="description">description</label>
-        <textarea name="campground[description]" id="description" cols="30" rows="5"></textarea>
+      <div class="form__textarea">
+        <label for="description">캠핑장 소개</label>
+        <textarea name="campground[description]" id="description" ></textarea>
       </div>
-      <button class="button-33" role="button">캠프만들기</button>
+      <button class="button-87" role="button">캠프만들기</button>
     </form>
   </div>
 </div>
