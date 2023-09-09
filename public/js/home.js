@@ -34,3 +34,21 @@ spyEls.forEach(function (spyEl) {
     .setClassToggle(spyEl, 'show')
     .addTo(new ScrollMagic.Controller());
 })
+
+// homeIntro3 Image size Change
+
+const panels = document.querySelectorAll('.panel');
+
+panels.forEach(panel => {
+  panel.addEventListener('click', () => {
+    removeActivePanel();
+    panel.classList.add('active')
+  })
+})
+
+const removeActivePanel = () => {
+  panels.forEach(panel => {
+    panel.classList.remove('active')
+  })
+}
+

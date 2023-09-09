@@ -407,5 +407,57 @@ h1,p {
   }
 }
 
+/* HomeIntro3 */
 
+.home__intro3 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 1700px;
+  margin: 0 auto;
+  height: 90vh;
+}
 
+.home__intro3 .intro3__container {
+  display: flex;
+  width: 90vw;
+}
+
+.home__intro3 .intro3__container .panel {
+  height: 80vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 10px;
+  border-radius: 50px;
+  color: #fff;
+  cursor: pointer;
+  flex: 0.5;
+  position: relative;
+  transition: all .7s;
+}
+
+.home__intro3 .intro3__container .panel h3 {
+  font-size: 24px;
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  margin: 0;
+  opacity: 0;
+}
+
+.home__intro3 .intro3__container .panel.active {
+  flex: 5;
+}
+
+.home__intro3 .intro3__container .panel.active h3 {
+  opacity: 1;
+  transition: opacity .3s;
+}
+
+@media (max-width: 900px) {
+  .home__intro3 .intro3__container .panel:nth-of-type(4),
+  .home__intro3 .intro3__container .panel:nth-of-type(5) {
+    display: none;
+  }
+}
