@@ -18,9 +18,7 @@ router.route('/')
   .post(isLoggedIn, upload.array('image'), validateCampground, catchAsync(campgrounds.createNewCampground))
 
 router.get("/new", isLoggedIn , campgrounds.newCampground);
-
 router.get('/home', campgrounds.mainCampground);
-
 router.get('/tagcamp', campgrounds.tagCampground);
 
 router.route('/:id')
