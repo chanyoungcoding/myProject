@@ -49,7 +49,13 @@ const CampgroundSchema = new Schema({
   bed: String,
   pet: String,
   electricity:String,
-  sportsFacility:String
+  sportsFacility:String,
+  check: [
+    {
+      type: String,
+      enum: ['hotel', 'ocean', 'mountain', 'river', 'sight'],
+    },
+  ],
 }, opts)
 
 CampgroundSchema.virtual('properties.popUpMarkup').get(function() {

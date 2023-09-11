@@ -14,7 +14,10 @@ const campgroundSchema = Joi.object({
     bed: Joi.string().required(),
     pet: Joi.string().required(),
     electricity:Joi.string().required(),
-    sportsFacility:Joi.string().required()
+    sportsFacility:Joi.string().required(),
+    check: Joi.array().items(
+      Joi.string().valid('hotel', 'ocean', 'mountain', 'river', 'sight')
+    ).single()
   }).required(),
   deleteImages: Joi.array()
 });
