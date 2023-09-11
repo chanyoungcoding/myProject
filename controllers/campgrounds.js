@@ -35,8 +35,16 @@ const newCampground = (req, res) => {
 
 //tag page
 
-const tagCampground = (req,res) => {
+const tagCampground = async (req,res) => {
   res.render("campgrounds/camptag");
+}
+
+//tag detail page
+
+const tagDetailCampground = async (req,res) => {
+  const checkName = req.query.page;
+  const campground = await Campground.find({ check: { $in: [`${checkName}`]}})
+  res.render('campgrounds/camptagdetail', {campground})
 }
 
 const createNewCampground = async (req, res) => {
@@ -87,6 +95,7 @@ module.exports = {
   showCampground,
   newCampground,
   tagCampground,
+  tagDetailCampground,
   createNewCampground,
   editCampground,
   updateCampground,

@@ -20,6 +20,7 @@ router.route('/')
 router.get("/new", isLoggedIn , campgrounds.newCampground);
 router.get('/home', campgrounds.mainCampground);
 router.get('/tagcamp', campgrounds.tagCampground);
+router.get('/tagcamp/tagdetail', campgrounds.tagDetailCampground);
 
 router.route('/:id')
   .get(catchAsync(campgrounds.showCampground))
