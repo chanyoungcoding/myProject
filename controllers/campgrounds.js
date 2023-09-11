@@ -44,8 +44,10 @@ const tagCampground = async (req,res) => {
 const tagDetailCampground = async (req,res) => {
   const checkName = req.query.page;
   const campground = await Campground.find({ check: { $in: [`${checkName}`]}})
-  res.render('campgrounds/camptagdetail', {campground})
+  res.render('campgrounds/camptagdetail', {campground, checkName})
 }
+
+// CRUD
 
 const createNewCampground = async (req, res) => {
   const geoData = await geocoder.forwardGeocode({

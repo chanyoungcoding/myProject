@@ -1,2 +1,44 @@
 <% layout('layouts/common.ejs') %>
 
+<div class="tagdetail">
+  <div class="tagdetail__navbar">
+    <a href="/campgrounds/tagcamp/tagdetail?page=ocean">바다</a>
+    <a href="/campgrounds/tagcamp/tagdetail?page=river">강</a>
+    <a href="/campgrounds/tagcamp/tagdetail?page=hotel">호텔</a>
+    <a href="/campgrounds/tagcamp/tagdetail?page=sight">경치</a>
+    <a href="/campgrounds/tagcamp/tagdetail?page=mountain">산</a>
+  </div>
+  <div class="tagdetail__swiper">
+    <div class="carousel-container">
+  
+      <div class="carousel-slide">
+        <img src="" alt="#">
+      </div>
+      
+      <div class="carousel-slide">
+        <img src="" alt="#">
+      </div>
+  
+      <div class="carousel-slide">
+        <img src="" alt="#">
+      </div>
+  
+      <div class="carousel-slide">
+        <img src="" alt="#">
+      </div>
+    </div>
+  
+    <div class="carousel-button">
+      <button class="button-87" id="prevBtn" role="button">이전</button>
+      <button class="button-87" id="nextBtn" role="button">다음</button>
+    </div>
+  
+  </div>
+  
+  <div class="tagdetail__inner">
+    <% if(checkName === 'sports') { %>
+      <h1>스포츠</h1>
+    <% } %>
+    <div class="inner__container"></div>
+  </div>
+</div>
