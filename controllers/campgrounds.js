@@ -40,19 +40,17 @@ const tagCampground = (req,res) => {
 }
 
 const createNewCampground = async (req, res) => {
-  // const geoData = await geocoder.forwardGeocode({
-  //   query: req.body.campground.location,
-  //   limit:1
-  // }).send();
-  // const campground = new Campground(req.body.campground);
-  // campground.geometry = geoData.body.features[0].geometry
-  // campground.images = req.files.map(f => ({ url: f.path, filename: f.filename }))
-  // campground.author = req.user._id;
-  // await campground.save();
-  // req.flash("success", "made it");
-  // res.redirect("/campgrounds");
-  console.log(req.body.campground)
-  res.send('success')
+  const geoData = await geocoder.forwardGeocode({
+    query: req.body.campground.location,
+    limit:1
+  }).send();
+  const campground = new Campground(req.body.campground);
+  campground.geometry = geoData.body.features[0].geometry
+  campground.images = req.files.map(f => ({ url: f.path, filename: f.filename }))
+  campground.author = req.user._id;
+  await campground.save();
+  req.flash("success", "made it");
+  res.redirect("/campgrounds");
 }
 
 const editCampground = async (req, res) => {

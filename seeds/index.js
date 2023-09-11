@@ -49,7 +49,8 @@ const seedDB = async () => {
       bed:'2',
       pet:'가능',
       electricity:'있음',
-      sportsFacility: '헬스장'
+      sportsFacility: '헬스장',
+      check:['mountain','sight']
     });
     await camp.save();
   }

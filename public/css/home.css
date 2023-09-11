@@ -437,6 +437,22 @@ h1,p {
   transition: all .7s;
 }
 
+.home__intro3 .intro3__container .panel:nth-child(1) {
+  background-image: url('/HomeImg7.avif');
+}
+.home__intro3 .intro3__container .panel:nth-child(2) {
+  background-image: url('/HomeImg8.avif');
+}
+.home__intro3 .intro3__container .panel:nth-child(3) {
+  background-image: url('/HomeImg9.avif');
+}
+.home__intro3 .intro3__container .panel:nth-child(4) {
+  background-image: url('/HomeImg10.avif');
+}
+.home__intro3 .intro3__container .panel:nth-child(5) {
+  background-image: url('/HomeImg11.avif');
+}
+
 .home__intro3 .intro3__container .panel h3 {
   font-size: 24px;
   position: absolute;

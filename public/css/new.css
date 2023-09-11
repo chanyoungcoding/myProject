@@ -136,12 +136,16 @@ label {
 }
 
 
+/* checkbox */
 
-/* edit */
-
-.editPage {
-  width: 1200px;
-  margin: 0 auto;
-  padding-top: 70px;
-  background-color: cadetblue;
+.newform .newform__inner .newform__form .form__checkbox {
+  margin-top: 10px;
+  padding: 0px 10px;
+  border: 1px solid #fff;
 }
+
+
+.newform .newform__inner .newform__form .form__checkbox input {
+  width: 30px;
+}
+
