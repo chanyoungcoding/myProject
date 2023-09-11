@@ -4,11 +4,12 @@ const mapBoxToken = process.env.MAPBOX_TOKEN;
 const geocoder = mbxGeocoding({accessToken: mapBoxToken})
 const { cloudinary } = require('../cloudinary');
 
-
+//main page
 const mainCampground = (req,res) => {
   res.render("home");
 }
 
+//campground page
 const indexCampground = async (req, res) => {
   const campgrounds = await Campground.find({}).populate("author").populate("reviews");
   const pagenum = Math.ceil(campgrounds.length / 6);
@@ -17,8 +18,25 @@ const indexCampground = async (req, res) => {
   res.render("campground", { campgrounds,  currentPage: pagenum, page });
 };
 
+//show page
+const showCampground = async (req, res) => {
+  const campground = await Campground.findById(req.params.id).populate({path:"reviews", populate: {path:'author'}}).populate("author", "username");
+  if(!campground) {
+    req.flash('error', '캠프를 찾을 수 없습니다.')
+    return res.redirect('/campgrounds')
+  }
+  res.render("campgrounds/show", { campground });
+}
+
+//new page
 const newCampground = (req, res) => {
   res.render("campgrounds/new");
+}
+
+//tag page
+
+const tagCampground = (req,res) => {
+  res.render("campgrounds/camptag");
 }
 
 const createNewCampground = async (req, res) => {
@@ -33,15 +51,6 @@ const createNewCampground = async (req, res) => {
   await campground.save();
   req.flash("success", "made it");
   res.redirect("/campgrounds");
-}
-
-const showCampground = async (req, res) => {
-  const campground = await Campground.findById(req.params.id).populate({path:"reviews", populate: {path:'author'}}).populate("author", "username");
-  if(!campground) {
-    req.flash('error', '캠프를 찾을 수 없습니다.')
-    return res.redirect('/campgrounds')
-  }
-  res.render("campgrounds/show", { campground });
 }
 
 const editCampground = async (req, res) => {
@@ -75,9 +84,10 @@ const deleteCampground = async (req, res) => {
 module.exports = {
   mainCampground,
   indexCampground,
-  newCampground,
-  createNewCampground,
   showCampground,
+  newCampground,
+  tagCampground,
+  createNewCampground,
   editCampground,
   updateCampground,
   deleteCampground
