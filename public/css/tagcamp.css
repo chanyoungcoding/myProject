@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Dongle&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Heebo&display=swap');
 
 .tagcontainer {
   max-width: 1920px;
@@ -60,3 +61,198 @@
 }
 
 
+
+
+
+
+
+
+
+
+
+
+/* tagDetail Page */
+
+/* tagdetail navbar */
+
+.tagdetail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding-top: 120px;
+}
+
+.tagdetail .tagdetail__div {
+  width: 100%;
+  height: 5px;
+  margin-bottom: 10px;
+  background-color: gray;
+}
+
+.tagdetail .tagdetail__navbar {
+  display: flex;
+  position: relative;
+  justify-content: space-around;
+  width: 100%;
+  height: 50px;
+  padding-top: 15px;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+}
+
+.tagdetail .tagdetail__navbar a {
+  text-align: center;
+  flex-grow: 1;
+  font-family: 'Dongle', sans-serif;
+  font-size: 40px;
+}
+
+.tagdetail .tagdetail__navbar a:hover {
+  background-color: gray;
+}
+
+/* tagdetail swiper */
+
+.tagdetail .tagdetail__swiper {
+  width: 100%;
+}
+
+.tagdetail .tagdetail__swiper .carousel-container {
+  display: flex;
+  overflow: hidden;
+  width: 100%; 
+  height: 500px;
+}
+
+.tagdetail .tagdetail__swiper .carousel-container .carousel-slide {
+  flex: 0 0 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s;
+}
+
+.tagdetail .tagdetail__swiper .carousel-container .carousel-slide:nth-child(1) {
+  background-image: url('/HomeImg7.avif');
+}
+.tagdetail .tagdetail__swiper .carousel-container .carousel-slide:nth-child(2) {
+  background-image: url('/HomeImg8.avif');
+}
+.tagdetail .tagdetail__swiper .carousel-container .carousel-slide:nth-child(3) {
+  background-image: url('/HomeImg9.avif');
+}
+.tagdetail .tagdetail__swiper .carousel-container .carousel-slide:nth-child(4) {
+  background-image: url('/HomeImg10.avif');
+}
+.tagdetail .tagdetail__swiper .carousel-container .carousel-slide:nth-child(5) {
+  background-image: url('/HomeImg11.avif');
+}
+
+.tagdetail .tagdetail__swiper .carousel-container .carousel-slide h1 {
+  color: white;
+  font-size: 40px;
+}
+
+.tagdetail .tagdetail__swiper .carousel-container .carousel-slide h2 {
+  margin-top: 5px;
+  color: white;
+  font-size: 30px;
+}
+
+.tagdetail .tagdetail__swiper .carousel-button {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin-top: -60px;
+  z-index: 1;
+}
+
+/* tagdetail inner */
+
+.tagdetail .tagdetail__inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  border-top: 40px solid gray;
+}
+
+.tagdetail .tagdetail__inner h1 {
+  font-family: 'Heebo', sans-serif;
+  font-size: 50px;
+  padding: 50px 0 90px;
+}
+
+.tagdetail .tagdetail__inner .inner__container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  background-color: rgb(34, 48, 48);
+}
+
+.tagdetail .tagdetail__inner .container__box {
+  position: relative;
+  width: 450px;
+  height: 450px;
+  margin: 5px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: cornsilk;
+}
+
+.tagdetail .tagdetail__inner .container__box .box__intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30%;
+  background-color: rgba(0, 0, 0, 0.48);
+  transition: height .7s;
+}
+
+.tagdetail .tagdetail__inner .container__box .box__intro h3 {
+  color: white;
+  font-size: 24px;
+}
+
+.tagdetail .tagdetail__inner .container__box .box__intro h4 {
+  margin-top: 10px;
+  color: white;
+  font-size: 20px;
+}
+
+.tagdetail .tagdetail__inner .inner__button {
+  margin:50px 0px;
+}
+
+.tagdetail .tagdetail__inner .inner__button a {
+  display: block;
+  width: 200px;
+  height: 30px;
+  line-height: 35px;
+  font-size: 20px;
+  text-align: center;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+.tagdetail .tagdetail__inner .inner__button a:hover {
+  background-color: gray;
+  color: white;
+}
+
+.tagdetail .tagdetail__inner .inner__button a:active {
+  transform: scale(0.9);
+}

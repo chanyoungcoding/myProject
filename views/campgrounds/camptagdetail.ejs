@@ -1,6 +1,11 @@
 <% layout('layouts/common.ejs') %>
 
+<link rel="stylesheet" href="/css/tagcamp.css">
+<script defer src="/js/show.js"></script>
+
 <div class="tagdetail">
+  <div class="tagdetail__div"></div>
+
   <div class="tagdetail__navbar">
     <a href="/campgrounds/tagcamp/tagdetail?page=ocean">바다</a>
     <a href="/campgrounds/tagcamp/tagdetail?page=river">강</a>
@@ -8,23 +13,33 @@
     <a href="/campgrounds/tagcamp/tagdetail?page=sight">경치</a>
     <a href="/campgrounds/tagcamp/tagdetail?page=mountain">산</a>
   </div>
+
   <div class="tagdetail__swiper">
-    <div class="carousel-container">
+    <div class="carousel-container" id="tagContainer">
   
       <div class="carousel-slide">
-        <img src="" alt="#">
+        <h1>This is sight view</h1>
+        <h2>Choose your preferred location</h2>
       </div>
       
       <div class="carousel-slide">
-        <img src="" alt="#">
+        <h1>This is river view</h1>
+        <h2>Choose your preferred location</h2>
       </div>
   
       <div class="carousel-slide">
-        <img src="" alt="#">
+        <h1>This is ocean view</h1>
+        <h2>Choose your preferred location</h2>
       </div>
   
       <div class="carousel-slide">
-        <img src="" alt="#">
+        <h1>This is hotel view</h1>
+        <h2>Choose your preferred location</h2>
+      </div>
+
+      <div class="carousel-slide">
+        <h1>This is mountain view</h1>
+        <h2>Choose your preferred location</h2>
       </div>
     </div>
   
@@ -36,9 +51,30 @@
   </div>
   
   <div class="tagdetail__inner">
-    <% if(checkName === 'sports') { %>
-      <h1>스포츠</h1>
-    <% } %>
-    <div class="inner__container"></div>
+    <h1>New <%= checkName %></h1>
+    <div class="inner__container">
+
+      <% for(let i = (moreNum - 12); i < moreNum; i++) { %>
+          <% if(campground[i] === null || campground[i] === undefined) { %>
+            <% continue; %>
+          <% } %>
+          <% if (campground[i].images[0]) { %>
+            <a href="javascript:void(0)" class="container__box" style="background-image: url('<%= campground[i].images[0].url%>');">
+          <% } else { %>
+            <a href="javascript:void(0)" class="container__box" style="background-image: url('/noimage.gif');">
+          <% } %>
+          <div class="box__intro" >
+            <h3><%= campground[i].title %></h3>
+            <h4><%= campground[i].check[0] %></h4>
+          </div>
+        </a>
+      
+      <% } %>
+
+    </div>
+
+    <div class="inner__button">
+      <a href="/campgrounds/tagcamp/tagdetail?page=<%=checkName%>&more=<%=moreNum%>&total=<%=totalCamp%>" id="tagdetail__a">MORE</a>
+    </div>
   </div>
 </div>
