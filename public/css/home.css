@@ -456,14 +456,32 @@ h1,p {
 .home__intro3 .intro3__container .panel h3 {
   font-size: 24px;
   position: absolute;
-  bottom: 20px;
-  left: 20px;
+  bottom: 70px;
+  left: 30px;
   margin: 0;
   opacity: 0;
 }
 
+.home__intro3 .intro3__container .panel a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 20px;
+  left: 30px;
+  padding: 10px 20px;
+  border: 1px solid white;
+  opacity: 0;
+  color: white;
+}
+
 .home__intro3 .intro3__container .panel.active {
   flex: 5;
+}
+
+.home__intro3 .intro3__container .panel.active a {
+  opacity: 1;
+  transition: opacity .3s;
 }
 
 .home__intro3 .intro3__container .panel.active h3 {
