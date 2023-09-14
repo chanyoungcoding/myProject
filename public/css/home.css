@@ -499,5 +499,66 @@ h1,p {
 /* homeIntro4 */
 
 .home__intro4 {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 1920px;
+  height: 600px;
+  margin: 0 auto;
+  background-color: #faffea;
+}
 
+.home__intro4 .intro4__inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: all .7s;
+}
+
+.home__intro4 .intro4__inner.scroll-spy.show {
+  opacity: 1;
+}
+
+.home__intro4 h1 {
+  margin-bottom: 30px;
+  font-size: 50px;
+  font-weight: bold;
+  color: black;
+}
+
+.home__intro4 h2 {
+  font-size: 30px;
+  color: black
+}
+
+.home__intro4 p {
+  background-image: url('/HomeImg11.avif');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 200px;
+  text-align: center;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: 'Steelfish Rg', 'helvetica neue',helvetica, arial, sans-serif;
+  font-weight: 800;
+  -webkit-font-smoothing: antialiased;
+}
+
+@media screen and (max-width: 1200px) {
+  .home__intro4 p {
+    font-size: 150px !important;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .home__intro4 p {
+    font-size: 80px !important;
+  }
 }
