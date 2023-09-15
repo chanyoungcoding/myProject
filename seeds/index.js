@@ -18,7 +18,8 @@ const seedDB = async () => {
   for (let i = 0; i < 50; i++) {
 
     const price = Math.floor(Math.random() * 20) + 10;
-
+    const firstPhoneNumber = Math.floor(Math.random()* 10000)
+    const lastPhoneNumber = Math.floor(Math.random()* 10000)
     const camp = new Campground({
       author: '64d9d8706ee0f3670290766c',
       location: `${koreacamp.records[i].소재지도로명주소}`,
@@ -29,14 +30,15 @@ const seedDB = async () => {
           filename: 'ChanCamp/qstdv9mzvcbn7abdyxo4',
         },
         {
-          url: 'https://res.cloudinary.com/dnjjlp2uy/image/upload/v1691998363/ChanCamp/qstdv9mzvcbn7abdyxo4.jpg',
-          filename: 'ChanCamp/qstdv9mzvcbn7abdyxo4',
+          url: 'https://res.cloudinary.com/dnjjlp2uy/image/upload/v1694744702/landscape-6692712_1920_t6kl0j.jpg',
+          filename: 'ChanCamp/landscape-6692712_1920_t6kl0j'
         }
+        
       ],
       description: `${koreacamp.records[i].주요시설명}`,
       price,
       city: `${koreacamp.records[i].시도명}`,
-      phoneNumber: '전화번호없음',
+      phoneNumber: `010-${firstPhoneNumber}-${lastPhoneNumber}`,
       category: '캠핑장',
       geometry: {
         type: "Point",

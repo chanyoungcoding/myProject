@@ -17,9 +17,9 @@
           <div class="intro__line"></div>
           <p><%= campgrounds[i].description %></p>
         </div>
-        <form class="intro__form" action="/campgrounds">
-          <button>주변캠핑장 보기</button>
-        </form>
+        <a class="intro__form" href="/campgrounds/<%= campgrounds[i]._id %>">
+          <button>캠핑장 보기</button>
+        </a>
       </div>
     <% } %>
   </div>

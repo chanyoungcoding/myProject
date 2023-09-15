@@ -18,14 +18,15 @@ h1,p {
   right: 30px;
   top: 130px;
   background: url('/woodwing.png') no-repeat top/cover;
-  background-color: rgb(110, 179, 119);
+  background-color: rgba(55, 55, 55, 0.5);
   border-radius: 20px;
   font-family: 'Black Han Sans', sans-serif;
   z-index: 1;
 }
 
 .home .home__badgeEl p {
-  color: black;
+  margin: 2px;
+  color: rgb(243, 243, 243);
 }
 
 /* HomeTop */
@@ -506,7 +507,7 @@ h1,p {
   max-width: 1920px;
   height: 600px;
   margin: 0 auto;
-  background-color: #faffea;
+  background-color: #eeeeee;
 }
 
 .home__intro4 .intro4__inner {
